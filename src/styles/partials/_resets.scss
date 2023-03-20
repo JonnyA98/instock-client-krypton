@@ -1,7 +1,3 @@
-@use "./mixins" as *;
-@use "./variables" as *;
-@use "./typography" as *;
-
 //  RESETS
 *,
 *::before,
@@ -13,9 +9,10 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Tillium Web";
+  font-family: "Titillium Web";
 }
 
 body {
   font-size: 1.6rem;
+  margin: 0;
 }
