@@ -1,0 +1,51 @@
+@use "../../styles/partials/variables" as *;
+
+@mixin flex($justify: row, $align: flex-start, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+//Body Font
+@mixin m-body-large {
+  font-size: 1.5rem;
+  line-height: 2.6rem;
+}
+
+@mixin m-body-medium {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+@mixin m-body-small {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+}
+
+@mixin t-body-large {
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+}
+
+@mixin t-body-medium {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
+@mixin t-body-small {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
