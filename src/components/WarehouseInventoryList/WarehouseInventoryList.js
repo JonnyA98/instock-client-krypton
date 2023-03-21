@@ -4,7 +4,7 @@ import WarehouseInventoryListItem from "../WarehouseInventoryListItem/WarehouseI
 const WarehouseInventoryList = ({ items }) => {
   return (
     <>
-      <Link className="WarehouseInventoryList__link">
+      <Link className="warehouse-inventory-list__link">
         {items.map((item) => (
           <WarehouseInventoryListItem
             name={item.item_name}
