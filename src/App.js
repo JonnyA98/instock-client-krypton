@@ -1,4 +1,6 @@
+import "./styles/App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 import AddStock from "./pages/AddStock/AddStock";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import EditStock from "./pages/EditStock/EditStock";
@@ -7,9 +9,11 @@ import Inventory from "./pages/Inventory/Inventory";
 import StockDetails from "./pages/StockDetails/StockDetails";
 import WarehousesDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./pages/Warehouses/Warehouses";
+
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Warehouses />} />
         <Route path="/warehouses" element={<Warehouses />} />
