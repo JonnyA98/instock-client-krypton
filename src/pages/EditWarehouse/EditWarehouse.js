@@ -1,5 +1,5 @@
-const EditWarehouses = () => {
+const EditWarehouse = () => {
   return;
 };
 
-export default EditWarehouses;
+export default EditWarehouse;
