@@ -4,10 +4,10 @@ import Header from "./components/Header/Header";
 import AddStock from "./pages/AddStock/AddStock";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import EditStock from "./pages/EditStock/EditStock";
-import EditWarehouses from "./pages/EditWarehouse/EditWarehouse";
+import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Inventory from "./pages/Inventory/Inventory";
 import StockDetails from "./pages/StockDetails/StockDetails";
-import WarehousesDetails from "./pages/WarehouseDetails/WarehouseDetails";
+import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./pages/Warehouses/Warehouses";
 
 const App = () => {
@@ -17,13 +17,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Warehouses />} />
         <Route path="/warehouses" element={<Warehouses />} />
-        <Route
-          path="/warehouses/:warehouseId"
-          element={<WarehousesDetails />}
-        />
+        <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
         <Route
           path="/warehouses/edit/:warehouseId"
-          element={<EditWarehouses />}
+          element={<EditWarehouse />}
         />
         <Route path="/warehouses/add-warehouse" element={<AddWarehouse />} />
         <Route path="/inventory" element={<Inventory />} />
