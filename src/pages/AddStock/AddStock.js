@@ -3,11 +3,11 @@ const AddStock = () => {
   const categoryList = ["Health", "Gear"];
   return (
     <div className="wrapper">
-      <div className="add-stock__heading-wrapper">
-        <h1 className="add-stock__heading">Add New Inventory Item</h1>
-      </div>
       <div className="add-stock__form-wrapper">
         <form action="" className="add-stock__form">
+          <div className="add-stock__heading-wrapper">
+            <h1 className="add-stock__heading">Add New Inventory Item</h1>
+          </div>
           <div className="add-stock__form-left">
             <h2 className="add-stock__form-heading">Item Details</h2>
             <label htmlFor="itemName" className="add-stock__form-label">
@@ -17,7 +17,7 @@ const AddStock = () => {
             <input
               type="text"
               name="itemName"
-              placeholder="Please enter a brief item description..."
+              placeholder="Please enter Items name"
               className="add-stock__input"
             />
             <label htmlFor="itemDescription" className="add-stock__form-label">
@@ -25,6 +25,7 @@ const AddStock = () => {
             </label>
             <textarea
               name="itemDescription"
+              placeholder="Please enter a brief item description..."
               className="add-stock__input"
             ></textarea>
             <label htmlFor="itemCategory">Catergory</label>
@@ -34,7 +35,7 @@ const AddStock = () => {
               className="add-stock__input"
             >
               {categoryList.map((category) => {
-                <option value={`${category}`}>{category}</option>;
+                return <option value={`${category}`}>{category}</option>;
               })}
             </select>
           </div>
@@ -67,7 +68,7 @@ const AddStock = () => {
               className="add-stock__dropdown"
             >
               {warehouseList.map((place) => {
-                <option value={`${place}`}>{place}</option>;
+                return <option value={`${place}`}>{place}</option>;
               })}
             </select>
           </div>
