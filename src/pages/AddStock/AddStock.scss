@@ -2,15 +2,142 @@
 @use "../../styles/partials/variables" as *;
 
 .wrapper {
-  margin: $mobiile-margin;
+  padding: $mobile-margin;
+  height: 100vh;
+  background-color: $background-color-alt;
 
   @include tablet {
-    margin: $tablet-margin;
+    padding: $tablet-margin;
+    @include flex(left, center, column);
   }
 
   @include desktop {
-    margin: $desktop-margin;
+    padding: $desktop-margin;
   }
 }
 .add-stock {
+  &__form-wrapper {
+    background-color: $primary-white;
+    border: $divider;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  &__heading {
+    padding: 2rem;
+    border-bottom: $divider;
+    background-color: $primary-white;
+  }
+
+  &__form-text-wrapper {
+    padding: 2rem;
+    background-color: $primary-white;
+  }
+
+  &__input-wrapper {
+    @include flex(space-between, flex-start, column);
+    margin-top: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__form-left {
+    @include flex(left, flex-start, column);
+    width: 100%;
+    border-bottom: $divider;
+    padding: 1rem 0 2rem 0;
+
+    @include tablet {
+      padding: 1rem 2rem 1rem 0;
+      border-right: $divider;
+      border-bottom: none;
+    }
+  }
+
+  &__form-right {
+    @include flex(left, flex-start, column);
+    width: 100%;
+    padding: 2rem 0;
+    @include tablet {
+      padding: 1rem 0 1rem 2rem;
+    }
+  }
+
+  &__input {
+    @include m-body-large;
+    @include input;
+    width: 100%;
+    font-weight: 400;
+
+    @include tablet {
+      @include t-body-large;
+    }
+    &--description {
+      font-family: "Titillium Web";
+      resize: none;
+      height: 13rem;
+      @include tablet {
+        height: 18rem;
+      }
+    }
+  }
+
+  &__form-label {
+    margin: 2rem 0 0.4rem 0;
+  }
+
+  &__radio-wrapper {
+    @include flex(left, center, row);
+    width: 100%;
+  }
+
+  &__radio-half-wrapper {
+    @include flex(left, center, row);
+    width: 50%;
+  }
+
+  &__stock-status {
+    @include flex(left, center, row);
+    width: 10rem;
+    padding-left: 0.4rem;
+    color: $secondary-color;
+  }
+
+  &__btn-wrapper {
+    @include flex(space-between, flex-start, row);
+
+    background-color: $background-color-alt;
+    padding: 2rem;
+    @include tablet {
+      @include flex(right, flex-start, row);
+    }
+  }
+
+  &__btn-submit {
+    @include button;
+    padding: 0.2rem 1.6rem;
+    background-color: $primary-color-alt;
+    color: $primary-white;
+    border: 1px solid $primary-color-alt;
+    width: 47%;
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__btn-cancel {
+    @include button;
+    padding: 0.2rem 1.6rem;
+    background-color: $primary-white;
+    color: $secondary-color;
+    border: 1px solid $secondary-color-alt;
+    width: 47%;
+
+    @include tablet {
+      width: auto;
+      margin-right: 1.5rem;
+    }
+  }
 }

@@ -65,3 +65,12 @@
     padding: 0 1.6rem;
   }
 }
+
+// ---Forms
+
+@mixin input {
+  border-radius: 2rem;
+  border: 1px solid $secondary-color-alt;
+  padding: 0.6rem 1.6rem;
+  background-color: $primary-white;
+}
