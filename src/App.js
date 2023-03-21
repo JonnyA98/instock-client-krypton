@@ -1,9 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddStock from "./pages/AddStock/AddStock";
+import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
+import EditStock from "./pages/EditStock/EditStock";
+import EditWarehouses from "./pages/EditWarehouse/EditWarehouse";
+import Inventory from "./pages/Inventory/Inventory";
+import StockDetails from "./pages/StockDetails/StockDetails";
+import WarehousesDetails from "./pages/WarehouseDetails/WarehouseDetails";
+import Warehouses from "./pages/Warehouses/Warehouses";
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={""} />
+        <Route path="/" element={<Warehouses />} />
+        <Route path="/warehouses" element={<Warehouses />} />
+        <Route
+          path="/warehouses/:warehouseId"
+          element={<WarehousesDetails />}
+        />
+        <Route
+          path="/warehouses/edit/:warehouseId"
+          element={<EditWarehouses />}
+        />
+        <Route path="/warehouses/add-warehouse" element={<AddWarehouse />} />
+        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory/:stockId" element={<StockDetails />} />
+        <Route path="/inventory/edit/:stockId" element={<EditStock />} />
+        <Route path="/inventory/add-stock" element={<AddStock />} />
       </Routes>
     </BrowserRouter>
   );
