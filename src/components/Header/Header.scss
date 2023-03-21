@@ -18,6 +18,11 @@
       flex-direction: row;
       justify-content: space-between;
     }
+
+    @include desktop {
+      max-width: $max-wrapper-width;
+      margin: 0 auto;
+    }
   }
 
   &__logo {
@@ -34,7 +39,7 @@
     @include flex(space-between);
 
     @include tablet {
-      width: 30%;
+      width: 21rem;
     }
   }
 
