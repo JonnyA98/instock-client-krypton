@@ -1,5 +1,5 @@
-const WarehousesDetails = () => {
+const WarehouseDetails = () => {
   return;
 };
 
-export default WarehousesDetails;
+export default WarehouseDetails;

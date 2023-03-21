@@ -5,9 +5,7 @@
   background-color: $background-color;
   padding: 3rem 1.6rem 0;
   padding-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex(flex-start, center, column);
   height: 20rem;
 
   &__logo {
@@ -17,21 +15,18 @@
 
   &__links {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between);
   }
 
   &__link {
+    @include button;
     color: $secondary-color-alt;
     text-decoration: none;
-    width: 14rem;
-    text-align: center;
-    padding: 0.8rem;
+    @include flex(center, center);
   }
 }
 
 .active {
   color: $primary-white;
   background-color: $primary-color;
-  border-radius: 2rem;
 }
