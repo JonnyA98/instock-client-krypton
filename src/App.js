@@ -9,6 +9,7 @@ import Inventory from "./pages/Inventory/Inventory";
 import StockDetails from "./pages/StockDetails/StockDetails";
 import WarehouseDetails from "./pages/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./pages/Warehouses/Warehouses";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/inventory/edit/:stockId" element={<EditStock />} />
         <Route path="/inventory/add-stock" element={<AddStock />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

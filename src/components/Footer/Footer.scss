@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  color: $secondary-color;
+  background-color: $background-color-alt;
+
+  &__text {
+    @include body-small;
+  }
+}
