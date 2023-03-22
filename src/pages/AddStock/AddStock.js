@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./AddStock.scss";
 import { v4 as uuid } from "uuid";
+import axios from "axios";
 
 const AddStock = () => {
   const warehouseList = [
@@ -18,22 +19,66 @@ const AddStock = () => {
     status: "",
   });
 
-  const submitItemHandler = async (e) => {
-    e.preventDefault();
-    console.log(e);
-    console.log(e.target.inStock.value);
-    console.log(e.target.inStock.checked);
+  const [errors, setErrors] = useState({});
 
-    const warehouseId = e.target.itemWarehouse.id;
-
-    const quantity = !e.target.inStock ? 0 : e.target.itemQuantity;
-
-    const stockStatus = !e.target.inStock ? "Out of Stock" : "In Stock";
-
+  const postNewItem = async () => {
     const newItem = {
       ...formData,
-      id: uuid(),
     };
+
+    try {
+      const { response } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/inventories`,
+        newItem
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const submitItemHandler = async (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+
+    const newErrors = {};
+
+    if (formData.item_name === "") {
+      isValid = false;
+      newErrors["name"] = "Please enter an Item Name";
+    }
+
+    if (formData.description === "") {
+      isValid = false;
+      newErrors["description"] = "Please enter an Item description";
+    }
+
+    if (formData.category === "") {
+      isValid = false;
+      newErrors["category"] = "Please select a Category for your Item";
+    }
+
+    if (formData.status === "") {
+      isValid = false;
+      newErrors["status"] = "Please specify the Status of your Stock";
+    }
+
+    if (formData.status === "In Stock") {
+      if (formData.quantity === 0) {
+        isValid = false;
+        newErrors["quantity"] = "Please enter the Quantity of your Stock";
+      }
+    }
+
+    if (formData.warehouse_id === "") {
+      isValid = false;
+      newErrors["warehouse"] = "Please select a Warehouse for your Item";
+    }
+
+    if (!isValid) {
+      setErrors(newErrors);
+      return;
+    }
   };
 
   const handleChange = (event) => {
@@ -69,6 +114,9 @@ const AddStock = () => {
                   className="add-stock__input"
                   onChange={(event) => handleChange(event)}
                 />
+                {errors.name && (
+                  <p className="add-stock__validation-msg">{errors.name}</p>
+                )}
                 <label htmlFor="description" className="add-stock__form-label">
                   <h3>Description</h3>
                 </label>
@@ -78,6 +126,11 @@ const AddStock = () => {
                   className="add-stock__input add-stock__input--description"
                   onChange={(event) => handleChange(event)}
                 ></textarea>
+                {errors.description && (
+                  <p className="add-stock__validation-msg">
+                    {errors.description}
+                  </p>
+                )}
                 <label htmlFor="category" className="add-stock__form-label">
                   <h3>Catergory</h3>
                 </label>
@@ -96,6 +149,9 @@ const AddStock = () => {
                     );
                   })}
                 </select>
+                {errors.category && (
+                  <p className="add-stock__validation-msg">{errors.category}</p>
+                )}
               </div>
               <div className="add-stock__form-right">
                 <h2 className="add-stock__form-heading">Item Availability</h2>
@@ -118,6 +174,7 @@ const AddStock = () => {
                       In Stock
                     </label>
                   </div>
+
                   <div className="add-stock__radio-half-wrapper">
                     <input
                       type="radio"
@@ -134,6 +191,9 @@ const AddStock = () => {
                     </label>
                   </div>
                 </div>
+                {errors.status && (
+                  <p className="add-stock__validation-msg">{errors.name}</p>
+                )}
                 {formData.status === "In Stock" && (
                   <>
                     <label htmlFor="quantity" className="add-stock__form-label">
@@ -146,6 +206,11 @@ const AddStock = () => {
                       placeholder={0}
                       onChange={(event) => handleChange(event)}
                     />
+                    {errors.quantity && (
+                      <p className="add-stock__validation-msg">
+                        {errors.quantity}
+                      </p>
+                    )}
                   </>
                 )}
                 <label htmlFor="warehouse_id" className="add-stock__form-label">
@@ -167,6 +232,11 @@ const AddStock = () => {
                     );
                   })}
                 </select>
+                {errors.warehouse && (
+                  <p className="add-stock__validation-msg">
+                    {errors.warehouse}
+                  </p>
+                )}
               </div>
             </div>
           </div>
