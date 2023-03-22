@@ -1,6 +1,8 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+// wrapper
+
 .wrapper {
   padding: $mobile-margin;
   background-color: $background-color-alt;
