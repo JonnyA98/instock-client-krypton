@@ -42,7 +42,7 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
             key={item.id}
           />
         ))}
-      {!warehouseInventory.length && <p>No inventory in this warehouse!</p>}
+      {!warehouseInventory && <p>No inventory in this warehouse!</p>}
     </>
   );
 };
