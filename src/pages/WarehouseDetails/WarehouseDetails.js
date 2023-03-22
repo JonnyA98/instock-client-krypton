@@ -1,22 +1,35 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import WarehouseInventoryList from "../../components/InventoryList/InventoryList";
+import { useParams } from "react-router-dom";
+import InventoryList from "../../components/InventoryList/InventoryList";
 
 const WarehouseDetails = () => {
-  const [warehouseInventory, setWarehouseInventory] = useState(null);
-  const getWarehouseInventory = async () => {
+  const [inventory, setInventory] = useState(null);
+
+  const { warehouseId } = useParams();
+
+  const getInventory = async () => {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/inventory`
+      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
     );
-    setWarehouseInventory(data);
+    setInventory(data);
   };
 
   useEffect(() => {
-    getWarehouseInventory();
+    try {
+      getInventory();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
+
+  if (!inventory) {
+    return <p>LOADING!!!!</p>;
+  }
+
   return (
     <>
-      <WarehouseInventoryList />
+      <InventoryList warehouseInventory={inventory} />
     </>
   );
 };
