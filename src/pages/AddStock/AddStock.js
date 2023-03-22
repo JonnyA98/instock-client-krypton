@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./AddStock.scss";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddStock = () => {
   const warehouseList = [
@@ -24,6 +25,7 @@ const AddStock = () => {
   const postNewItem = async () => {
     const newItem = {
       ...formData,
+      id: uuid(),
     };
 
     try {
@@ -79,6 +81,8 @@ const AddStock = () => {
       setErrors(newErrors);
       return;
     }
+
+    postNewItem();
   };
 
   const handleChange = (event) => {
@@ -92,11 +96,17 @@ const AddStock = () => {
     setFormData({ ...formData, [inputName]: value });
   };
 
+  const navigate = useNavigate();
+
+  const handleBackPage = () => {
+    navigate("/inventory");
+  };
+
   return (
     <div className="wrapper">
       <div className="add-stock__form-wrapper">
         <div className="add-stock__heading-wrapper">
-          <div className="add-stock__back-btn"></div>
+          <div className="add-stock__back-btn" onClick={handleBackPage}></div>
           <h1 className="add-stock__heading"> Add New Inventory Item</h1>
         </div>
         <form onSubmit={submitItemHandler} className="add-stock__form">
@@ -111,7 +121,9 @@ const AddStock = () => {
                   type="text"
                   name="item_name"
                   placeholder="Item Name"
-                  className="add-stock__input"
+                  className={`add-stock__input ${
+                    errors.name ? "add-stock__input--invalid" : ""
+                  }`}
                   onChange={(event) => handleChange(event)}
                 />
                 {errors.name && (
@@ -123,7 +135,9 @@ const AddStock = () => {
                 <textarea
                   name="description"
                   placeholder="Please enter a brief item description..."
-                  className="add-stock__input add-stock__input--description"
+                  className={`add-stock__input add-stock__input--description ${
+                    errors.description ? "add-stock__input--invalid" : ""
+                  }`}
                   onChange={(event) => handleChange(event)}
                 ></textarea>
                 {errors.description && (
@@ -136,7 +150,9 @@ const AddStock = () => {
                 </label>
                 <select
                   name="category"
-                  className="add-stock__input"
+                  className={`add-stock__input ${
+                    errors.category ? "add-stock__input--invalid" : ""
+                  }`}
                   placeholder="Please Select"
                   onChange={(event) => handleChange(event)}
                 >
@@ -202,7 +218,9 @@ const AddStock = () => {
                     <input
                       type="text"
                       name="quantity"
-                      className="add-stock__input"
+                      className={`add-stock__input ${
+                        errors.quantity ? "add-stock__input--invalid" : ""
+                      }`}
                       placeholder={0}
                       onChange={(event) => handleChange(event)}
                     />
@@ -219,7 +237,9 @@ const AddStock = () => {
                 <select
                   name="warehouse_id"
                   id="warehouses"
-                  className="add-stock__input"
+                  className={`add-stock__input ${
+                    errors.warehouse ? "add-stock__input--invalid" : ""
+                  }`}
                   onChange={(event) => handleChange(event)}
                 >
                   <option value="">Please Select</option>

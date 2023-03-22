@@ -4,15 +4,17 @@
 .wrapper {
   padding: $mobile-margin;
   background-color: $background-color-alt;
+  position: relative;
+  padding-bottom: auto;
 
   @include tablet {
     padding: $tablet-margin;
-    @include flex(left, center, column);
-    padding-bottom: 40rem;
+    @include flex(center, center, column);
+    // padding-bottom: 40rem;
   }
 
   @include desktop {
-    padding: $desktop-margin;
+    width: 100%;
   }
 }
 .add-stock {
@@ -22,6 +24,13 @@
     border-radius: 4px;
     box-shadow: $box-shadow;
     width: 100%;
+    position: relative;
+    bottom: 8rem;
+
+    @include desktop {
+      margin: $desktop-margin;
+      max-width: 102rem;
+    }
   }
 
   &__heading-wrapper {
@@ -96,6 +105,15 @@
         height: 18rem;
       }
     }
+
+    &--invalid {
+      border: 1px solid $supporting-color-alt;
+    }
+  }
+
+  &__validation-msg {
+    @include body-medium;
+    color: $supporting-color-alt;
   }
 
   &__form-label {
