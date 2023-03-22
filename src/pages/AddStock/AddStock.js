@@ -7,13 +7,8 @@ const AddStock = () => {
     <div className="wrapper">
       <div className="add-stock__form-wrapper">
         <div className="add-stock__heading-wrapper">
-          <h1 className="add-stock__heading">
-            <img
-              src="../../assets/Icons/arrow_back-24px.svg"
-              alt="back arrow"
-            />
-            Add New Inventory Item
-          </h1>
+          <div className="add-stock__back-btn"></div>
+          <h1 className="add-stock__heading"></h1>
         </div>
         <form action="" className="add-stock__form">
           <div className="add-stock__form-text-wrapper">
