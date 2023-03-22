@@ -35,6 +35,11 @@
   line-height: 1.6rem;
 }
 
+@mixin m-table-body {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+}
+
 @mixin t-body-large {
   font-size: 1.6rem;
   line-height: 2.8rem;
