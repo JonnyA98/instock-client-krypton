@@ -15,105 +15,110 @@ const AddWarehouse = () => {
         </div>
 
         <form className="add-warehouse-form">
-          <div className="add-warehouse-form__warehouse-details">
-            <div className="add-warehouse-form__wrapper">
-              <h2 className="add-warehouse-form__heading">Warehouse Details</h2>
+          <div className="add-warehouse-form__inputs-wrapper">
+            <div className="add-warehouse-form__warehouse-details">
+              <div className="add-warehouse-form__wrapper add-warehouse-form__wrapper--left">
+                <h2 className="add-warehouse-form__heading">
+                  Warehouse Details
+                </h2>
 
-              <label
-                className="add-warehouse-form__label"
-                htmlFor="warehouseName"
-              >
-                Warehouse Name
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="warehouseName"
-                placeholder="Warehouse Name"
-              />
+                <label
+                  className="add-warehouse-form__label"
+                  htmlFor="warehouseName"
+                >
+                  Warehouse Name
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="warehouseName"
+                  placeholder="Warehouse Name"
+                />
 
-              <label htmlFor="address" className="add-warehouse-form__label">
-                Street Address
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="address"
-                placeholder="Street Address"
-              />
+                <label htmlFor="address" className="add-warehouse-form__label">
+                  Street Address
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="address"
+                  placeholder="Street Address"
+                />
 
-              <label htmlFor="city" className="add-warehouse-form__label">
-                City
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="city"
-                placeholder="City"
-              />
+                <label htmlFor="city" className="add-warehouse-form__label">
+                  City
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                />
 
-              <label htmlFor="country" className="add-warehouse-form__label">
-                Country
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="country"
-                placeholder="Country"
-              />
+                <label htmlFor="country" className="add-warehouse-form__label">
+                  Country
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="country"
+                  placeholder="Country"
+                />
+              </div>
+            </div>
+            <div className="add-warehouse-form__contact-details">
+              <div className="add-warehouse-form__wrapper">
+                <h2 className="add-warehouse-form__heading">Contact Details</h2>
+
+                <label
+                  className="add-warehouse-form__label"
+                  htmlFor="contactName"
+                >
+                  Contact Name
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="contactName"
+                  placeholder="Contact Name"
+                />
+
+                <label htmlFor="position" className="add-warehouse-form__label">
+                  Position
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="position"
+                  placeholder="Position"
+                />
+
+                <label
+                  htmlFor="phoneNumber"
+                  className="add-warehouse-form__label"
+                >
+                  Phone Number
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                />
+
+                <label htmlFor="email" className="add-warehouse-form__label">
+                  Email
+                </label>
+                <input
+                  className="add-warehouse-form__input"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
             </div>
           </div>
-          <div className="add-warehouse-form__contact-details">
-            <div className="add-warehouse-form__wrapper">
-              <h2 className="add-warehouse-form__heading">Contact Details</h2>
 
-              <label
-                className="add-warehouse-form__label"
-                htmlFor="contactName"
-              >
-                Contact Name
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="contactName"
-                placeholder="Contact Name"
-              />
-
-              <label htmlFor="position" className="add-warehouse-form__label">
-                Position
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="position"
-                placeholder="Position"
-              />
-
-              <label
-                htmlFor="phoneNumber"
-                className="add-warehouse-form__label"
-              >
-                Phone Number
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="phoneNumber"
-                placeholder="Phone Number"
-              />
-
-              <label htmlFor="email" className="add-warehouse-form__label">
-                Email
-              </label>
-              <input
-                className="add-warehouse-form__input"
-                type="text"
-                name="email"
-                placeholder="Email"
-              />
-            </div>
-          </div>
           <div className="add-warehouse-form__bottom-wrapper">
             <button className="add-warehouse-form__button add-warehouse-form__button--cancel">
               Cancel
