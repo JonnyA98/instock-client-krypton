@@ -3,12 +3,12 @@
 
 .wrapper {
   padding: $mobile-margin;
-  height: 100vh;
   background-color: $background-color-alt;
 
   @include tablet {
     padding: $tablet-margin;
     @include flex(left, center, column);
+    padding-bottom: 40rem;
   }
 
   @include desktop {
@@ -20,19 +20,26 @@
     background-color: $primary-white;
     border: $divider;
     border-radius: 4px;
+    box-shadow: $box-shadow;
     width: 100%;
   }
 
-  &__heading {
-    padding: 2rem;
+  &__heading-wrapper {
+    @include flex(left, center, row);
     border-bottom: $divider;
+    padding: 2rem;
+  }
+
+  &__heading {
     background-color: $primary-white;
+    padding-left: 0.4rem;
   }
 
   &__back-btn {
     height: 4rem;
     width: 3.6rem;
     background-image: URL("../../assets/Icons/arrow_back-24px.svg");
+    background-size: cover;
     @include tablet {
       height: 4rem;
       width: 4rem;
@@ -76,14 +83,11 @@
   }
 
   &__input {
-    @include m-body-large;
+    @include body-large;
     @include input;
     width: 100%;
     font-weight: 400;
 
-    @include tablet {
-      @include t-body-large;
-    }
     &--description {
       font-family: "Titillium Web";
       resize: none;

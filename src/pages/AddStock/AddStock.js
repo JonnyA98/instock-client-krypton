@@ -3,12 +3,23 @@ import "./AddStock.scss";
 const AddStock = () => {
   const warehouseList = ["manhatten", "new york"];
   const categoryList = ["Health", "Gear"];
+
+  // const submitItemHandler = async (e) => {
+  //   e.preventDefault.
+  //   // newItem ={
+  //   //   id: ,
+  //   //   warehouse_id: ,
+  //   //   item_name: ,
+
+  //   // }
+  // };
+
   return (
     <div className="wrapper">
       <div className="add-stock__form-wrapper">
         <div className="add-stock__heading-wrapper">
           <div className="add-stock__back-btn"></div>
-          <h1 className="add-stock__heading"></h1>
+          <h1 className="add-stock__heading"> Add New Inventory Item</h1>
         </div>
         <form action="" className="add-stock__form">
           <div className="add-stock__form-text-wrapper">
@@ -57,21 +68,11 @@ const AddStock = () => {
                 </label>
                 <div className="add-stock__radio-wrapper">
                   <div className="add-stock__radio-half-wrapper">
-                    <input
-                      type="radio"
-                      value="inStock"
-                      // className="add-stock__input"
-                      name="stock"
-                    />
+                    <input type="radio" value="inStock" name="stock" />
                     <p className="add-stock__stock-status">In Stock</p>
                   </div>
                   <div className="add-stock__radio-half-wrapper">
-                    <input
-                      type="radio"
-                      value="outOfStock"
-                      // className="add-stock__input"
-                      name="stock"
-                    />
+                    <input type="radio" value="outOfStock" name="stock" />
                     <p className="add-stock__stock-status">Out of Stock</p>
                   </div>
                 </div>
