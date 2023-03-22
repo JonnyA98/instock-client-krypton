@@ -3,15 +3,7 @@ import WarehouseInventoryListItem from "../InventoryListItem/InventoryListItem";
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./InventoryList.scss";
 
-const WarehouseInventoryList = ({ itemsReal }) => {
-  const items = [
-    {
-      item_name: "toothbrush",
-      category: "yellow",
-      quantity: 7,
-    },
-  ];
-
+const WarehouseInventoryList = ({ warehouseInventory }) => {
   return (
     <>
       <div className="warehouse-inventory-list__category-header-wrapper">
@@ -41,13 +33,16 @@ const WarehouseInventoryList = ({ itemsReal }) => {
           <h4 className="warehouse-inventory-list__category-header">Actions</h4>
         </div>
       </div>
-      {items.map((item) => (
-        <WarehouseInventoryListItem
-          name={item.item_name}
-          category={item.category}
-          quantity={item.quantity}
-        />
-      ))}
+      {warehouseInventory &&
+        warehouseInventory.map((item) => (
+          <WarehouseInventoryListItem
+            name={item.item_name}
+            category={item.category}
+            quantity={item.quantity}
+            key={item.id}
+          />
+        ))}
+      {!warehouseInventory && <p>No inventory in this warehouse!</p>}
     </>
   );
 };
