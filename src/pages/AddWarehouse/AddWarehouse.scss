@@ -1,5 +1,86 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .add-warehouse {
+  position: relative;
+  margin: 0 1.6rem;
+  bottom: 6.5rem;
+  background-color: $primary-white;
+  border-radius: 0.3rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+  &__wrapper {
+    background-color: $background-color-alt;
+    margin-bottom: -6.5rem;
+  }
+
   &__heading-wrapper {
-    display: flex;
+    @include flex(flex-start, center);
+    padding: 3.2rem 2rem 2.4rem;
+    border-bottom: 1px solid $secondary-color-alt;
+  }
+
+  &__back {
+    margin-right: 1rem;
+  }
+
+  &-form {
+    @include flex(flex-start, flex-start, column);
+
+    &__warehouse-details {
+      width: 100%;
+      padding: 1.6rem 0 0.8rem;
+      border-bottom: 1px solid $secondary-color-alt;
+    }
+
+    &__wrapper {
+      @include flex(flex-start, flex-start, column);
+      width: 100%;
+      padding: 0 2rem;
+    }
+
+    &__heading {
+      margin-bottom: 2.4rem;
+    }
+
+    &__label {
+      @include form-label;
+      margin-bottom: 0.4rem;
+    }
+
+    &__input {
+      @include form-input;
+      margin-bottom: 1.6rem;
+
+      &::placeholder {
+        @include body-medium;
+      }
+    }
+
+    &__contact-details {
+      width: 100%;
+      padding: 1.6rem 0 0.8rem;
+    }
+
+    &__bottom-wrapper {
+      background-color: $background-color-alt;
+      width: 100%;
+      padding: 1.6rem 2rem;
+      @include flex(space-between);
+    }
+
+    &__button {
+      @include button;
+      background-color: $primary-color-alt;
+      color: $primary-white;
+      border: 1px solid $primary-color-alt;
+      width: 48%;
+
+      &--cancel {
+        background-color: $primary-white;
+        color: $secondary-color;
+        border: 1px solid $secondary-color-alt;
+      }
+    }
   }
 }
