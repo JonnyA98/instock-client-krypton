@@ -11,11 +11,17 @@
 
   @include tablet {
     bottom: 9.4rem;
+    margin: 0 3.2rem;
   }
 
   &__wrapper {
     background-color: $background-color-alt;
     margin-bottom: -6.5rem;
+
+    @include tablet {
+      padding-bottom: 22rem;
+      margin: 0;
+    }
   }
 
   &__heading-wrapper {
