@@ -1,18 +1,51 @@
+import { useState } from "react";
 import "./AddStock.scss";
+import { v4 as uuid } from "uuid";
 
 const AddStock = () => {
-  const warehouseList = ["manhatten", "new york"];
-  const categoryList = ["Health", "Gear"];
+  const warehouseList = [
+    { id: 123, name: "manhatten" },
+    { id: 456, name: "new york" },
+  ];
+  const categoryList = ["Health", "Gear", "", ""];
 
-  // const submitItemHandler = async (e) => {
-  //   e.preventDefault.
-  //   // newItem ={
-  //   //   id: ,
-  //   //   warehouse_id: ,
-  //   //   item_name: ,
+  const [formData, setFormData] = useState({
+    warehouse_id: "",
+    item_name: "",
+    description: "",
+    category: "",
+    quantity: 0,
+    status: "",
+  });
 
-  //   // }
-  // };
+  const submitItemHandler = async (e) => {
+    e.preventDefault();
+    console.log(e);
+    console.log(e.target.inStock.value);
+    console.log(e.target.inStock.checked);
+
+    const warehouseId = e.target.itemWarehouse.id;
+
+    const quantity = !e.target.inStock ? 0 : e.target.itemQuantity;
+
+    const stockStatus = !e.target.inStock ? "Out of Stock" : "In Stock";
+
+    const newItem = {
+      ...formData,
+      id: uuid(),
+    };
+  };
+
+  const handleChange = (event) => {
+    const inputName = event.target.name;
+
+    const value =
+      inputName === "quantity"
+        ? Number(event.target.value)
+        : event.target.value;
+
+    setFormData({ ...formData, [inputName]: value });
+  };
 
   return (
     <div className="wrapper">
@@ -21,43 +54,46 @@ const AddStock = () => {
           <div className="add-stock__back-btn"></div>
           <h1 className="add-stock__heading"> Add New Inventory Item</h1>
         </div>
-        <form action="" className="add-stock__form">
+        <form onSubmit={submitItemHandler} className="add-stock__form">
           <div className="add-stock__form-text-wrapper">
             <div className="add-stock__input-wrapper">
               <div className="add-stock__form-left">
                 <h2 className="add-stock__form-heading">Item Details</h2>
-                <label htmlFor="itemName" className="add-stock__form-label">
+                <label htmlFor="item_name" className="add-stock__form-label">
                   <h3>Item Name</h3>
                 </label>
                 <input
                   type="text"
-                  name="itemName"
+                  name="item_name"
                   placeholder="Item Name"
                   className="add-stock__input"
+                  onChange={(event) => handleChange(event)}
                 />
-                <label
-                  htmlFor="itemDescription"
-                  className="add-stock__form-label"
-                >
+                <label htmlFor="description" className="add-stock__form-label">
                   <h3>Description</h3>
                 </label>
                 <textarea
-                  name="itemDescription"
+                  name="description"
                   placeholder="Please enter a brief item description..."
                   className="add-stock__input add-stock__input--description"
+                  onChange={(event) => handleChange(event)}
                 ></textarea>
-                <label htmlFor="itemCategory" className="add-stock__form-label">
+                <label htmlFor="category" className="add-stock__form-label">
                   <h3>Catergory</h3>
                 </label>
                 <select
-                  name="itemCategory"
-                  id="warehouses"
+                  name="category"
                   className="add-stock__input"
                   placeholder="Please Select"
+                  onChange={(event) => handleChange(event)}
                 >
                   <option>Please Select</option>
-                  {categoryList.map((category) => {
-                    return <option value={`${category}`}>{category}</option>;
+                  {categoryList.map((category, i) => {
+                    return (
+                      <option key={i} value={`${category}`}>
+                        {category}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
@@ -68,37 +104,67 @@ const AddStock = () => {
                 </label>
                 <div className="add-stock__radio-wrapper">
                   <div className="add-stock__radio-half-wrapper">
-                    <input type="radio" value="inStock" name="stock" />
-                    <p className="add-stock__stock-status">In Stock</p>
+                    <input
+                      type="radio"
+                      value="In Stock"
+                      name="status"
+                      id="inStock"
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label
+                      htmlFor="inStock"
+                      className="add-stock__stock-status"
+                    >
+                      In Stock
+                    </label>
                   </div>
                   <div className="add-stock__radio-half-wrapper">
-                    <input type="radio" value="outOfStock" name="stock" />
-                    <p className="add-stock__stock-status">Out of Stock</p>
+                    <input
+                      type="radio"
+                      value="Out of Stock"
+                      name="status"
+                      id="outOfStock"
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label
+                      htmlFor="outOfStock"
+                      className="add-stock__stock-status"
+                    >
+                      Out of Stock
+                    </label>
                   </div>
                 </div>
-                <label htmlFor="" className="add-stock__form-label">
-                  <h3>Quantity</h3>
-                </label>
-                <input
-                  type="text"
-                  className="add-stock__input"
-                  placeholder="0"
-                />
-                <label
-                  htmlFor="itemWarehouse"
-                  className="add-stock__form-label"
-                >
+                {formData.status === "In Stock" && (
+                  <>
+                    <label htmlFor="quantity" className="add-stock__form-label">
+                      <h3>Quantity</h3>
+                    </label>
+                    <input
+                      type="text"
+                      name="quantity"
+                      className="add-stock__input"
+                      placeholder={0}
+                      onChange={(event) => handleChange(event)}
+                    />
+                  </>
+                )}
+                <label htmlFor="warehouse_id" className="add-stock__form-label">
                   <h3>Warehouse</h3>
                 </label>
                 <select
-                  name="itemWarehouse"
+                  name="warehouse_id"
                   id="warehouses"
                   className="add-stock__input"
+                  onChange={(event) => handleChange(event)}
                 >
-                  <option>Please Select</option>
+                  <option value="">Please Select</option>
 
                   {warehouseList.map((place) => {
-                    return <option value={`${place}`}>{place}</option>;
+                    return (
+                      <option key={place.id} value={place.id}>
+                        {place.name}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
