@@ -10,7 +10,7 @@ const WarehouseCard = ({ warehouse }) => {
         <div className="warehouses__facts">
           <h2 className="warehouses__subtitle">WAREHOUSE</h2>
           <Link
-            to={"./../WarehouseDetails/WarehouseDetails"}
+            to={`/warehouses/${warehouse.id}`}
             className="warehouses__description warehouses__link"
           >
             <p className="warehouses__info">{warehouse.warehouse_name}</p>
