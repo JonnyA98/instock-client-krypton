@@ -41,7 +41,7 @@
 }
 
 @mixin body-small {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.6rem;
 
   @include tablet {
@@ -64,4 +64,13 @@
     height: 3.8rem;
     padding: 0 1.6rem;
   }
+}
+
+// ---Forms
+
+@mixin input {
+  border-radius: 2rem;
+  border: 1px solid $secondary-color-alt;
+  padding: 0.6rem 1.6rem;
+  background-color: $primary-white;
 }
