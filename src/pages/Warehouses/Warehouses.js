@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import WarehouseInventoryList from "../../components/WarehouseInventoryList/WarehouseInventoryList";
+import WarehouseInventoryList from "../../components/InventoryList/InventoryList";
 
-const Warehouses = () => {
-  return <WarehouseInventoryList />;
-=======
 import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,6 +27,7 @@ const Warehouses = () => {
     <div className="warehouses">
       <div className="warehouses__card">
         <SearchWarehouses />
+
         <div className="warehouses__list">
           {warehouses.map((warehouse) => {
             return <WarehouseCard key={warehouse.id} warehouse={warehouse} />;
@@ -39,7 +36,6 @@ const Warehouses = () => {
       </div>
     </div>
   );
->>>>>>> develop
 };
 
 export default Warehouses;

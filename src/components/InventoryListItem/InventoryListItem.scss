@@ -57,7 +57,7 @@
   &__link {
     @include flex(null, center);
     text-decoration: none;
-    @include m-body-small;
+    @include body-small;
     @include tablet {
       width: 100%;
     }
@@ -68,7 +68,7 @@
   }
 
   &__status {
-    @include m-table-body;
+    @include body-medium;
     color: $supporting-color;
     border-radius: 20px;
     padding: 0.4rem 0.8rem;
@@ -82,7 +82,7 @@
   }
 
   &__data {
-    @include m-body-small;
+    @include body-small;
     color: $secondary-color;
     @include tablet {
       width: 200%;

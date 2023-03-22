@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import WarehouseInventoryListItem from "../WarehouseInventoryListItem/WarehouseInventoryListItem";
+import WarehouseInventoryListItem from "../InventoryListItem/InventoryListItem";
 import sort from "../../assets/Icons/sort-24px.svg";
-import "./WarehouseInventoryList.scss";
+import "./InventoryList.scss";
 
 const WarehouseInventoryList = ({ itemsReal }) => {
   const items = [

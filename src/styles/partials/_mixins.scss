@@ -44,31 +44,10 @@
   font-size: 1.1rem;
   line-height: 1.6rem;
 
-<<<<<<< HEAD
-@mixin m-table-body {
-  font-size: 1.1rem;
-  line-height: 1.8rem;
-}
-
-@mixin t-body-large {
-  font-size: 1.6rem;
-  line-height: 2.8rem;
-}
-
-@mixin t-body-medium {
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
-@mixin t-body-small {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-=======
   @include tablet {
     font-size: 1.2rem;
     line-height: 1.8rem;
   }
->>>>>>> develop
 }
 
 // Common styling
