@@ -1,6 +1,7 @@
 import "./AddWarehouse.scss";
 import backBtn from "../../assets/Icons/arrow_back-24px.svg";
 import { useState } from "react";
+import { POST_WAREHOUSE } from "../../utils/apiCalls.mjs";
 
 const AddWarehouse = () => {
   const [formData, setFormData] = useState({
@@ -14,13 +15,69 @@ const AddWarehouse = () => {
     contact_email: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const submitWarehouseHandler = (e) => {
     e.preventDefault();
 
+    // Form validation
+    const newErrors = {};
+
+    let isValid = true;
+
+    if (!formData.warehouse_name) {
+      isValid = false;
+      newErrors["warehouse_name"] = "Please enter a warehouse name";
+    }
+
+    if (!formData.address) {
+      isValid = false;
+      newErrors["address"] = "Please enter an address";
+    }
+
+    if (!formData.city) {
+      isValid = false;
+      newErrors["city"] = "Please enter a city";
+    }
+
+    if (!formData.country) {
+      isValid = false;
+      newErrors["country"] = "Please enter a country";
+    }
+
+    if (!formData.contact_name) {
+      isValid = false;
+      newErrors["contact_name"] = "Please enter a contact name";
+    }
+
+    if (!formData.contact_position) {
+      isValid = false;
+      newErrors["contact_position"] = "Please enter a contact position";
+    }
+
+    if (!formData.contact_phone || !formData.contact_phone.includes("+")) {
+      isValid = false;
+      newErrors["contact_phone"] = "Please enter a valid phone number";
+    }
+
+    if (!formData.contact_email || !formData.contact_email.includes("@")) {
+      isValid = false;
+      newErrors["contact_email"] = "Please enter a valid email address";
+    }
+
+    if (!isValid) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+
+    // If valid, make new warehouse object
     const newWarehouse = {
       ...formData,
     };
 
+    // Reset form fields
     setFormData({
       warehouse_name: "",
       address: "",
@@ -33,6 +90,11 @@ const AddWarehouse = () => {
     });
 
     console.log(newWarehouse);
+    try {
+      POST_WAREHOUSE(newWarehouse);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (e) => {
@@ -69,49 +131,85 @@ const AddWarehouse = () => {
                   Warehouse Name
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="warehouse_name"
                   placeholder="Warehouse Name"
                   onChange={handleChange}
                   value={formData.warehouse_name}
                 />
+                {errors.warehouse_name && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.warehouse_name}
+                  </p>
+                )}
 
                 <label htmlFor="address" className="add-warehouse-form__label">
                   Street Address
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="address"
                   placeholder="Street Address"
                   onChange={handleChange}
                   value={formData.address}
                 />
+                {errors.address && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.address}
+                  </p>
+                )}
 
                 <label htmlFor="city" className="add-warehouse-form__label">
                   City
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="city"
                   placeholder="City"
                   onChange={handleChange}
                   value={formData.city}
                 />
+                {errors.city && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.city}
+                  </p>
+                )}
 
                 <label htmlFor="country" className="add-warehouse-form__label">
                   Country
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="country"
                   placeholder="Country"
                   onChange={handleChange}
                   value={formData.country}
                 />
+                {errors.country && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.country}
+                  </p>
+                )}
               </div>
             </div>
             <div className="add-warehouse-form__contact-details">
@@ -125,13 +223,22 @@ const AddWarehouse = () => {
                   Contact Name
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="contact_name"
                   placeholder="Contact Name"
                   onChange={handleChange}
                   value={formData.contact_name}
                 />
+                {errors.contact_name && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.contact_name}
+                  </p>
+                )}
 
                 <label
                   htmlFor="contact_position"
@@ -140,13 +247,22 @@ const AddWarehouse = () => {
                   Position
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="contact_position"
                   placeholder="Position"
                   onChange={handleChange}
                   value={formData.contact_position}
                 />
+                {errors.contact_position && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.contact_position}
+                  </p>
+                )}
 
                 <label
                   htmlFor="contact_phone"
@@ -155,13 +271,22 @@ const AddWarehouse = () => {
                   Phone Number
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="contact_phone"
                   placeholder="Phone Number"
                   onChange={handleChange}
                   value={formData.contact_phone}
                 />
+                {errors.contact_phone && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.contact_phone}
+                  </p>
+                )}
 
                 <label
                   htmlFor="contact_email"
@@ -170,13 +295,22 @@ const AddWarehouse = () => {
                   Email
                 </label>
                 <input
-                  className="add-warehouse-form__input"
+                  className={
+                    errors.warehouse_name
+                      ? "add-warehouse-form__input add-warehouse-form__input--error"
+                      : "add-warehouse-form__input"
+                  }
                   type="text"
                   name="contact_email"
                   placeholder="Email"
                   onChange={handleChange}
                   value={formData.contact_email}
                 />
+                {errors.contact_email && (
+                  <p className="add-warehouse-form__validation">
+                    {errors.contact_email}
+                  </p>
+                )}
               </div>
             </div>
           </div>

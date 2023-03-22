@@ -88,32 +88,34 @@
     }
 
     &__heading {
-      margin-bottom: 2.4rem;
-
-      @include tablet {
-        margin-bottom: 3.2rem;
-      }
+      margin-bottom: 0.8rem;
     }
 
     &__label {
       @include form-label;
       margin-bottom: 0.4rem;
+      margin-top: 1.6rem;
+
+      @include tablet {
+        margin-top: 2.4rem;
+      }
     }
 
     &__input {
       @include form-input;
-      margin-bottom: 1.6rem;
 
       &::placeholder {
         @include body-medium;
+        color: $secondary-color;
       }
 
-      &:last-child {
-        margin: 0;
+      &:focus {
+        border: 1px solid $primary-color-alt;
+        outline: none;
       }
 
-      @include tablet {
-        margin-bottom: 2.4rem;
+      &--error {
+        border: 1px solid $supporting-color-alt;
       }
     }
 
@@ -124,6 +126,11 @@
       @include tablet {
         padding: 2.4rem 0 3.2rem;
       }
+    }
+
+    &__validation {
+      @include body-medium;
+      color: $supporting-color-alt;
     }
 
     &__bottom-wrapper {
