@@ -26,6 +26,8 @@ const Warehouses = () => {
     await axios.delete(
       `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouse.id}`
     );
+    getWarehouses();
+    modalToggle();
   };
 
   useEffect(() => {

@@ -10,6 +10,10 @@
     background: rgba(($primary-color), 0.7);
     width: 100%;
   }
+  @include desktop {
+    padding: 18.5rem 30.4rem;
+    height: 100vh;
+  }
 
   &__wrapper {
     background: $primary-white;
@@ -20,6 +24,9 @@
     @include tablet {
       height: 60vh;
       padding: 4rem 6.4rem;
+    }
+    @include desktop {
+      height: 30vh;
     }
   }
   &__close {
