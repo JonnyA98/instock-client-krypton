@@ -1,5 +1,3 @@
-import WarehouseInventoryList from "../../components/InventoryList/InventoryList";
-
 import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";

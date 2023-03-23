@@ -95,7 +95,7 @@
 
   &__input {
     @include body-large;
-    @include input;
+    @include form-input;
     width: 100%;
     font-weight: 400;
 

@@ -66,11 +66,20 @@
   }
 }
 
-// ---Forms
+// Form styling
+@mixin form-label {
+  @include body-medium;
+  font-weight: 600;
+}
 
-@mixin input {
+@mixin form-input {
+  height: 3.6rem;
+  width: 100%;
+  padding: 0 1.6rem;
   border-radius: 2rem;
   border: 1px solid $secondary-color-alt;
-  padding: 0.6rem 1.6rem;
-  background-color: $primary-white;
+
+  @include tablet {
+    height: 3.8rem;
+  }
 }
