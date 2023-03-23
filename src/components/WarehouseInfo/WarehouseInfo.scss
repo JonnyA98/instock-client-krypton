@@ -43,7 +43,7 @@
       padding: 0.5rem;
       height: 3.5rem;
       width: 8rem;
-      display: inline-block;
+      display: flex;
     }
   }
   &__pen {
@@ -74,6 +74,8 @@
       display: flex;
       justify-content: flex-start;
       align-items: baseline;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
   }
 
@@ -84,13 +86,12 @@
     font-weight: 600;
     line-height: 1rem;
     color: $secondary-color;
-    margin-bottom: 1rem;
-    padding-top: 2.5rem;
+    margin: 3rem 0 0.5rem;
 
     @include tablet {
       margin-top: 0rem;
-      padding-left: 3.6rem;
-      padding-right: 3.6rem;
+      padding-left: 3.2rem;
+      padding-right: 3.2rem;
     }
   }
   &__details {
@@ -118,7 +119,6 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     position: relative;
-    padding-bottom: 2rem;
 
     @include tablet {
       border-left: 1px solid #bdc5d5;
