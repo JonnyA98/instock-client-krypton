@@ -3,7 +3,7 @@ import WarehouseInventoryListItem from "../InventoryListItem/InventoryListItem";
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./InventoryList.scss";
 
-const WarehouseInventoryList = ({ warehouseInventory }) => {
+const WarehouseInventoryList = ({ warehouseInventory, modalToggle }) => {
   return (
     <>
       <div className="warehouse-inventory-list__category-header-wrapper">
@@ -36,10 +36,12 @@ const WarehouseInventoryList = ({ warehouseInventory }) => {
       {warehouseInventory &&
         warehouseInventory.map((item) => (
           <WarehouseInventoryListItem
+            item={item}
             name={item.item_name}
             category={item.category}
             quantity={item.quantity}
             key={item.id}
+            modalToggle={modalToggle}
           />
         ))}
       {!warehouseInventory && <p>No inventory in this warehouse!</p>}

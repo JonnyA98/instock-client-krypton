@@ -2,11 +2,22 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
+import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
 
 const WarehouseDetails = () => {
   const [inventory, setInventory] = useState(null);
-
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
   const { warehouseId } = useParams();
+
+  const modalToggle = (item) => {
+    setDeleteModal(!deleteModal);
+    setItemToDelete(item);
+  };
+
+  const deleteItem = (item) => {
+    console.log(item);
+  };
 
   useEffect(() => {
     const getInventory = async () => {
@@ -29,7 +40,14 @@ const WarehouseDetails = () => {
 
   return (
     <>
-      <InventoryList warehouseInventory={inventory} />
+      {deleteModal && (
+        <DeleteItemModal
+          modalToggle={modalToggle}
+          itemToDelete={itemToDelete}
+          deleteItem={deleteItem}
+        />
+      )}
+      <InventoryList modalToggle={modalToggle} warehouseInventory={inventory} />
     </>
   );
 };

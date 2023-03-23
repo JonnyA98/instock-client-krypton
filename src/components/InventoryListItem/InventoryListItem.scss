@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse-inventory-list-item {
+.inventory-list-item {
   @include flex(null, null, column);
   margin: 2.4rem;
   @include tablet {
