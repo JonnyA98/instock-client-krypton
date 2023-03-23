@@ -8,6 +8,12 @@ import WarehouseCard from "../../components/ListWarehouses/WarehouseCard";
 
 const Warehouses = () => {
   const [warehouses, setWarehouses] = useState(null);
+  const [deleteModal, setDeleteModal] = useState(false);
+
+  const modalToggle = () => {
+    setDeleteModal(!deleteModal);
+    console.log(deleteModal);
+  };
 
   const getWarehouses = async () => {
     const { data } = await axios.get(
@@ -30,7 +36,13 @@ const Warehouses = () => {
 
         <div className="warehouses__list">
           {warehouses.map((warehouse) => {
-            return <WarehouseCard key={warehouse.id} warehouse={warehouse} />;
+            return (
+              <WarehouseCard
+                key={warehouse.id}
+                warehouse={warehouse}
+                modalToggle={modalToggle}
+              />
+            );
           })}
         </div>
       </div>

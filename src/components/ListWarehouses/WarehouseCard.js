@@ -3,7 +3,7 @@ import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import "./WarehouseCard.scss";
 
-const WarehouseCard = ({ warehouse }) => {
+const WarehouseCard = ({ warehouse, modalToggle }) => {
   return (
     <article>
       <div className="warehouses__stock">
@@ -29,7 +29,7 @@ const WarehouseCard = ({ warehouse }) => {
           <p className="warehouses__info">{warehouse.contact_phone}</p>
           <p className="warehouses__info">{warehouse.contact_email}</p>
         </div>
-        <span className="warehouses__delete">
+        <span onClick={modalToggle} className="warehouses__delete">
           <img src={deleteIcon} alt="delete Icon" />
         </span>
         <span className="warehouses__edit">
