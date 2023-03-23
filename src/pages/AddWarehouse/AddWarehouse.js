@@ -2,8 +2,17 @@ import "./AddWarehouse.scss";
 import backBtn from "../../assets/Icons/arrow_back-24px.svg";
 import { useState } from "react";
 import { POST_WAREHOUSE } from "../../utils/apiCalls.mjs";
+import { useNavigate } from "react-router-dom";
+import FormModal from "../../components/FormModal/FormModal";
 
 const AddWarehouse = () => {
+  const navigate = useNavigate();
+  const backHandler = () => {
+    navigate(-1);
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
   const [formData, setFormData] = useState({
     warehouse_name: "",
     address: "",
@@ -95,6 +104,12 @@ const AddWarehouse = () => {
     } catch (error) {
       console.log(error);
     }
+
+    setShowModal(true);
+
+    setTimeout(() => {
+      navigate(-1);
+    }, 2000);
   };
 
   const handleChange = (e) => {
@@ -112,9 +127,12 @@ const AddWarehouse = () => {
             className="add-warehouse__back"
             src={backBtn}
             alt="back button"
+            onClick={backHandler}
           />
           <h1 className="add-warehouse__heading">Add New Warehouse</h1>
         </div>
+
+        <FormModal show={showModal} />
 
         <form className="add-warehouse-form" onSubmit={submitWarehouseHandler}>
           <div className="add-warehouse-form__inputs-wrapper">
@@ -316,9 +334,13 @@ const AddWarehouse = () => {
           </div>
 
           <div className="add-warehouse-form__bottom-wrapper">
-            <button className="add-warehouse-form__button add-warehouse-form__button--cancel">
+            <button
+              className="add-warehouse-form__button add-warehouse-form__button--cancel"
+              onClick={backHandler}
+            >
               Cancel
             </button>
+
             <button type="submit" className="add-warehouse-form__button">
               + Add Warehouse
             </button>
