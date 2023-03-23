@@ -92,6 +92,7 @@
       margin-top: 0rem;
       padding-left: 3.2rem;
       padding-right: 3.2rem;
+      font-size: 1.1rem;
     }
   }
   &__details {
@@ -104,6 +105,11 @@
     @include tablet {
       padding-left: 3.2rem;
       padding-right: 3.2rem;
+      font-size: 1.3rem;
+    }
+
+    @include desktop {
+      line-height: 2.2rem;
     }
   }
 
