@@ -338,6 +338,7 @@ const AddWarehouse = () => {
 
           <div className="form-warehouse-form__bottom-wrapper">
             <button
+              type="button"
               className="form-warehouse-form__button form-warehouse-form__button--cancel"
               onClick={backHandler}
             >
