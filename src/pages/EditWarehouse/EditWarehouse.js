@@ -137,7 +137,7 @@ const EditWarehouse = () => {
         </div>
 
         {/* Modal for confirming edit */}
-        <FormModal show={showModal} />
+        <FormModal message="Warehouse Edited" show={showModal} />
 
         <form className="form-warehouse-form" onSubmit={submitWarehouseHandler}>
           <div className="form-warehouse-form__inputs-wrapper">

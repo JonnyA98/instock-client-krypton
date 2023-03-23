@@ -132,7 +132,8 @@ const AddWarehouse = () => {
           <h1 className="form-warehouse__heading">Add New Warehouse</h1>
         </div>
 
-        <FormModal show={showModal} />
+        {/* Modal for confirming add */}
+        <FormModal message="Warehouse Added" show={showModal} />
 
         <form className="form-warehouse-form" onSubmit={submitWarehouseHandler}>
           <div className="form-warehouse-form__inputs-wrapper">
