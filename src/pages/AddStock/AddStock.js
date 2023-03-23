@@ -261,7 +261,7 @@ const AddStock = () => {
             </div>
           </div>
           <div className="add-stock__btn-wrapper">
-            <button type="text" className="add-stock__btn-cancel">
+            <button type="button" className="add-stock__btn-cancel">
               Cancel
             </button>
             <button type="submit" className="add-stock__btn-submit">

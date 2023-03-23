@@ -8,7 +8,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     position: relative;
-    padding-bottom: 4rem;
+    padding-bottom: 6.4rem;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
     border-bottom: 1px solid #bdc5d5;
@@ -52,13 +52,15 @@
 
   &__delete {
     position: absolute;
-    bottom: 0;
+    bottom: 2.7rem;
     left: 1.6rem;
+    cursor: pointer;
   }
 
   &__edit {
     position: absolute;
     right: 1.6rem;
-    bottom: 0;
+    bottom: 2.7rem;
+    cursor: pointer;
   }
 }
