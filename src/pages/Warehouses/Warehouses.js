@@ -15,7 +15,6 @@ const Warehouses = () => {
   const modalToggle = (warehouse) => {
     setDeleteModal(!deleteModal);
     setWarehouseToDelete(warehouse);
-    console.log(deleteModal);
   };
 
   const getWarehouses = async () => {
@@ -24,6 +23,13 @@ const Warehouses = () => {
     );
     setWarehouses(data);
   };
+
+  const deleteWarehouse = async (warehouse) => {
+    await axios.delete(
+      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouse.id}`
+    );
+  };
+
   useEffect(() => {
     getWarehouses();
   }, []);
@@ -35,14 +41,17 @@ const Warehouses = () => {
   return (
     <>
       {deleteModal && (
-        <DeleteWarehouseModal warehouseToDelete={warehouseToDelete} />
+        <DeleteWarehouseModal
+          modalToggle={modalToggle}
+          warehouseToDelete={warehouseToDelete}
+          deleteWarehouse={deleteWarehouse}
+        />
       )}
       <div className="warehouses">
         <div className="warehouses__card">
           <SearchWarehouses />
           <div className="warehouses__list">
             {warehouses.map((warehouse) => {
-              // deleteModal && <DeleteWarehouseModal warehouse={warehouse} />;
               return (
                 <WarehouseCard
                   key={warehouse.id}
