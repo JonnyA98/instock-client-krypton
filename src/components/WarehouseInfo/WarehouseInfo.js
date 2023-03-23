@@ -1,5 +1,5 @@
 import "./WarehouseInfo.scss";
-import editIcon from "../../assets/Icons/edit-24px.svg";
+import editIconWhite from "../../assets/Icons/edit-24px-white.svg";
 
 const WarehouseInfo = ({ warehouse }) => {
   return (
@@ -8,7 +8,11 @@ const WarehouseInfo = ({ warehouse }) => {
         {warehouse.warehouse_name}
       </h2>
       <span className="warehouse-info__edit">
-        <img src={editIcon} alt="edit Icon" />
+        <img
+          className="warehouse-info__pen"
+          src={editIconWhite}
+          alt="edit Icon"
+        />
       </span>
       <section>
         <div>
