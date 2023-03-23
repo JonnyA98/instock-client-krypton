@@ -3,12 +3,13 @@
 
 .warehouse-inventory-list-item {
   @include flex(null, null, column);
-  margin: 2.4rem;
+  padding: 1.6rem;
+  border-bottom: 1px solid #bdc5d5;
   @include tablet {
     flex-direction: row;
     justify-content: space-evenly;
     padding: 0 3.2rem;
-    margin: 0 3.2rem;
+    margin-top: 1rem;
   }
 
   &__text {

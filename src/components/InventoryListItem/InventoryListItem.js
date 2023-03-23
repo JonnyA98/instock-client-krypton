@@ -52,7 +52,7 @@ const WarehouseInventoryListItem = ({ name, category, quantity }) => {
             </div>
             <div className="warehouse-inventory-list-item__category">
               <h4 className="warehouse-inventory-list-item__mini-header">
-                Quantity
+                QTY
               </h4>
               <p className="warehouse-inventory-list-item__data">{quantity}</p>
             </div>
