@@ -49,7 +49,7 @@ const WarehouseInventoryListItem = ({
               <p className={statusClass}>{status}</p>
             </div>
             <div className="inventory-list-item__category">
-              <h4 className="inventory-list-item__mini-header">Quantity</h4>
+              <h4 className="inventory-list-item__mini-header">QTY</h4>
               <p className="inventory-list-item__data">{quantity}</p>
             </div>
           </div>
