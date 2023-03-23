@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./InventoryList.scss";
