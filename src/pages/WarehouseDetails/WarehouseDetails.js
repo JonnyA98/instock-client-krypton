@@ -3,23 +3,39 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import WarehouseInfo from "../../components/WarehouseInfo/WarehouseInfo";
+import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
 import "./WarehouseDetails.scss";
 
 const WarehouseDetails = () => {
   const [inventory, setInventory] = useState(null);
   const [warehouse, setWarehouse] = useState(null);
   const [error, setError] = useState("");
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
 
   const { warehouseId } = useParams();
 
-  useEffect(() => {
-    const getInventory = async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
-      );
-      setInventory(data);
-    };
+  const modalToggle = (item) => {
+    setDeleteModal(!deleteModal);
+    setItemToDelete(item);
+  };
 
+  const getInventory = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
+    );
+    setInventory(data);
+  };
+
+  const deleteItem = async (item) => {
+    await axios.delete(
+      `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${item.id}`
+    );
+    getInventory();
+    modalToggle();
+  };
+
+  useEffect(() => {
     try {
       getInventory();
     } catch (error) {
@@ -48,17 +64,22 @@ const WarehouseDetails = () => {
 
   return (
     <>
-      <div className="warehouses">
-        <div className="warehouses__card">
-          <div className="warehouses__list">
-            {warehouse.map((warehouse) => {
-              return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
-            })}
-          </div>
-          <InventoryList warehouseInventory={inventory} />
-        </div>
-        {error && <p>{error}</p>}
+      {deleteModal && (
+        <DeleteItemModal
+          modalToggle={modalToggle}
+          itemToDelete={itemToDelete}
+          deleteItem={deleteItem}
+        />
+      )}
+
+      <div className="warehouses__list">
+        {warehouse.map((warehouse) => {
+          return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
+        })}
       </div>
+      <InventoryList modalToggle={modalToggle} inventory={inventory} />
+
+      {error && <p>{error}</p>}
     </>
   );
 };

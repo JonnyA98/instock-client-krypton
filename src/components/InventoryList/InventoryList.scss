@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse-inventory-list {
+.inventory-list {
   &__category-header-wrapper {
     display: none;
     padding: 1.1rem 3.2rem;
