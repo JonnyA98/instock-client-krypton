@@ -1,4 +1,5 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .modal {
   position: fixed;
@@ -6,7 +7,7 @@
   z-index: 10;
 
   &__wrapper {
-    background: white;
+    background: $primary-white;
     padding: 6rem 1.6rem;
     width: 100%;
     height: 100vh;
@@ -29,17 +30,22 @@
 
   &__button {
     @include button;
-    border: solid 0.1rem black;
+    border: 0.1rem solid $secondary-color-alt;
     width: 40%;
     @include flex(center, center);
     &--delete {
       position: absolute;
       right: 3rem;
+      background-color: $supporting-color-alt;
     }
   }
 
   &__button-text {
     @include flex(center, center);
     width: 90%;
+
+    &--delete {
+      color: $primary-white;
+    }
   }
 }

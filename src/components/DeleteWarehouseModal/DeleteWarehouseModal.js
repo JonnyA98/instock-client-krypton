@@ -34,7 +34,9 @@ const DeleteWarehouseModal = ({
             onClick={() => deleteWarehouse(warehouseToDelete)}
             className="modal__button modal__button--delete"
           >
-            <a className="modal__button-text">Delete</a>
+            <a className="modal__button-text modal__button-text--delete">
+              Delete
+            </a>
           </div>
         </div>
       </div>
