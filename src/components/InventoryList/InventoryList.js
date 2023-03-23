@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import WarehouseInventoryListItem from "../InventoryListItem/InventoryListItem";
+import InventoryListItem from "../InventoryListItem/InventoryListItem";
 import sort from "../../assets/Icons/sort-24px.svg";
 import "./InventoryList.scss";
 
-const WarehouseInventoryList = ({ warehouseInventory, modalToggle }) => {
+const InventoryList = ({ inventory, modalToggle }) => {
   return (
     <>
       <div className="inventory-list__category-header-wrapper">
@@ -27,9 +27,9 @@ const WarehouseInventoryList = ({ warehouseInventory, modalToggle }) => {
           <h4 className="inventory-list__category-header">Actions</h4>
         </div>
       </div>
-      {warehouseInventory &&
-        warehouseInventory.map((item) => (
-          <WarehouseInventoryListItem
+      {inventory &&
+        inventory.map((item) => (
+          <InventoryListItem
             item={item}
             name={item.item_name}
             category={item.category}
@@ -38,9 +38,9 @@ const WarehouseInventoryList = ({ warehouseInventory, modalToggle }) => {
             modalToggle={modalToggle}
           />
         ))}
-      {!warehouseInventory && <p>No inventory in this warehouse!</p>}
+      {!inventory && <p>No inventory in this warehouse!</p>}
     </>
   );
 };
 
-export default WarehouseInventoryList;
+export default InventoryList;

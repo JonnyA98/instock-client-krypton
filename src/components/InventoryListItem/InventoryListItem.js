@@ -5,13 +5,7 @@ import arrow from "../../assets/Icons/chevron_right-24px.svg";
 import bin from "../../assets/Icons/delete_outline-24px.svg";
 import pencil from "../../assets/Icons/edit-24px.svg";
 
-const WarehouseInventoryListItem = ({
-  item,
-  category,
-  quantity,
-  modalToggle,
-  name,
-}) => {
+const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
   const [status, setStatus] = useState("In Stock");
   const [statusClass, setStatusClass] = useState("inventory-list-item__status");
 
@@ -70,4 +64,4 @@ const WarehouseInventoryListItem = ({
   );
 };
 
-export default WarehouseInventoryListItem;
+export default InventoryListItem;

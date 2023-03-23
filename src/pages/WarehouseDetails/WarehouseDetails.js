@@ -77,7 +77,7 @@ const WarehouseDetails = () => {
           return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
         })}
       </div>
-      <InventoryList modalToggle={modalToggle} warehouseInventory={inventory} />
+      <InventoryList modalToggle={modalToggle} inventory={inventory} />
 
       {error && <p>{error}</p>}
     </>
