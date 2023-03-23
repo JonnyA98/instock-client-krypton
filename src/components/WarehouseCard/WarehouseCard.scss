@@ -61,6 +61,10 @@
     &-chevron {
       height: 1.5rem;
     }
+
+    @include desktop {
+      @include flex(left, center, row);
+    }
   }
 
   &__link-wrapper {
@@ -89,8 +93,5 @@
     @include tablet {
       margin-right: 1rem;
     }
-  }
-
-  &__edit {
   }
 }

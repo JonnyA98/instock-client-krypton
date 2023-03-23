@@ -26,7 +26,9 @@ const WarehouseCard = ({ warehouse, modalToggle }) => {
             </div>
             <div className="warehouses__facts">
               <h4 className="warehouses__subtitle">ADDRESS</h4>
-              <p className="warehouses__info">{warehouse.address}</p>
+              <p className="warehouses__info">
+                {warehouse.address}, {warehouse.city}, {warehouse.country}
+              </p>
             </div>
           </div>
           <div className="warehouses__contact-wrapper">
