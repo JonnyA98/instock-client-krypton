@@ -5,16 +5,27 @@ import axios from "axios";
 
 const StockDetails = () => {
   const [item, setItem] = useState(null);
-  const [statusClass, setStatusClass] = useState("");
-  const { itemId } = useParams();
+
+  const { stockId } = useParams();
+
+  const getItem = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${stockId}`
+    );
+    setItem(data);
+  };
+
   useEffect(() => {
-    const getItem = async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${itemId}`
-      );
-      setItem(data);
-    };
-  });
+    try {
+      getItem();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  if (!item) {
+    return <p>Loading!!!</p>;
+  }
 
   return (
     <div>
