@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
 import WarehouseCard from "../../components/ListWarehouses/WarehouseCard";
+import DeleteWarehouseModal from "../../components/DeleteWarehouseModal/DeleteWarehouseModal";
 
 const Warehouses = () => {
   const [warehouses, setWarehouses] = useState(null);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [warehouseToDelete, setWarehouseToDelete] = useState(null);
 
-  const modalToggle = () => {
+  const modalToggle = (warehouse) => {
     setDeleteModal(!deleteModal);
+    setWarehouseToDelete(warehouse);
     console.log(deleteModal);
   };
 
@@ -30,23 +33,28 @@ const Warehouses = () => {
   }
 
   return (
-    <div className="warehouses">
-      <div className="warehouses__card">
-        <SearchWarehouses />
-
-        <div className="warehouses__list">
-          {warehouses.map((warehouse) => {
-            return (
-              <WarehouseCard
-                key={warehouse.id}
-                warehouse={warehouse}
-                modalToggle={modalToggle}
-              />
-            );
-          })}
+    <>
+      {deleteModal && (
+        <DeleteWarehouseModal warehouseToDelete={warehouseToDelete} />
+      )}
+      <div className="warehouses">
+        <div className="warehouses__card">
+          <SearchWarehouses />
+          <div className="warehouses__list">
+            {warehouses.map((warehouse) => {
+              // deleteModal && <DeleteWarehouseModal warehouse={warehouse} />;
+              return (
+                <WarehouseCard
+                  key={warehouse.id}
+                  warehouse={warehouse}
+                  modalToggle={modalToggle}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

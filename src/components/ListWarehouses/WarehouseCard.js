@@ -29,7 +29,10 @@ const WarehouseCard = ({ warehouse, modalToggle }) => {
           <p className="warehouses__info">{warehouse.contact_phone}</p>
           <p className="warehouses__info">{warehouse.contact_email}</p>
         </div>
-        <span onClick={modalToggle} className="warehouses__delete">
+        <span
+          onClick={() => modalToggle(warehouse)}
+          className="warehouses__delete"
+        >
           <img src={deleteIcon} alt="delete Icon" />
         </span>
         <span className="warehouses__edit">
