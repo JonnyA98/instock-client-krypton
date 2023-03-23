@@ -1,5 +1,6 @@
 import "./WarehouseInfo.scss";
 import editIconWhite from "../../assets/Icons/edit-24px-white.svg";
+import { Link } from "react-router-dom";
 
 const WarehouseInfo = ({ warehouse }) => {
   return (
@@ -8,14 +9,18 @@ const WarehouseInfo = ({ warehouse }) => {
         <h2 className="warehouse-info__title warehouse-info__arrow ">
           {warehouse.warehouse_name}
         </h2>
-        <span className="warehouse-info__edit">
+        <Link
+          to={`/warehouses/edit/${warehouse.id}`}
+          className="warehouse-info__edit"
+          state={warehouse}
+        >
           <img
             className="warehouse-info__pen"
             src={editIconWhite}
             alt="edit Icon"
           />
           <p className="warehouse-info__editPen">Edit</p>
-        </span>
+        </Link>
       </section>
       <section className="warehouse-info__section">
         <div className="warehouse-info__address">
