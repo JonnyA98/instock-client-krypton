@@ -7,8 +7,8 @@ const DeleteWarehouseModal = ({
   deleteWarehouse,
 }) => {
   return (
-    <article className="modal">
-      <div className="modal__wrapper">
+    <article onClick={modalToggle} className="modal">
+      <div onClick={(e) => e.stopPropagation()} className="modal__wrapper">
         <img
           onClick={modalToggle}
           className="modal__close"
