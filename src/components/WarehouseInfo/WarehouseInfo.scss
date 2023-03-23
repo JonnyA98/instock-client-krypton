@@ -1,0 +1,61 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-info {
+  &__title {
+    padding-left: 5rem;
+    padding-right: 1.6rem;
+    color: #13182c;
+    padding-top: 2rem;
+    font-size: 2.8rem;
+    line-height: 2rem;
+    font-weight: 600;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $secondary-color-alt;
+  }
+
+  &__arrow {
+    background-image: url(../../assets/Icons/arrow_back-24px.svg);
+    background-repeat: no-repeat;
+    background-position: 2rem 2rem;
+    background-size: 2.5rem;
+  }
+  &__edit {
+    position: relative;
+    left: 24.6rem;
+    bottom: 5rem;
+    //background-color: $primary-color-alt;
+  }
+
+  &__subtitle {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1rem;
+    color: $secondary-color;
+    margin-bottom: 1rem;
+  }
+  &__details {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    color: $primary-color;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  &__stock {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #bdc5d5;
+  }
+  &__facts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 49%;
+  }
+}

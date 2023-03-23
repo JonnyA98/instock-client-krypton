@@ -4,7 +4,7 @@ import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
-import WarehouseCard from "../../components/ListWarehouses/WarehouseCard";
+import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 
 const Warehouses = () => {
   const [warehouses, setWarehouses] = useState(null);
