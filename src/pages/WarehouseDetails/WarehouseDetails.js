@@ -12,20 +12,20 @@ const WarehouseDetails = () => {
 
   const { warehouseId } = useParams();
 
-  const getInventory = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
-    );
-    setInventory(data);
-  };
-
   useEffect(() => {
+    const getInventory = async () => {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
+      );
+      setInventory(data);
+    };
+
     try {
       getInventory();
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [warehouseId]);
 
   const getWarehouse = async () => {
     const { data } = await axios.get(

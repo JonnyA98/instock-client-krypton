@@ -1,0 +1,169 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.add-warehouse {
+  position: relative;
+  margin: 0 1.6rem;
+  bottom: 6.5rem;
+  background-color: $primary-white;
+  border-radius: 0.3rem;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+  @include tablet {
+    bottom: 9.4rem;
+    margin: 0 3.2rem;
+  }
+
+  @include desktop {
+    max-width: $max-wrapper-width;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    background-color: $background-color-alt;
+    margin-bottom: -6.5rem;
+
+    @include tablet {
+      padding-bottom: 22rem;
+      margin: 0;
+    }
+
+    @include tablet {
+      padding-bottom: 11.5rem;
+    }
+  }
+
+  &__heading-wrapper {
+    @include flex(flex-start, center);
+    padding: 3.2rem 2rem 2.4rem;
+    border-bottom: 1px solid $secondary-color-alt;
+
+    @include tablet {
+      padding: 3.2rem 3.2rem 2.1rem;
+    }
+
+    @include desktop {
+      padding: 3.2rem 4rem 2.1rem;
+    }
+  }
+
+  &__back {
+    margin-right: 1rem;
+    cursor: pointer;
+  }
+
+  &-form {
+    &__inputs-wrapper {
+      @include flex(flex-start, flex-start, column);
+
+      @include tablet {
+        flex-direction: row;
+      }
+    }
+
+    &__warehouse-details {
+      width: 100%;
+      padding: 1.6rem 0 2.4rem;
+      border-bottom: 1px solid $secondary-color-alt;
+
+      @include tablet {
+        border-bottom: none;
+        padding: 2.4rem 0 3.2rem;
+      }
+    }
+
+    &__wrapper {
+      @include flex(flex-start, flex-start, column);
+      width: 100%;
+      padding: 0 2rem;
+
+      @include tablet {
+        padding: 0 3.2rem;
+      }
+
+      &--left {
+        @include tablet {
+          border-right: 1px solid $secondary-color-alt;
+        }
+      }
+    }
+
+    &__heading {
+      margin-bottom: 0.8rem;
+    }
+
+    &__label {
+      @include form-label;
+      margin-bottom: 0.4rem;
+      margin-top: 1.6rem;
+
+      @include tablet {
+        margin-top: 2.4rem;
+      }
+    }
+
+    &__input {
+      @include form-input;
+
+      &::placeholder {
+        @include body-medium;
+        color: $secondary-color;
+      }
+
+      &:focus {
+        border: 1px solid $primary-color-alt;
+        outline: none;
+      }
+
+      &--error {
+        border: 1px solid $supporting-color-alt;
+      }
+    }
+
+    &__contact-details {
+      width: 100%;
+      padding: 1.6rem 0 2.4rem;
+
+      @include tablet {
+        padding: 2.4rem 0 3.2rem;
+      }
+    }
+
+    &__validation {
+      @include body-medium;
+      color: $supporting-color-alt;
+    }
+
+    &__bottom-wrapper {
+      background-color: $background-color-alt;
+      width: 100%;
+      padding: 1.6rem 2rem;
+      @include flex(space-between);
+
+      @include tablet {
+        justify-content: flex-end;
+        padding: 1.6rem 3.2rem;
+      }
+    }
+
+    &__button {
+      @include button;
+      background-color: $primary-color-alt;
+      color: $primary-white;
+      border: 1px solid $primary-color-alt;
+      width: 48%;
+      cursor: pointer;
+
+      @include tablet {
+        width: auto;
+      }
+
+      &--cancel {
+        background-color: $primary-white;
+        color: $secondary-color;
+        border: 1px solid $secondary-color-alt;
+        margin-right: 1.6rem;
+      }
+    }
+  }
+}

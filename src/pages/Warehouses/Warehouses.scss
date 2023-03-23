@@ -3,9 +3,12 @@
 
 .warehouses {
   background-color: $background-color-alt;
+  margin-bottom: -6.5rem;
+
   &__content {
     border-bottom: 1px solid $secondary-color-alt;
   }
+
   &__card {
     border-radius: 3px;
     padding-top: 2rem;
