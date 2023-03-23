@@ -1,26 +1,31 @@
 import backBtn from "../../assets/Icons/arrow_back-24px.svg";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import FormModal from "../../components/FormModal/FormModal";
 import { PUT_WAREHOUSE } from "../../utils/apiCalls.mjs";
 
-const EditWarehouse = ({ originalFormData }) => {
+const EditWarehouse = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const warehouse = location.state;
+
   const backHandler = () => {
     navigate(-1);
   };
 
   const [showModal, setShowModal] = useState(false);
 
+  // set form fields with warehouse to be edited
   const [formData, setFormData] = useState({
-    warehouse_name: "",
-    address: "",
-    city: "",
-    country: "",
-    contact_name: "",
-    contact_position: "",
-    contact_phone: "",
-    contact_email: "",
+    warehouse_name: warehouse.warehouse_name,
+    address: warehouse.address,
+    city: warehouse.city,
+    country: warehouse.country,
+    contact_name: warehouse.contact_name,
+    contact_position: warehouse.contact_position,
+    contact_phone: warehouse.contact_phone,
+    contact_email: warehouse.contact_email,
   });
 
   const [errors, setErrors] = useState({});
@@ -99,7 +104,7 @@ const EditWarehouse = ({ originalFormData }) => {
 
     console.log(editedWarehouse);
     try {
-      PUT_WAREHOUSE(editedWarehouse);
+      PUT_WAREHOUSE(warehouse.id, editedWarehouse);
     } catch (error) {
       console.log(error);
     }
@@ -131,6 +136,7 @@ const EditWarehouse = ({ originalFormData }) => {
           <h1 className="form-warehouse__heading">Edit Warehouse</h1>
         </div>
 
+        {/* Modal for confirming edit */}
         <FormModal show={showModal} />
 
         <form className="form-warehouse-form" onSubmit={submitWarehouseHandler}>
