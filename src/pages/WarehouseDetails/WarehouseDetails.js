@@ -15,18 +15,22 @@ const WarehouseDetails = () => {
     setItemToDelete(item);
   };
 
-  const deleteItem = (item) => {
-    console.log(item);
+  const getInventory = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
+    );
+    setInventory(data);
+  };
+
+  const deleteItem = async (item) => {
+    await axios.delete(
+      `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${item.id}`
+    );
+    getInventory();
+    modalToggle();
   };
 
   useEffect(() => {
-    const getInventory = async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
-      );
-      setInventory(data);
-    };
-
     try {
       getInventory();
     } catch (error) {

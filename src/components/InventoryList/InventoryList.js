@@ -6,31 +6,25 @@ import "./InventoryList.scss";
 const WarehouseInventoryList = ({ warehouseInventory, modalToggle }) => {
   return (
     <>
-      <div className="warehouse-inventory-list__category-header-wrapper">
-        <div className="warehouse-inventory-list__category-box">
-          <h4 className="warehouse-inventory-list__category-header">
-            Inventory Item
-          </h4>
+      <div className="inventory-list__category-header-wrapper">
+        <div className="inventory-list__category-box">
+          <h4 className="inventory-list__category-header">Inventory Item</h4>
           <img src={sort} alt="sort" />
         </div>
-        <div className="warehouse-inventory-list__category-box">
-          <h4 className="warehouse-inventory-list__category-header">
-            Category
-          </h4>
+        <div className="inventory-list__category-box">
+          <h4 className="inventory-list__category-header">Category</h4>
           <img src={sort} alt="sort" />
         </div>
-        <div className="warehouse-inventory-list__category-box warehouse-inventory-list__category-box--status">
-          <h4 className="warehouse-inventory-list__category-header ">Status</h4>
+        <div className="inventory-list__category-box warehouse-inventory-list__category-box--status">
+          <h4 className="inventory-list__category-header ">Status</h4>
           <img src={sort} alt="sort" />
         </div>
-        <div className="warehouse-inventory-list__category-box">
-          <h4 className="warehouse-inventory-list__category-header">
-            Quantity
-          </h4>
+        <div className="inventory-list__category-box">
+          <h4 className="inventory-list__category-header">Quantity</h4>
           <img src={sort} alt="sort" />
         </div>
-        <div className="warehouse-inventory-list__category-box warehouse-inventory-list__category-box--actions">
-          <h4 className="warehouse-inventory-list__category-header">Actions</h4>
+        <div className="inventory-list__category-box warehouse-inventory-list__category-box--actions">
+          <h4 className="inventory-list__category-header">Actions</h4>
         </div>
       </div>
       {warehouseInventory &&
