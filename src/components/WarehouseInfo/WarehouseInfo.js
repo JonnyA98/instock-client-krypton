@@ -1,14 +1,21 @@
 import "./WarehouseInfo.scss";
 import editIconWhite from "../../assets/Icons/edit-24px-white.svg";
-import { Link } from "react-router-dom";
+import arrow from "../../assets/Icons/arrow_back-24px.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const WarehouseInfo = ({ warehouse }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="warehouse-info">
       <section className="warehouse-info__container">
-        <h2 className="warehouse-info__title warehouse-info__arrow ">
-          {warehouse.warehouse_name}
-        </h2>
+        <img
+          className="warehouse-info__arrow "
+          src={arrow}
+          alt="arrow"
+          onClick={() => navigate(-1)}
+        />
+        <h2 className="warehouse-info__title ">{warehouse.warehouse_name}</h2>
         <Link
           to={`/warehouses/edit/${warehouse.id}`}
           className="warehouse-info__edit"

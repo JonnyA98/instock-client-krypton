@@ -8,12 +8,13 @@
     @include tablet {
       display: flex;
       align-items: baseline;
-      justify-content: space-between;
-      padding-right: 1.6rem;
+      justify-content: flex-start;
+      padding-right: 3.6rem;
+      margin-top: 2.5rem;
     }
   }
   &__title {
-    padding-left: 5rem;
+    padding-left: 1rem;
     padding-right: 1.6rem;
     color: #13182c;
     padding-top: 2rem;
@@ -24,10 +25,7 @@
   }
 
   &__arrow {
-    background-image: url(../../assets/Icons/arrow_back-24px.svg);
-    background-repeat: no-repeat;
-    background-position: 2rem 2rem;
-    background-size: 2.5rem;
+    padding-left: 3.2rem;
   }
   &__edit {
     position: relative;
@@ -46,6 +44,7 @@
       height: 3.5rem;
       width: 8rem;
       display: flex;
+      margin-left: auto;
     }
   }
   &__pen {
