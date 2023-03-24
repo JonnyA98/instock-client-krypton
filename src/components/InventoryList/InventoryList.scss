@@ -8,20 +8,15 @@
     background: rgba(247, 248, 249, 0.7);
     text-transform: uppercase;
     @include tablet {
-      @include flex(flex-start, center);
+      @include flex(null, center);
+      width: 100%;
     }
   }
 
   &__category-box {
-    flex-grow: 1;
     @include flex(null, center);
 
     &--status {
-      flex-grow: 2;
-    }
-
-    &--actions {
-      flex-grow: 0;
     }
   }
 }

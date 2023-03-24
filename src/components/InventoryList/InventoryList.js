@@ -18,7 +18,7 @@ const InventoryList = ({ inventory, modalToggle }) => {
           <h4 className="inventory-list__category-header ">Status</h4>
           <img src={sort} alt="sort" />
         </div>
-        <div className="inventory-list__category-box">
+        <div className="inventory-list__category-box ">
           <h4 className="inventory-list__category-header">Quantity</h4>
           <img src={sort} alt="sort" />
         </div>
