@@ -4,8 +4,8 @@ import "./SearchWarehouses.scss";
 const SearchWarehouses = () => {
   return (
     <section className="warehouses__content">
-      <h1 className="warehouses__title">Warehouses</h1>
       <div className="warehouses__search">
+        <h1 className="warehouses__title">Warehouses</h1>
         <input
           type="text"
           name="search"
