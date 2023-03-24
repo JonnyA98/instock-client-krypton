@@ -27,7 +27,10 @@ const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
               <h4 className="inventory-list-item__mini-header">
                 Inventory Item
               </h4>
-              <Link className="inventory-list-item__link">
+              <Link
+                to={`/inventory/${item.id}`}
+                className="inventory-list-item__link"
+              >
                 <p className="inventory-list-item__link-text">{name}</p>
                 <img src={arrow} alt="chevron_right" />
               </Link>
@@ -49,18 +52,15 @@ const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
           </div>
         </div>
         <div className="inventory-list-item__buttons">
-          <div
+          <img
             onClick={() => modalToggle(item)}
-            className="inventory-list-item__button"
-          >
-            <img src={bin} alt="bin" />
-          </div>
-          <Link
-            to={`/inventory/edit/${item.id}`}
-            state={item}
-            className="inventory-list-item__button"
-          >
-            <img src={pencil} alt="pencil" state={item} />
+            className="inventory-list-item__delete"
+            src={bin}
+            alt="bin"
+          />
+
+          <Link className="inventory-list-item__link">
+            <img src={pencil} alt="pencil" />
           </Link>
         </div>
       </article>

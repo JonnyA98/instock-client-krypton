@@ -8,20 +8,28 @@
     background: rgba(247, 248, 249, 0.7);
     text-transform: uppercase;
     @include tablet {
-      @include flex(flex-start, center);
+      @include flex(space-around, center);
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__container {
+    @include flex(space-between);
+    padding: 0;
+    &--1 {
+      width: 60%;
+    }
+    &--2 {
+      width: 35%;
     }
   }
 
   &__category-box {
-    flex-grow: 1;
-    @include flex(null, center);
-
-    &--status {
-      flex-grow: 2;
-    }
-
-    &--actions {
-      flex-grow: 0;
+    @include flex(space-evenly, center);
+    width: 30%;
+    &--2 {
+      width: 50%;
     }
   }
 }
