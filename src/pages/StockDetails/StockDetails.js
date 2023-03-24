@@ -2,6 +2,7 @@ import ItemCard from "../../components/ItemCard/ItemCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./StockDetails.scss";
 
 const StockDetails = () => {
   const [item, setItem] = useState(null);
@@ -28,7 +29,7 @@ const StockDetails = () => {
   }
 
   return (
-    <div>
+    <div className="stock-details">
       <ItemCard item={item} />
     </div>
   );

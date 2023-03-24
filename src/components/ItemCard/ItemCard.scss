@@ -2,30 +2,77 @@
 @use "../../styles/partials/variables" as *;
 
 .item {
-  margin: 1.6rem;
+  margin: 0 1.6rem;
   width: 90%;
-  //   position: relative;
-  //   bottom: 4rem;
+  position: relative;
+  bottom: 8rem;
+  z-index: 10;
+  background-color: $primary-white;
+  @include tablet {
+    margin: 0 3.2rem;
+  }
+  @include desktop {
+    margin: 0 13rem;
+  }
 
-  height: 60vh;
+  &__body-wrapper {
+    @include tablet {
+      @include flex();
+    }
+  }
+
+  &__text-container {
+    @include tablet {
+      margin-top: 2.4rem;
+      width: 50%;
+    }
+    &--left {
+      @include tablet {
+        border-right: solid 0.1rem $secondary-color-alt;
+      }
+    }
+  }
   &__top-row {
     @include flex(space-between);
     border-bottom: solid 0.1rem $secondary-color-alt;
     width: 100%;
+    padding: 1.6rem;
   }
   &__title-container {
     @include flex(null, center);
   }
 
+  &__img-container {
+    background-color: $primary-color-alt;
+    border-radius: 50%;
+    @include flex(center, center);
+    padding: 0.5rem;
+  }
+
+  &__pencil {
+    filter: brightness(0) invert(1);
+  }
+
   &__stat {
     margin: 1.6rem;
+    @include tablet {
+      margin-left: 3.2rem;
+    }
   }
   &__row {
     @include flex();
+    @include tablet {
+    }
+  }
+
+  &__mini-header {
+    color: $secondary-color;
+    margin-bottom: 0.4rem;
   }
 
   &__text {
     @include body-small;
+    color: $primary-color;
   }
   &__status {
     @include body-medium;
@@ -35,9 +82,6 @@
     background: rgba(21, 132, 99, 0.07);
     &--out {
       color: $supporting-color-alt;
-    }
-    @include tablet {
-      margin-left: 2rem;
     }
   }
 }
