@@ -120,30 +120,31 @@ const AddWarehouse = () => {
   };
 
   return (
-    <div className="add-warehouse__wrapper">
-      <main className="add-warehouse">
-        <div className="add-warehouse__heading-wrapper">
+    <div className="form-warehouse__wrapper">
+      <main className="form-warehouse">
+        <div className="form-warehouse__heading-wrapper">
           <img
-            className="add-warehouse__back"
+            className="form-warehouse__back"
             src={backBtn}
             alt="back button"
             onClick={backHandler}
           />
-          <h1 className="add-warehouse__heading">Add New Warehouse</h1>
+          <h1 className="form-warehouse__heading">Add New Warehouse</h1>
         </div>
 
-        <FormModal show={showModal} />
+        {/* Modal for confirming add */}
+        <FormModal message="Warehouse Added" show={showModal} />
 
-        <form className="add-warehouse-form" onSubmit={submitWarehouseHandler}>
-          <div className="add-warehouse-form__inputs-wrapper">
-            <div className="add-warehouse-form__warehouse-details">
-              <div className="add-warehouse-form__wrapper add-warehouse-form__wrapper--left">
-                <h2 className="add-warehouse-form__heading">
+        <form className="form-warehouse-form" onSubmit={submitWarehouseHandler}>
+          <div className="form-warehouse-form__inputs-wrapper">
+            <div className="form-warehouse-form__warehouse-details">
+              <div className="form-warehouse-form__wrapper form-warehouse-form__wrapper--left">
+                <h2 className="form-warehouse-form__heading">
                   Warehouse Details
                 </h2>
 
                 <label
-                  className="add-warehouse-form__label"
+                  className="form-warehouse-form__label"
                   htmlFor="warehouse_name"
                 >
                   Warehouse Name
@@ -151,8 +152,8 @@ const AddWarehouse = () => {
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="warehouse_name"
@@ -161,19 +162,19 @@ const AddWarehouse = () => {
                   value={formData.warehouse_name}
                 />
                 {errors.warehouse_name && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.warehouse_name}
                   </p>
                 )}
 
-                <label htmlFor="address" className="add-warehouse-form__label">
+                <label htmlFor="address" className="form-warehouse-form__label">
                   Street Address
                 </label>
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="address"
@@ -182,19 +183,19 @@ const AddWarehouse = () => {
                   value={formData.address}
                 />
                 {errors.address && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.address}
                   </p>
                 )}
 
-                <label htmlFor="city" className="add-warehouse-form__label">
+                <label htmlFor="city" className="form-warehouse-form__label">
                   City
                 </label>
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="city"
@@ -203,19 +204,19 @@ const AddWarehouse = () => {
                   value={formData.city}
                 />
                 {errors.city && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.city}
                   </p>
                 )}
 
-                <label htmlFor="country" className="add-warehouse-form__label">
+                <label htmlFor="country" className="form-warehouse-form__label">
                   Country
                 </label>
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="country"
@@ -224,18 +225,20 @@ const AddWarehouse = () => {
                   value={formData.country}
                 />
                 {errors.country && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.country}
                   </p>
                 )}
               </div>
             </div>
-            <div className="add-warehouse-form__contact-details">
-              <div className="add-warehouse-form__wrapper">
-                <h2 className="add-warehouse-form__heading">Contact Details</h2>
+            <div className="form-warehouse-form__contact-details">
+              <div className="form-warehouse-form__wrapper">
+                <h2 className="form-warehouse-form__heading">
+                  Contact Details
+                </h2>
 
                 <label
-                  className="add-warehouse-form__label"
+                  className="form-warehouse-form__label"
                   htmlFor="contact_name"
                 >
                   Contact Name
@@ -243,8 +246,8 @@ const AddWarehouse = () => {
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="contact_name"
@@ -253,22 +256,22 @@ const AddWarehouse = () => {
                   value={formData.contact_name}
                 />
                 {errors.contact_name && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.contact_name}
                   </p>
                 )}
 
                 <label
                   htmlFor="contact_position"
-                  className="add-warehouse-form__label"
+                  className="form-warehouse-form__label"
                 >
                   Position
                 </label>
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="contact_position"
@@ -277,22 +280,22 @@ const AddWarehouse = () => {
                   value={formData.contact_position}
                 />
                 {errors.contact_position && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.contact_position}
                   </p>
                 )}
 
                 <label
                   htmlFor="contact_phone"
-                  className="add-warehouse-form__label"
+                  className="form-warehouse-form__label"
                 >
                   Phone Number
                 </label>
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="contact_phone"
@@ -301,22 +304,22 @@ const AddWarehouse = () => {
                   value={formData.contact_phone}
                 />
                 {errors.contact_phone && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.contact_phone}
                   </p>
                 )}
 
                 <label
                   htmlFor="contact_email"
-                  className="add-warehouse-form__label"
+                  className="form-warehouse-form__label"
                 >
                   Email
                 </label>
                 <input
                   className={
                     errors.warehouse_name
-                      ? "add-warehouse-form__input add-warehouse-form__input--error"
-                      : "add-warehouse-form__input"
+                      ? "form-warehouse-form__input form-warehouse-form__input--error"
+                      : "form-warehouse-form__input"
                   }
                   type="text"
                   name="contact_email"
@@ -325,7 +328,7 @@ const AddWarehouse = () => {
                   value={formData.contact_email}
                 />
                 {errors.contact_email && (
-                  <p className="add-warehouse-form__validation">
+                  <p className="form-warehouse-form__validation">
                     {errors.contact_email}
                   </p>
                 )}
@@ -333,15 +336,16 @@ const AddWarehouse = () => {
             </div>
           </div>
 
-          <div className="add-warehouse-form__bottom-wrapper">
+          <div className="form-warehouse-form__bottom-wrapper">
             <button
-              className="add-warehouse-form__button add-warehouse-form__button--cancel"
+              type="button"
+              className="form-warehouse-form__button form-warehouse-form__button--cancel"
               onClick={backHandler}
             >
               Cancel
             </button>
 
-            <button type="submit" className="add-warehouse-form__button">
+            <button type="submit" className="form-warehouse-form__button">
               + Add Warehouse
             </button>
           </div>

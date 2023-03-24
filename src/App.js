@@ -1,5 +1,5 @@
 import "./styles/App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import AddStock from "./pages/AddStock/AddStock";
 import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
@@ -16,18 +16,18 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Warehouses />} />
-        <Route path="/warehouses" element={<Warehouses />} />
-        <Route path="/warehouses/:warehouseId" element={<WarehouseDetails />} />
+        <Route path="/" element={<Navigate to="warehouses" />} />
+        <Route path="warehouses" element={<Warehouses />} />
+        <Route path="warehouses/:warehouseId" element={<WarehouseDetails />} />
         <Route
-          path="/warehouses/edit/:warehouseId"
+          path="warehouses/edit/:warehouseId"
           element={<EditWarehouse />}
         />
-        <Route path="/warehouses/add-warehouse" element={<AddWarehouse />} />
-        <Route path="/inventory" element={<Inventory />} />
-        <Route path="/inventory/:stockId" element={<StockDetails />} />
-        <Route path="/inventory/edit/:stockId" element={<EditStock />} />
-        <Route path="/inventory/add-stock" element={<AddStock />} />
+        <Route path="warehouses/add-warehouse" element={<AddWarehouse />} />
+        <Route path="inventory" element={<Inventory />} />
+        <Route path="inventory/:stockId" element={<StockDetails />} />
+        <Route path="inventory/edit/:stockId" element={<EditStock />} />
+        <Route path="inventory/add-stock" element={<AddStock />} />
       </Routes>
       <Footer />
     </BrowserRouter>
