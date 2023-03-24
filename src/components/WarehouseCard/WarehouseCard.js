@@ -51,7 +51,11 @@ const WarehouseCard = ({ warehouse, modalToggle }) => {
             className="warehouses__delete"
           />
 
-          <Link to={`edit/${warehouse.id}`} state={warehouse}>
+          <Link
+            className="warehouses__edit-link"
+            to={`edit/${warehouse.id}`}
+            state={warehouse}
+          >
             <img src={editIcon} alt="edit Icon" className="warehouses__edit" />
           </Link>
         </div>
