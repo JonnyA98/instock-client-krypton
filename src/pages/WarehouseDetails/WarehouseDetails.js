@@ -5,6 +5,7 @@ import InventoryList from "../../components/InventoryList/InventoryList";
 import WarehouseInfo from "../../components/WarehouseInfo/WarehouseInfo";
 import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
 import "./WarehouseDetails.scss";
+import { GET_A_WAREHOUSE } from "../../utils/apiCalls.mjs";
 
 const WarehouseDetails = () => {
   const [inventory, setInventory] = useState(null);
@@ -44,9 +45,8 @@ const WarehouseDetails = () => {
   }, [warehouseId]);
 
   const getWarehouse = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}`
-    );
+    const { data } = await GET_A_WAREHOUSE();
+
     setWarehouse(data);
   };
 

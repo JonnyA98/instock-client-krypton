@@ -41,7 +41,6 @@ const Inventory = () => {
 
   const mainTitle = "Inventory";
   const descriptionBtn = "Add New Item";
-  const linkTo = "/inventory/add-stock";
 
   return (
     <div className="inventories">
@@ -56,7 +55,6 @@ const Inventory = () => {
         <SearchWarehouses
           mainTitle={mainTitle}
           descriptionBtn={descriptionBtn}
-          linkTo={linkTo}
         />
         <div>
           <InventoryHeader />

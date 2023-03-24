@@ -40,7 +40,6 @@ const Warehouses = () => {
   }
   const mainTitle = "Warehouses";
   const descriptionBtn = "Add New Warehouse";
-  const linkTo = "/warehouses/add-warehouse";
 
   return (
     <>
@@ -56,7 +55,6 @@ const Warehouses = () => {
           <SearchWarehouses
             mainTitle={mainTitle}
             descriptionBtn={descriptionBtn}
-            linkTo={linkTo}
           />
 
           <div className="inventory-list__category-header-wrapper">

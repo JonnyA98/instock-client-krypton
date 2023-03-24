@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./SearchWarehouses.scss";
 
-const SearchWarehouses = ({ mainTitle, descriptionBtn, linkTo }) => {
+const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
+  const location = useLocation();
+
   return (
     <section className="warehouses__content">
       <h1 className="warehouses__title">{mainTitle}</h1>
@@ -12,7 +14,13 @@ const SearchWarehouses = ({ mainTitle, descriptionBtn, linkTo }) => {
           className="warehouses__text warehouses__search-icon"
           placeholder="Search"
         />
-        <Link to={linkTo} className="warehouses__btn">
+
+        <Link
+          to={
+            location.pathname === "/warehouses" ? "add-warehouse" : "add-stock"
+          }
+          className="warehouses__btn"
+        >
           + {descriptionBtn}
         </Link>
       </div>

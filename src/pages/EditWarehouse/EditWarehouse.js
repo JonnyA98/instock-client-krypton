@@ -1,34 +1,74 @@
 import backBtn from "../../assets/Icons/arrow_back-24px.svg";
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import FormModal from "../../components/FormModal/FormModal";
-import { PUT_WAREHOUSE } from "../../utils/apiCalls.mjs";
+import { GET_A_WAREHOUSE, PUT_WAREHOUSE } from "../../utils/apiCalls.mjs";
 
 const EditWarehouse = () => {
+  const { warehouseId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const warehouse = location.state;
+  const [showModal, setShowModal] = useState(false);
+
+  const [errors, setErrors] = useState({});
+
+  const [formData, setFormData] = useState({
+    warehouse_name: "",
+    address: "",
+    city: "",
+    country: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: "",
+  });
+
+  let warehouse;
+
+  warehouse = location.state;
+
+  useEffect(() => {
+    if (!warehouse) {
+      console.log(warehouseId);
+      const getWarehouse = async () => {
+        const { data } = await GET_A_WAREHOUSE(warehouseId);
+
+        // eslint-disable-next-line
+        warehouse = data[0];
+
+        setFormData({
+          warehouse_name: warehouse.warehouse_name,
+          address: warehouse.address,
+          city: warehouse.city,
+          country: warehouse.country,
+          contact_name: warehouse.contact_name,
+          contact_position: warehouse.contact_position,
+          contact_phone: warehouse.contact_phone,
+          contact_email: warehouse.contact_email,
+        });
+      };
+
+      getWarehouse();
+
+      return;
+    }
+
+    setFormData({
+      warehouse_name: warehouse.warehouse_name,
+      address: warehouse.address,
+      city: warehouse.city,
+      country: warehouse.country,
+      contact_name: warehouse.contact_name,
+      contact_position: warehouse.contact_position,
+      contact_phone: warehouse.contact_phone,
+      contact_email: warehouse.contact_email,
+    });
+  }, [warehouse, warehouseId]);
 
   const backHandler = () => {
     navigate(-1);
   };
-
-  const [showModal, setShowModal] = useState(false);
-
-  // set form fields with warehouse to be edited
-  const [formData, setFormData] = useState({
-    warehouse_name: warehouse.warehouse_name,
-    address: warehouse.address,
-    city: warehouse.city,
-    country: warehouse.country,
-    contact_name: warehouse.contact_name,
-    contact_position: warehouse.contact_position,
-    contact_phone: warehouse.contact_phone,
-    contact_email: warehouse.contact_email,
-  });
-
-  const [errors, setErrors] = useState({});
 
   const submitWarehouseHandler = (e) => {
     e.preventDefault();
