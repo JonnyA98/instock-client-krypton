@@ -8,8 +8,6 @@ const EditStock = () => {
   const location = useLocation();
   const inventoryItem = location.state;
 
-  console.log(inventoryItem);
-
   console.log(
     `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${inventoryItem.id}`
   );
