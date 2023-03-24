@@ -49,6 +49,7 @@
   }
 
   &__mini-header {
+    text-transform: uppercase;
     color: $secondary-color;
     @include tablet {
       display: none;

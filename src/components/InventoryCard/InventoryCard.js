@@ -26,7 +26,7 @@ const InventoryCard = ({ inventories }) => {
           <div className="inventory-list-item__text-inner">
             <div className="inventory-list-item__category warehouse-inventory-list-item__category--link">
               <h4 className="inventory-list-item__mini-header">
-                INVENTORY ITEM
+                Inventory Item
               </h4>
               <Link className="inventory-list-item__link">
                 <p className="inventory-list-item__link-text">
@@ -36,7 +36,7 @@ const InventoryCard = ({ inventories }) => {
               </Link>
             </div>
             <div className="inventory-list-item__category">
-              <h4 className="inventory-list-item__mini-header">CATEGORY</h4>
+              <h4 className="inventory-list-item__mini-header">Caterogy</h4>
               <p className="inventory-list-item__data">
                 {inventories.category}
               </p>
@@ -44,7 +44,7 @@ const InventoryCard = ({ inventories }) => {
           </div>
           <div className="inventory-list-item__text-inner">
             <div className="inventory-list-item__category warehouse-inventory-list-item__category--status">
-              <h4 className="inventory-list-item__mini-header">STATUS</h4>
+              <h4 className="inventory-list-item__mini-header">Status</h4>
               <p className={statusClass}>{status}</p>
             </div>
             <div className="inventory-list-item__category">
@@ -52,7 +52,7 @@ const InventoryCard = ({ inventories }) => {
               <p className="inventory-list-item__data">
                 {inventories.quantity}
               </p>
-              <h4 className="inventory-list-item__mini-header">WAREHOUSE</h4>
+              <h4 className="inventory-list-item__mini-header">Warehouse</h4>
               <p className="inventory-list-item__data inventory-list-item__warehouse-name ">
                 {inventories.warehouse_name}
               </p>
