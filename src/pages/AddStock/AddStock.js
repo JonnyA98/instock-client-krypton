@@ -283,11 +283,7 @@ const AddStock = () => {
             </div>
           </div>
           <div className="add-stock__btn-wrapper">
-            <button
-              type="text"
-              className="add-stock__btn-cancel"
-              onClick={handleCancel}
-            >
+            <button type="button" className="add-stock__btn-cancel">
               Cancel
             </button>
             <button

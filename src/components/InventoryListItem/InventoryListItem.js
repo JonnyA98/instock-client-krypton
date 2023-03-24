@@ -5,64 +5,57 @@ import arrow from "../../assets/Icons/chevron_right-24px.svg";
 import bin from "../../assets/Icons/delete_outline-24px.svg";
 import pencil from "../../assets/Icons/edit-24px.svg";
 
-const WarehouseInventoryListItem = ({ name, category, quantity }) => {
+const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
   const [status, setStatus] = useState("In Stock");
-  const [statusClass, setStatusClass] = useState(
-    "warehouse-inventory-list-item__status"
-  );
+  const [statusClass, setStatusClass] = useState("inventory-list-item__status");
 
   useEffect(() => {
     if (quantity < 1) {
       setStatus("Out of Stock");
       setStatusClass(
-        "warehouse-inventory-list-item__status warehouse-inventory-list-item__status--out"
+        "inventory-list-item__status inventory-list-item__status--out"
       );
     }
   }, [quantity]);
 
   return (
     <>
-      <article className="warehouse-inventory-list-item">
-        <div className="warehouse-inventory-list-item__text">
-          <div className="warehouse-inventory-list-item__text-inner">
-            <div className="warehouse-inventory-list-item__category warehouse-inventory-list-item__category--link">
-              <h4 className="warehouse-inventory-list-item__mini-header">
+      <article className="inventory-list-item">
+        <div className="inventory-list-item__text">
+          <div className="inventory-list-item__text-inner">
+            <div className="inventory-list-item__category warehouse-inventory-list-item__category--link">
+              <h4 className="inventory-list-item__mini-header">
                 Inventory Item
               </h4>
-              <Link className="warehouse-inventory-list-item__link">
-                <p className="warehouse-inventory-list-item__link-text">
-                  {name}
-                </p>
+              <Link className="inventory-list-item__link">
+                <p className="inventory-list-item__link-text">{name}</p>
                 <img src={arrow} alt="chevron_right" />
               </Link>
             </div>
-            <div className="warehouse-inventory-list-item__category">
-              <h4 className="warehouse-inventory-list-item__mini-header">
-                Category
-              </h4>
-              <p className="warehouse-inventory-list-item__data">{category}</p>
+            <div className="inventory-list-item__category">
+              <h4 className="inventory-list-item__mini-header">Category</h4>
+              <p className="inventory-list-item__data">{category}</p>
             </div>
           </div>
-          <div className="warehouse-inventory-list-item__text-inner">
-            <div className="warehouse-inventory-list-item__category warehouse-inventory-list-item__category--status">
-              <h4 className="warehouse-inventory-list-item__mini-header">
-                Status
-              </h4>
+          <div className="inventory-list-item__text-inner">
+            <div className="inventory-list-item__category warehouse-inventory-list-item__category--status">
+              <h4 className="inventory-list-item__mini-header">Status</h4>
               <p className={statusClass}>{status}</p>
             </div>
-            <div className="warehouse-inventory-list-item__category">
-              <h4 className="warehouse-inventory-list-item__mini-header">
-                Quantity
-              </h4>
-              <p className="warehouse-inventory-list-item__data">{quantity}</p>
+            <div className="inventory-list-item__category">
+              <h4 className="inventory-list-item__mini-header">QTY</h4>
+              <p className="inventory-list-item__data">{quantity}</p>
             </div>
           </div>
         </div>
-        <div className="warehouse-inventory-list-item__buttons">
-          <Link>
+        <div className="inventory-list-item__buttons">
+          <div
+            onClick={() => modalToggle(item)}
+            className="inventory-list-item__button"
+          >
             <img src={bin} alt="bin" />
-          </Link>
-          <Link>
+          </div>
+          <Link className="inventory-list-item__button">
             <img src={pencil} alt="pencil" />
           </Link>
         </div>
@@ -71,4 +64,4 @@ const WarehouseInventoryListItem = ({ name, category, quantity }) => {
   );
 };
 
-export default WarehouseInventoryListItem;
+export default InventoryListItem;
