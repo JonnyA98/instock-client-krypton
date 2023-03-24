@@ -4,7 +4,7 @@
 .inventory-list-item {
   @include flex(null, null, column);
   padding: 1.6rem;
-  border-top: 1px solid #bdc5d5;
+  border-bottom: 1px solid #bdc5d5;
   @include tablet {
     flex-direction: row;
     justify-content: space-evenly;
@@ -49,6 +49,7 @@
   }
 
   &__mini-header {
+    text-transform: uppercase;
     color: $secondary-color;
     @include tablet {
       display: none;
