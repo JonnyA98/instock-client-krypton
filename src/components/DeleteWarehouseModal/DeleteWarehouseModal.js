@@ -21,7 +21,7 @@ const DeleteWarehouseModal = ({
         <p className="modal__text">
           Please confirm that you'd like to delete the{" "}
           {warehouseToDelete.warehouse_name} warehouse from the list of
-          warehouses. You don't be able to undo this action.
+          warehouses. You won't be able to undo this action.
         </p>
         <div className="modal__buttons">
           <div

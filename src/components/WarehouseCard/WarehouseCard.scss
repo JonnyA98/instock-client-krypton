@@ -5,68 +5,69 @@
   &__stock {
     @include flex(left, flex-start, column);
     width: 100%;
-    margin-top: 2rem;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
+    padding: 1.6rem 1.6rem 0;
     border-bottom: 1px solid #bdc5d5;
+
     @include tablet {
       @include flex(space-evenly, center, row);
+      padding: 1.6rem 3.2rem;
     }
   }
 
   &__main-info-wrapper {
-    @include flex(left, flex-start, row);
+    @include flex(space-between, flex-start, row);
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.3rem;
+
+    @include tablet {
+      @include flex(flex-start, center, row);
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
   }
 
   &__name-add-wrapper {
     @include flex(left, flex-start, column);
-    margin-right: 1.5rem;
-    width: 50%;
+    width: 43%;
 
     @include tablet {
-      margin-top: 2.7rem;
       max-width: none;
-      @include flex(left, center, row);
-      width: 50%;
+      @include flex(space-between, center, row);
+      width: 45%;
+      margin-right: 2rem;
     }
   }
 
   &__contact-wrapper {
-    @include flex(left, flex-start, column);
-    margin-right: 2rem;
-    width: 50%;
+    @include flex(flex-start, flex-start, column);
+    width: 52%;
 
     @include tablet {
-      @include flex(left, center, row);
-      margin-top: 2.7rem;
-      width: 50%;
+      @include flex(space-between, center, row);
+      width: 45%;
     }
   }
 
   &__facts {
     @include flex(left, flex-start, column);
-    margin-bottom: 1rem;
-    height: 4.5rem;
+    margin-bottom: 1.6rem;
 
     @include tablet {
-      width: 50%;
+      margin: 0;
+      width: 45%;
     }
   }
 
   &__subtitle {
-    @include body-medium;
     color: $secondary-color;
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
 
     @include tablet {
       display: none;
     }
   }
   &__info {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    @include body-medium;
 
     &-chevron {
       height: 1.5rem;
@@ -78,10 +79,7 @@
   }
 
   &__link-wrapper {
-    @include flex(left, flex-start, row);
-  }
-
-  &__description {
+    @include flex(left, center, row);
     text-decoration: none;
     color: $primary-color-alt;
     font-size: 1.2rem;
@@ -90,19 +88,27 @@
   }
 
   &__action-wrapper {
-    @include flex(space-between, flex-start, row);
+    @include flex(space-between, center, row);
     width: 100%;
     margin-bottom: 2.7rem;
+
     @include tablet {
-      margin-top: 2.7rem;
-      @include flex(right, flex-end, row);
-      width: fit-content;
+      margin: 0;
+      width: auto;
     }
   }
 
   &__delete {
+    cursor: pointer;
+
     @include tablet {
-      margin-right: 1rem;
+      margin-right: 2rem;
+    }
+  }
+
+  &__edit {
+    &-link {
+      height: 2.4rem;
     }
   }
 }
