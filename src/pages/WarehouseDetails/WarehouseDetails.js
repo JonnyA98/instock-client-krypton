@@ -62,7 +62,16 @@ const WarehouseDetails = () => {
     return <p>LOADING!!!!</p>;
   }
   if (!inventory) {
-    return <h1>This warehouse has no inventory</h1>;
+    return (
+      <>
+        <div className="warehouses__list">
+          {warehouse.map((warehouse) => {
+            return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
+          })}
+        </div>
+        <h2>This warehouse has no inventory</h2>
+      </>
+    );
   }
 
   return (

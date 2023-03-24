@@ -27,7 +27,10 @@ const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
               <h4 className="inventory-list-item__mini-header">
                 Inventory Item
               </h4>
-              <Link className="inventory-list-item__link">
+              <Link
+                to={`/inventory/${item.id}`}
+                className="inventory-list-item__link"
+              >
                 <p className="inventory-list-item__link-text">{name}</p>
                 <img src={arrow} alt="chevron_right" />
               </Link>
