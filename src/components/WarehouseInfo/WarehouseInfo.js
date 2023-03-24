@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 const WarehouseInfo = ({ warehouse }) => {
   const navigate = useNavigate();
 
+  console.log(warehouse);
+
   return (
     <div className="warehouse-info">
       <section className="warehouse-info__container">

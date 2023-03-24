@@ -45,9 +45,9 @@ const WarehouseDetails = () => {
   }, [warehouseId]);
 
   const getWarehouse = async () => {
-    const { data } = await GET_A_WAREHOUSE();
+    const { data } = await GET_A_WAREHOUSE(warehouseId);
 
-    setWarehouse(data);
+    setWarehouse(data[0]);
   };
 
   useEffect(() => {
@@ -65,9 +65,7 @@ const WarehouseDetails = () => {
     return (
       <>
         <div className="warehouses__list">
-          {warehouse.map((warehouse) => {
-            return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
-          })}
+          <WarehouseInfo key={warehouse.id} warehouse={warehouse} />
         </div>
         <h2>This warehouse has no inventory</h2>
       </>
@@ -86,9 +84,7 @@ const WarehouseDetails = () => {
         )}
 
         <div className="warehouses__list">
-          {warehouse.map((warehouse) => {
-            return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
-          })}
+          <WarehouseInfo key={warehouse.id} warehouse={warehouse} />
         </div>
         <InventoryList modalToggle={modalToggle} inventory={inventory} />
 
