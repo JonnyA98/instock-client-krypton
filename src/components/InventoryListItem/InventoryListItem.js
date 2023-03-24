@@ -52,13 +52,14 @@ const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
           </div>
         </div>
         <div className="inventory-list-item__buttons">
-          <div
+          <img
             onClick={() => modalToggle(item)}
-            className="inventory-list-item__button"
-          >
-            <img src={bin} alt="bin" />
-          </div>
-          <Link className="inventory-list-item__button">
+            className="inventory-list-item__delete"
+            src={bin}
+            alt="bin"
+          />
+
+          <Link className="inventory-list-item__link">
             <img src={pencil} alt="pencil" />
           </Link>
         </div>

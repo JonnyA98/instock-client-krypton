@@ -94,4 +94,8 @@
   &__buttons {
     @include flex(space-between);
   }
+
+  &__delete {
+    cursor: pointer;
+  }
 }
