@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import "./ItemCard.scss";
 import pencil from "../../assets/Icons/edit-24px.svg";
 import arrow from "../../assets/Icons/arrow_back-24px.svg";
+import { useNavigate, Link } from "react-router-dom";
 
 const ItemCard = ({ item }) => {
   const [statusClass, setStatusClass] = useState("item__status");
 
+  const navigate = useNavigate();
   useEffect(() => {
     if (item.quantity === 0) {
       setStatusClass("item__status item__status--out");
@@ -16,12 +18,21 @@ const ItemCard = ({ item }) => {
     <article className="item">
       <div className="item__top-row">
         <div className="item__title-container">
-          <img src={arrow} alt="arrow" />
+          <img
+            className="item__back"
+            onClick={() => navigate(-1)}
+            src={arrow}
+            alt="arrow"
+          />
           <h1 className="item__header">{item.item_name}</h1>
         </div>
-        <div className="item__img-container">
+        <Link
+          to={`/inventory/edit/${item.id}`}
+          state={item}
+          className="item__img-container"
+        >
           <img className="item__pencil" src={pencil} alt="pencil" />
-        </div>
+        </Link>
       </div>
       <div className="item__body-wrapper">
         <div className="item__text-container item__text-container--left">

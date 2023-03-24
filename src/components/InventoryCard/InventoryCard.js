@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-//import "./InventoryCard.scss";
 import "../InventoryListItem/InventoryListItem.scss";
 import arrow from "../../assets/Icons/chevron_right-24px.svg";
 import bin from "../../assets/Icons/delete_outline-24px.svg";
 import pencil from "../../assets/Icons/edit-24px.svg";
 
-const InventoryCard = ({ inventories }) => {
+const InventoryCard = ({ inventories, modalToggle }) => {
   const [status, setStatus] = useState("In Stock");
   const [statusClass, setStatusClass] = useState("inventory-list-item__status");
 
@@ -28,7 +27,7 @@ const InventoryCard = ({ inventories }) => {
               <h4 className="inventory-list-item__mini-header">
                 Inventory Item
               </h4>
-              <Link className="inventory-list-item__link">
+              <Link to={inventories.id} className="inventory-list-item__link">
                 <p className="inventory-list-item__link-text">
                   {inventories.item_name}
                 </p>
@@ -60,10 +59,9 @@ const InventoryCard = ({ inventories }) => {
           </div>
         </div>
         <div className="inventory-list-item__buttons">
-          <Link>
-            <img src={bin} alt="bin" />
-          </Link>
-          <Link>
+          <img onClick={() => modalToggle(inventories)} src={bin} alt="bin" />
+
+          <Link to={`/inventory/edit/${inventories.id}`} state={inventories}>
             <img src={pencil} alt="pencil" />
           </Link>
         </div>
