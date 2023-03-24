@@ -1,7 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse-inventory-list-item {
+.inventory-list-item {
   @include flex(null, null, column);
   padding: 1.6rem;
   border-bottom: 1px solid #bdc5d5;
@@ -55,15 +55,6 @@
     }
   }
 
-  &__warehouse-name {
-    margin-top: 2rem;
-    line-height: 1.6rem;
-  }
-
-  &__description {
-    margin-top: 0.5rem;
-  }
-
   &__link {
     @include flex(null, center);
     text-decoration: none;
@@ -96,7 +87,6 @@
     color: $secondary-color;
     @include tablet {
       width: 200%;
-      padding: 2rem;
     }
   }
 
