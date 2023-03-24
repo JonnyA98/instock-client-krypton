@@ -112,7 +112,9 @@ const AddStock = () => {
         ? Number(event.target.value)
         : event.target.value;
 
-    setFormData({ ...formData, [inputName]: value });
+    inputName === "status"
+      ? setFormData({ ...formData, [inputName]: value, quantity: 0 })
+      : setFormData({ ...formData, [inputName]: value });
   };
 
   const handleBackPage = () => {

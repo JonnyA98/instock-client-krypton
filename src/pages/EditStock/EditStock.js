@@ -8,7 +8,9 @@ const EditStock = () => {
   const location = useLocation();
   const inventoryItem = location.state;
 
-  console.log(inventoryItem);
+  console.log(
+    `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${inventoryItem.id}`
+  );
 
   const [formData, setFormData] = useState({
     warehouse_id: inventoryItem.warehouse_id,
@@ -63,18 +65,19 @@ const EditStock = () => {
       filteredCategories.push(categoryItem);
     }
   });
-  console.log(filteredCategories);
 
   const navigate = useNavigate();
 
-  const postNewItem = async () => {
+  const updateItem = async () => {
     const newItem = {
       ...formData,
     };
 
+    console.log(newItem);
+
     try {
-      await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/inventories`,
+      await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${inventoryItem.id}`,
         newItem
       );
     } catch (err) {
@@ -126,7 +129,7 @@ const EditStock = () => {
       return;
     }
 
-    postNewItem();
+    updateItem();
     navigate(-1);
   };
 
@@ -138,7 +141,9 @@ const EditStock = () => {
         ? Number(event.target.value)
         : event.target.value;
 
-    setFormData({ ...formData, [inputName]: value });
+    inputName === "status"
+      ? setFormData({ ...formData, [inputName]: value, quantity: 0 })
+      : setFormData({ ...formData, [inputName]: value });
   };
 
   const handleBackPage = () => {
