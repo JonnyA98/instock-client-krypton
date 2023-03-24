@@ -49,10 +49,21 @@ const EditStock = () => {
   const categoryList = [
     "Health",
     "Gear",
-    "Accesserories",
+    "Accessories",
     "Apperal",
     "Electronics",
   ];
+
+  const filteredCategories = [];
+
+  categoryList.forEach((categoryItem) => {
+    if (categoryItem === formData.category) {
+      filteredCategories.unshift(categoryItem);
+    } else {
+      filteredCategories.push(categoryItem);
+    }
+  });
+  console.log(filteredCategories);
 
   const navigate = useNavigate();
 
@@ -193,7 +204,7 @@ const EditStock = () => {
                   placeholder="Please Select"
                   onChange={(event) => handleChange(event)}
                 >
-                  {categoryList.map((category, i) => {
+                  {filteredCategories.map((category, i) => {
                     return (
                       <option key={i} value={`${category}`}>
                         {category}

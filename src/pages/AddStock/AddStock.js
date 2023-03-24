@@ -34,7 +34,7 @@ const AddStock = () => {
   const categoryList = [
     "Health",
     "Gear",
-    "Accesserories",
+    "Accessories",
     "Apperal",
     "Electronics",
   ];
