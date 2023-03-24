@@ -18,7 +18,12 @@ const ItemCard = ({ item }) => {
     <article className="item">
       <div className="item__top-row">
         <div className="item__title-container">
-          <img onClick={() => navigate(-1)} src={arrow} alt="arrow" />
+          <img
+            className="item__back"
+            onClick={() => navigate(-1)}
+            src={arrow}
+            alt="arrow"
+          />
           <h1 className="item__header">{item.item_name}</h1>
         </div>
         <div className="item__img-container">

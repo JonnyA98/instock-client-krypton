@@ -5,9 +5,11 @@
   @include flex(null, null, column);
   padding: 1.6rem;
   border-bottom: 1px solid #bdc5d5;
+  position: relative;
   @include tablet {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    flex-grow: 1;
     padding: 0 3.2rem;
     margin-top: 1rem;
   }
@@ -16,14 +18,16 @@
     @include flex();
     @include tablet {
       flex-grow: 1;
+      justify-content: space-evenly;
+      position: relative;
     }
   }
 
   &__text-inner {
     margin-right: 4rem;
     @include tablet {
-      @include flex(center, null, center);
-      width: 45%;
+      @include flex(null, null, center);
+      width: 50%;
       margin-right: 0;
     }
   }
@@ -31,20 +35,8 @@
   &__category {
     margin-bottom: 1.6rem;
     @include tablet {
-      width: 100%;
       @include flex(null, center, center);
-      flex-grow: 1;
-    }
-
-    &--link {
-      @include tablet {
-        width: 150%;
-      }
-    }
-    &--status {
-      @include tablet {
-        width: 350%;
-      }
+      width: 50%;
     }
   }
 
@@ -79,7 +71,7 @@
       color: $supporting-color-alt;
     }
     @include tablet {
-      margin-left: 2rem;
+      padding: 0;
     }
   }
 

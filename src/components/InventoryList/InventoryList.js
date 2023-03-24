@@ -6,24 +6,28 @@ const InventoryList = ({ inventory, modalToggle }) => {
   return (
     <>
       <div className="inventory-list__category-header-wrapper">
-        <div className="inventory-list__category-box">
-          <h4 className="inventory-list__category-header">Inventory Item</h4>
-          <img src={sort} alt="sort" />
+        <div className="inventory-list__container inventory-list__container--1">
+          <div className="inventory-list__category-box">
+            <h4 className="inventory-list__category-header">Inventory Item</h4>
+            <img src={sort} alt="sort" />
+          </div>
+          <div className="inventory-list__category-box">
+            <h4 className="inventory-list__category-header">Category</h4>
+            <img src={sort} alt="sort" />
+          </div>
+          <div className="inventory-list__category-box warehouse-inventory-list__category-box--status">
+            <h4 className="inventory-list__category-header ">Status</h4>
+            <img src={sort} alt="sort" />
+          </div>
         </div>
-        <div className="inventory-list__category-box">
-          <h4 className="inventory-list__category-header">Category</h4>
-          <img src={sort} alt="sort" />
-        </div>
-        <div className="inventory-list__category-box warehouse-inventory-list__category-box--status">
-          <h4 className="inventory-list__category-header ">Status</h4>
-          <img src={sort} alt="sort" />
-        </div>
-        <div className="inventory-list__category-box ">
-          <h4 className="inventory-list__category-header">Quantity</h4>
-          <img src={sort} alt="sort" />
-        </div>
-        <div className="inventory-list__category-box warehouse-inventory-list__category-box--actions">
-          <h4 className="inventory-list__category-header">Actions</h4>
+        <div className="inventory-list__container inventory-list__container--2">
+          <div className="inventory-list__category-box inventory-list__category-box--2 ">
+            <h4 className="inventory-list__category-header">Quantity</h4>
+            <img src={sort} alt="sort" />
+          </div>
+          <div className="inventory-list__category-box warehouse-inventory-list__category-box--2">
+            <h4 className="inventory-list__category-header">Actions</h4>
+          </div>
         </div>
       </div>
       {inventory &&

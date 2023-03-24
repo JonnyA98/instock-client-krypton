@@ -75,24 +75,26 @@ const WarehouseDetails = () => {
   }
 
   return (
-    <>
-      {deleteModal && (
-        <DeleteItemModal
-          modalToggle={modalToggle}
-          itemToDelete={itemToDelete}
-          deleteItem={deleteItem}
-        />
-      )}
+    <div className="warehouses">
+      <div className="warehouses__wrapper">
+        {deleteModal && (
+          <DeleteItemModal
+            modalToggle={modalToggle}
+            itemToDelete={itemToDelete}
+            deleteItem={deleteItem}
+          />
+        )}
 
-      <div className="warehouses__list">
-        {warehouse.map((warehouse) => {
-          return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
-        })}
+        <div className="warehouses__list">
+          {warehouse.map((warehouse) => {
+            return <WarehouseInfo key={warehouse.id} warehouse={warehouse} />;
+          })}
+        </div>
+        <InventoryList modalToggle={modalToggle} inventory={inventory} />
+
+        {error && <p>{error}</p>}
       </div>
-      <InventoryList modalToggle={modalToggle} inventory={inventory} />
-
-      {error && <p>{error}</p>}
-    </>
+    </div>
   );
 };
 

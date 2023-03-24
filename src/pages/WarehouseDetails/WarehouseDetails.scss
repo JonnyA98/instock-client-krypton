@@ -2,8 +2,22 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouses {
+  height: 100vh;
+
   background-color: $background-color-alt;
   margin-bottom: -6.5rem;
+
+  &__wrapper {
+    margin: 0 3.2rem;
+    z-index: 10;
+    position: relative;
+    bottom: 8rem;
+    background-color: $primary-white;
+    @include desktop {
+      margin: 0 13rem;
+    }
+  }
+
   &__content {
     border-bottom: 1px solid $secondary-color-alt;
   }
