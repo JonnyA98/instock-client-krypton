@@ -10,8 +10,8 @@ const AddStock = () => {
     item_name: "",
     description: "",
     category: "",
-    quantity: 0,
     status: "",
+    quantity: 0,
   });
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState(false);

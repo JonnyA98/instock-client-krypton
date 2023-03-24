@@ -15,7 +15,8 @@ const EditStock = () => {
     item_name: inventoryItem.item_name,
     description: inventoryItem.description,
     category: inventoryItem.category,
-    quantity: inventoryItem.quantity,
+    quantity:
+      inventoryItem.status === "Out of Stock" ? 0 : inventoryItem.quantity,
     status: inventoryItem.status,
   });
   const [errors, setErrors] = useState({});
