@@ -1,16 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AddStock.scss";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const AddStock = () => {
-  const warehouseList = [
-    { id: 123, name: "manhatten" },
-    { id: 456, name: "new york" },
-  ];
-  const categoryList = ["Health", "Gear", "", ""];
-
   const [formData, setFormData] = useState({
     warehouse_id: "",
     item_name: "",
@@ -19,18 +13,42 @@ const AddStock = () => {
     quantity: 0,
     status: "",
   });
-
   const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState(false);
+  const [warehouses, setWarehouses] = useState([]);
+
+  const getWarehouses = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/warehouses`
+      );
+      setWarehouses(data);
+    } catch (error) {
+      setApiError(true);
+    }
+  };
+  useEffect(() => {
+    getWarehouses();
+  }, []);
+
+  const categoryList = [
+    "Health",
+    "Gear",
+    "Accessories",
+    "Apperal",
+    "Electronics",
+  ];
+
+  const navigate = useNavigate();
 
   const postNewItem = async () => {
     const newItem = {
       ...formData,
-      id: uuid(),
     };
 
     try {
       await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/inventories`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/inventories`,
         newItem
       );
     } catch (err) {
@@ -83,6 +101,7 @@ const AddStock = () => {
     }
 
     postNewItem();
+    navigate(-1);
   };
 
   const handleChange = (event) => {
@@ -96,10 +115,11 @@ const AddStock = () => {
     setFormData({ ...formData, [inputName]: value });
   };
 
-  const navigate = useNavigate();
-
   const handleBackPage = () => {
-    navigate("/inventory");
+    navigate(-1);
+  };
+  const handleCancel = () => {
+    navigate(-1);
   };
 
   return (
@@ -150,7 +170,7 @@ const AddStock = () => {
                 </label>
                 <select
                   name="category"
-                  className={`add-stock__input ${
+                  className={`add-stock__input add-stock__input--dropdown ${
                     errors.category ? "add-stock__input--invalid" : ""
                   }`}
                   placeholder="Please Select"
@@ -182,6 +202,7 @@ const AddStock = () => {
                       name="status"
                       id="inStock"
                       onChange={(event) => handleChange(event)}
+                      className="add-stock__input--radio"
                     />
                     <label
                       htmlFor="inStock"
@@ -198,6 +219,7 @@ const AddStock = () => {
                       name="status"
                       id="outOfStock"
                       onChange={(event) => handleChange(event)}
+                      className="add-stock__input--radio"
                     />
                     <label
                       htmlFor="outOfStock"
@@ -237,17 +259,17 @@ const AddStock = () => {
                 <select
                   name="warehouse_id"
                   id="warehouses"
-                  className={`add-stock__input ${
+                  className={`add-stock__input add-stock__input--dropdown  ${
                     errors.warehouse ? "add-stock__input--invalid" : ""
                   }`}
                   onChange={(event) => handleChange(event)}
                 >
                   <option value="">Please Select</option>
 
-                  {warehouseList.map((place) => {
+                  {warehouses.map((place) => {
                     return (
                       <option key={place.id} value={place.id}>
-                        {place.name}
+                        {place.warehouse_name}
                       </option>
                     );
                   })}
@@ -264,7 +286,11 @@ const AddStock = () => {
             <button type="button" className="add-stock__btn-cancel">
               Cancel
             </button>
-            <button type="submit" className="add-stock__btn-submit">
+            <button
+              type="submit"
+              className="add-stock__btn-submit"
+              disabled={apiError}
+            >
               +Add Item
             </button>
           </div>

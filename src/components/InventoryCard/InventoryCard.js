@@ -63,7 +63,7 @@ const InventoryCard = ({ inventories }) => {
           <Link>
             <img src={bin} alt="bin" />
           </Link>
-          <Link>
+          <Link to={`/inventory/edit/${inventories.id}`} state={inventories}>
             <img src={pencil} alt="pencil" />
           </Link>
         </div>
