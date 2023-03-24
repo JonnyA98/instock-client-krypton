@@ -9,6 +9,10 @@
       @include flex(space-between, center, row);
       padding: 0 3.2rem 2.2rem;
     }
+
+    @include desktop {
+      padding: 0 4rem 2.2rem;
+    }
   }
 
   &__title {
@@ -46,7 +50,7 @@
     }
 
     @include desktop {
-      width: 34rem;
+      width: 27.4rem;
     }
   }
 

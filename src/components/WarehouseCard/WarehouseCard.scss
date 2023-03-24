@@ -101,6 +101,7 @@
   }
 
   &__delete {
+    cursor: pointer;
     @include tablet {
       margin-right: 1rem;
     }
