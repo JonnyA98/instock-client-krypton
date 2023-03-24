@@ -2,11 +2,19 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouses {
+  &__content {
+    padding: 0 1.6rem;
+
+    @include tablet {
+      @include flex(space-between, center, row);
+      padding: 0 3.2rem 2.2rem;
+    }
+  }
+
   &__title {
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
     color: $primary-color;
     padding-bottom: 1.6rem;
+
     @include tablet {
       padding-bottom: 0;
       margin-right: auto;
@@ -14,14 +22,12 @@
   }
 
   &__search {
-    padding: 0 1.6rem;
-    @include flex(left, flex-start, column);
-    flex-wrap: wrap;
-    // margin: 1rem 0;
+    @include flex(flex-start, flex-start, column);
     width: 100%;
 
     @include tablet {
-      @include flex(left, center, row);
+      @include flex(flex-start, center, row);
+      width: auto;
     }
 
     &-icon {
@@ -36,7 +42,7 @@
     @include form-input;
 
     @include tablet {
-      width: 27rem;
+      width: 18.5rem;
     }
 
     @include desktop {
@@ -53,9 +59,8 @@
     margin: 1.6rem 0 2.4rem;
 
     @include tablet {
-      margin: 0 2rem;
-      width: 15rem;
-      font-size: 1.2rem;
+      margin: 0 0 0 1.6rem;
+      width: auto;
     }
   }
 }
