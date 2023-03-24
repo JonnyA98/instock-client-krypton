@@ -7,7 +7,7 @@
   //   position: relative;
   //   bottom: 4rem;
 
-  height: 50vh;
+  height: 60vh;
   &__top-row {
     @include flex(space-between);
     border-bottom: solid 0.1rem $secondary-color-alt;
@@ -15,5 +15,29 @@
   }
   &__title-container {
     @include flex(null, center);
+  }
+
+  &__stat {
+    margin: 1.6rem;
+  }
+  &__row {
+    @include flex();
+  }
+
+  &__text {
+    @include body-small;
+  }
+  &__status {
+    @include body-medium;
+    color: $supporting-color;
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    background: rgba(21, 132, 99, 0.07);
+    &--out {
+      color: $supporting-color-alt;
+    }
+    @include tablet {
+      margin-left: 2rem;
+    }
   }
 }
