@@ -58,8 +58,11 @@ const WarehouseDetails = () => {
     }
   }, []);
 
-  if (!inventory || !warehouse) {
+  if (!warehouse) {
     return <p>LOADING!!!!</p>;
+  }
+  if (!inventory) {
+    return <h1>This warehouse has no inventory</h1>;
   }
 
   return (
