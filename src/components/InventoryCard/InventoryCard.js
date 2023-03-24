@@ -5,7 +5,7 @@ import arrow from "../../assets/Icons/chevron_right-24px.svg";
 import bin from "../../assets/Icons/delete_outline-24px.svg";
 import pencil from "../../assets/Icons/edit-24px.svg";
 
-const InventoryCard = ({ inventories }) => {
+const InventoryCard = ({ inventories, modalToggle }) => {
   const [status, setStatus] = useState("In Stock");
   const [statusClass, setStatusClass] = useState("inventory-list-item__status");
 
@@ -59,9 +59,8 @@ const InventoryCard = ({ inventories }) => {
           </div>
         </div>
         <div className="inventory-list-item__buttons">
-          <Link>
-            <img src={bin} alt="bin" />
-          </Link>
+          <img onClick={() => modalToggle(inventories)} src={bin} alt="bin" />
+
           <Link to={`/inventory/edit/${inventories.id}`} state={inventories}>
             <img src={pencil} alt="pencil" />
           </Link>
