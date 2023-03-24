@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-//import "./InventoryCard.scss";
 import "../InventoryListItem/InventoryListItem.scss";
 import arrow from "../../assets/Icons/chevron_right-24px.svg";
 import bin from "../../assets/Icons/delete_outline-24px.svg";

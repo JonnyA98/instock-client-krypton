@@ -1,6 +1,5 @@
 import sort from "../../assets/Icons/sort-24px.svg";
 import "../InventoryList/InventoryList.scss";
-//import "./InventoryList.scss";
 
 const InventoryHeader = () => {
   return (
