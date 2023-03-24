@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import "./SearchWarehouses.scss";
 
-const SearchWarehouses = () => {
+const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
   return (
     <section className="warehouses__content">
+      <h1 className="warehouses__title">{mainTitle}</h1>
       <div className="warehouses__search">
-        <h1 className="warehouses__title">Warehouses</h1>
         <input
           type="text"
           name="search"
@@ -13,7 +13,7 @@ const SearchWarehouses = () => {
           placeholder="Search"
         />
         <Link to="add-warehouse" className="warehouses__btn">
-          + Add New Warehouse
+          + {descriptionBtn}
         </Link>
       </div>
     </section>

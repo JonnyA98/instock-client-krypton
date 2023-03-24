@@ -37,6 +37,8 @@ const Warehouses = () => {
   if (!warehouses) {
     return <p>Loading..</p>;
   }
+  const mainTitle = "Warehouses";
+  const descriptionBtn = "Add New Warehouse";
 
   return (
     <>
@@ -49,7 +51,10 @@ const Warehouses = () => {
       )}
       <div className="warehouses">
         <div className="warehouses__card">
-          <SearchWarehouses />
+          <SearchWarehouses
+            mainTitle={mainTitle}
+            descriptionBtn={descriptionBtn}
+          />
           <div className="warehouses__list">
             {warehouses.map((warehouse) => {
               return (
