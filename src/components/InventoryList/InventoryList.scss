@@ -17,6 +17,7 @@
   &__container {
     @include flex(space-between);
     padding: 0;
+    width: 45%;
     &--1 {
       width: 60%;
     }
@@ -31,5 +32,9 @@
     &--2 {
       width: 50%;
     }
+  }
+
+  &__category-header {
+    text-transform: capitalize;
   }
 }
