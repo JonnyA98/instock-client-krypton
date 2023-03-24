@@ -15,15 +15,14 @@
   }
 
   &__main-info-wrapper {
-    @include flex(left, flex-start, row);
+    @include flex(space-between, flex-start, row);
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.3rem;
   }
 
   &__name-add-wrapper {
     @include flex(left, flex-start, column);
-    margin-right: 1.5rem;
-    width: 50%;
+    width: 43%;
 
     @include tablet {
       margin-top: 2.7rem;
@@ -35,8 +34,7 @@
 
   &__contact-wrapper {
     @include flex(left, flex-start, column);
-    margin-right: 2rem;
-    width: 50%;
+    width: 52%;
 
     @include tablet {
       @include flex(left, center, row);
@@ -47,8 +45,7 @@
 
   &__facts {
     @include flex(left, flex-start, column);
-    margin-bottom: 1rem;
-    height: 4.5rem;
+    margin-bottom: 1.6rem;
 
     @include tablet {
       width: 50%;
@@ -56,17 +53,15 @@
   }
 
   &__subtitle {
-    @include body-medium;
     color: $secondary-color;
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
 
     @include tablet {
       display: none;
     }
   }
   &__info {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    @include body-medium;
 
     &-chevron {
       height: 1.5rem;
@@ -78,10 +73,7 @@
   }
 
   &__link-wrapper {
-    @include flex(left, flex-start, row);
-  }
-
-  &__description {
+    @include flex(left, center, row);
     text-decoration: none;
     color: $primary-color-alt;
     font-size: 1.2rem;

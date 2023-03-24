@@ -14,7 +14,7 @@ const WarehouseCard = ({ warehouse, modalToggle }) => {
               <h4 className="warehouses__subtitle">WAREHOUSE</h4>
               <Link
                 to={`/warehouses/${warehouse.id}`}
-                className="warehouses__description warehouses__link-wrapper"
+                className="warehouses__link-wrapper"
               >
                 <h3 className="warehouses__info">{warehouse.warehouse_name}</h3>
                 <img
