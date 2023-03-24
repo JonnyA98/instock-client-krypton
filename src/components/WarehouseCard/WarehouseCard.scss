@@ -3,36 +3,82 @@
 
 .warehouses {
   &__stock {
-    display: flex;
+    @include flex(left, flex-start, column);
+    width: 100%;
     margin-top: 2rem;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    position: relative;
-    padding-bottom: 6.4rem;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
     border-bottom: 1px solid #bdc5d5;
+    @include tablet {
+      @include flex(space-evenly, center, row);
+    }
+  }
+
+  &__main-info-wrapper {
+    @include flex(left, flex-start, row);
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  &__name-add-wrapper {
+    @include flex(left, flex-start, column);
+    margin-right: 1.5rem;
+    width: 50%;
+
+    @include tablet {
+      margin-top: 2.7rem;
+      max-width: none;
+      @include flex(left, center, row);
+      width: 50%;
+    }
+  }
+
+  &__contact-wrapper {
+    @include flex(left, flex-start, column);
+    margin-right: 2rem;
+    width: 50%;
+
+    @include tablet {
+      @include flex(left, center, row);
+      margin-top: 2.7rem;
+      width: 50%;
+    }
   }
 
   &__facts {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    width: 50%;
+    @include flex(left, flex-start, column);
+    margin-bottom: 1rem;
+    height: 4.5rem;
+
+    @include tablet {
+      width: 50%;
+    }
   }
 
   &__subtitle {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1rem;
+    @include body-medium;
     color: $secondary-color;
     margin-bottom: 1rem;
+
+    @include tablet {
+      display: none;
+    }
   }
   &__info {
-    color: $primary-color;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.5rem;
+
+    &-chevron {
+      height: 1.5rem;
+    }
+
+    @include desktop {
+      @include flex(left, center, row);
+    }
+  }
+
+  &__link-wrapper {
+    @include flex(left, flex-start, row);
   }
 
   &__description {
@@ -43,24 +89,20 @@
     position: relative;
   }
 
-  &__link {
-    background-image: url(../../assets/Icons/chevron_right-24px.svg);
-    background-repeat: no-repeat;
-    background-position: 6rem 0rem;
-    background-size: 2rem;
+  &__action-wrapper {
+    @include flex(space-between, flex-start, row);
+    width: 100%;
+    margin-bottom: 2.7rem;
+    @include tablet {
+      margin-top: 2.7rem;
+      @include flex(right, flex-end, row);
+      width: fit-content;
+    }
   }
 
   &__delete {
-    position: absolute;
-    bottom: 2.7rem;
-    left: 1.6rem;
-    cursor: pointer;
-  }
-
-  &__edit {
-    position: absolute;
-    right: 1.6rem;
-    bottom: 2.7rem;
-    cursor: pointer;
+    @include tablet {
+      margin-right: 1rem;
+    }
   }
 }
