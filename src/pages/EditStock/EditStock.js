@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import "./EditStock.scss";
-import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const EditStock = () => {
   const location = useLocation();
   const inventoryItem = location.state;
-
-  console.log(
-    `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${inventoryItem.id}`
-  );
 
   const [formData, setFormData] = useState({
     warehouse_id: inventoryItem.warehouse_id,
@@ -317,7 +312,7 @@ const EditStock = () => {
           </div>
           <div className="add-stock__btn-wrapper">
             <button
-              type="text"
+              type="button"
               className="add-stock__btn-cancel"
               onClick={handleCancel}
             >

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./AddStock.scss";
-import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -285,7 +284,11 @@ const AddStock = () => {
             </div>
           </div>
           <div className="add-stock__btn-wrapper">
-            <button type="button" className="add-stock__btn-cancel">
+            <button
+              onClick={() => navigate(-1)}
+              type="button"
+              className="add-stock__btn-cancel"
+            >
               Cancel
             </button>
             <button
