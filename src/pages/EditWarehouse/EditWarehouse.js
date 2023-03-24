@@ -33,7 +33,10 @@ const EditWarehouse = () => {
       console.log(warehouseId);
       const getWarehouse = async () => {
         const { data } = await GET_A_WAREHOUSE(warehouseId);
+
+        // eslint-disable-next-line
         warehouse = data[0];
+
         setFormData({
           warehouse_name: warehouse.warehouse_name,
           address: warehouse.address,
