@@ -2,13 +2,18 @@ import { useState, useEffect } from "react";
 import "./EditStock.scss";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const EditStock = ({ inventoryItem }) => {
+const EditStock = () => {
+  const location = useLocation();
+  const inventoryItem = location.state;
+
+  console.log(inventoryItem);
+
   const [formData, setFormData] = useState({
     warehouse_id: inventoryItem.warehouse_id,
     item_name: inventoryItem.item_name,
-    description: inventoryItem.category,
+    description: inventoryItem.description,
     category: inventoryItem.category,
     quantity: inventoryItem.quantity,
     status: inventoryItem.status,
@@ -22,7 +27,17 @@ const EditStock = ({ inventoryItem }) => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/api/warehouses`
       );
-      setWarehouses(data);
+
+      const filteredWarehouses = [];
+      data.forEach((warehouseItem) => {
+        if (warehouseItem.id === formData.warehouse_id) {
+          filteredWarehouses.unshift(warehouseItem);
+        } else {
+          filteredWarehouses.push(warehouseItem);
+        }
+      });
+
+      setWarehouses(filteredWarehouses);
     } catch (error) {
       setApiError(true);
     }
@@ -140,6 +155,7 @@ const EditStock = ({ inventoryItem }) => {
                 <input
                   type="text"
                   name="item_name"
+                  value={formData.item_name}
                   placeholder="Item Name"
                   className={`add-stock__input ${
                     errors.name ? "add-stock__input--invalid" : ""
@@ -154,6 +170,7 @@ const EditStock = ({ inventoryItem }) => {
                 </label>
                 <textarea
                   name="description"
+                  value={formData.description}
                   placeholder="Please enter a brief item description..."
                   className={`add-stock__input add-stock__input--description ${
                     errors.description ? "add-stock__input--invalid" : ""
@@ -176,7 +193,6 @@ const EditStock = ({ inventoryItem }) => {
                   placeholder="Please Select"
                   onChange={(event) => handleChange(event)}
                 >
-                  <option>Please Select</option>
                   {categoryList.map((category, i) => {
                     return (
                       <option key={i} value={`${category}`}>
@@ -201,6 +217,7 @@ const EditStock = ({ inventoryItem }) => {
                       value="In Stock"
                       name="status"
                       id="inStock"
+                      checked={formData.status === "In Stock"}
                       onChange={(event) => handleChange(event)}
                       className="add-stock__input--radio"
                     />
@@ -218,6 +235,7 @@ const EditStock = ({ inventoryItem }) => {
                       value="Out of Stock"
                       name="status"
                       id="outOfStock"
+                      checked={formData.status === "Out of Stock"}
                       onChange={(event) => handleChange(event)}
                       className="add-stock__input--radio"
                     />
@@ -240,6 +258,7 @@ const EditStock = ({ inventoryItem }) => {
                     <input
                       type="text"
                       name="quantity"
+                      value={formData.quantity}
                       className={`add-stock__input ${
                         errors.quantity ? "add-stock__input--invalid" : ""
                       }`}
@@ -264,8 +283,6 @@ const EditStock = ({ inventoryItem }) => {
                   }`}
                   onChange={(event) => handleChange(event)}
                 >
-                  <option value="">Please Select</option>
-
                   {warehouses.map((place) => {
                     return (
                       <option key={place.id} value={place.id}>
@@ -295,7 +312,7 @@ const EditStock = ({ inventoryItem }) => {
               className="add-stock__btn-submit"
               disabled={apiError}
             >
-              +Add Item
+              Edit Item
             </button>
           </div>
         </form>
