@@ -32,8 +32,22 @@ const EditWarehouse = () => {
     if (!warehouse) {
       console.log(warehouseId);
       const getWarehouse = async () => {
-        warehouse = await GET_A_WAREHOUSE(warehouseId);
+        const { data } = await GET_A_WAREHOUSE(warehouseId);
+        warehouse = data[0];
+        setFormData({
+          warehouse_name: warehouse.warehouse_name,
+          address: warehouse.address,
+          city: warehouse.city,
+          country: warehouse.country,
+          contact_name: warehouse.contact_name,
+          contact_position: warehouse.contact_position,
+          contact_phone: warehouse.contact_phone,
+          contact_email: warehouse.contact_email,
+        });
       };
+
+      getWarehouse();
+
       return;
     }
 

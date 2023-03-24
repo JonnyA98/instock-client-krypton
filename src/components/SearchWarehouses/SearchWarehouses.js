@@ -3,7 +3,7 @@ import "./SearchWarehouses.scss";
 
 const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <section className="warehouses__content">
       <h1 className="warehouses__title">{mainTitle}</h1>
@@ -14,6 +14,7 @@ const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
           className="warehouses__text warehouses__search-icon"
           placeholder="Search"
         />
+
         <Link
           to={
             location.pathname === "/warehouses" ? "add-warehouse" : "add-stock"
