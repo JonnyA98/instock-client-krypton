@@ -27,7 +27,7 @@ const InventoryCard = ({ inventories, modalToggle }) => {
               <h4 className="inventory-list-item__mini-header">
                 Inventory Item
               </h4>
-              <Link className="inventory-list-item__link">
+              <Link to={inventories.id} className="inventory-list-item__link">
                 <p className="inventory-list-item__link-text">
                   {inventories.item_name}
                 </p>

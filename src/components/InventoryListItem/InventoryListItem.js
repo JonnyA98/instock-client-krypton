@@ -59,7 +59,11 @@ const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
             alt="bin"
           />
 
-          <Link className="inventory-list-item__link">
+          <Link
+            to={`/inventory/edit/${item.id}`}
+            state={item}
+            className="inventory-list-item__link"
+          >
             <img src={pencil} alt="pencil" />
           </Link>
         </div>
