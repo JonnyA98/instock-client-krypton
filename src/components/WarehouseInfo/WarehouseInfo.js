@@ -9,13 +9,15 @@ const WarehouseInfo = ({ warehouse }) => {
   return (
     <div className="warehouse-info">
       <section className="warehouse-info__container">
-        <img
-          className="warehouse-info__arrow "
-          src={arrow}
-          alt="arrow"
-          onClick={() => navigate(-1)}
-        />
-        <h2 className="warehouse-info__title ">{warehouse.warehouse_name}</h2>
+        <div className="warehouse-info__wrapper">
+          <img
+            className="warehouse-info__arrow "
+            src={arrow}
+            alt="arrow"
+            onClick={() => navigate(-1)}
+          />
+          <h2 className="warehouse-info__title ">{warehouse.warehouse_name}</h2>
+        </div>
         <Link
           to={`/warehouses/edit/${warehouse.id}`}
           className="warehouse-info__edit"

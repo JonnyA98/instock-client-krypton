@@ -4,15 +4,22 @@
 .warehouse-info {
   &__container {
     border-bottom: 1px solid #bdc5d5;
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
+    margin-top: 2.5rem;
 
     @include tablet {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: flex-start;
       padding-right: 3.6rem;
       margin-top: 2.5rem;
     }
   }
+  &__wrapper {
+    display: flex;
+  }
+
   &__title {
     padding-left: 1rem;
     padding-right: 1.6rem;
@@ -25,7 +32,9 @@
   }
 
   &__arrow {
-    padding-left: 3.2rem;
+    @include tablet {
+      padding-left: 3.2rem;
+    }
   }
   &__edit {
     position: relative;
