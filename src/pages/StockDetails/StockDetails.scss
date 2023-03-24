@@ -1,0 +1,8 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.stock-details {
+  height: 80vh;
+  background-color: $background-color-alt;
+  margin: 0 auto;
+  @include flex(center);
+}
