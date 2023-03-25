@@ -59,7 +59,12 @@ const InventoryCard = ({ inventories, modalToggle }) => {
           </div>
         </div>
         <div className="inventory-list-item__buttons">
-          <img onClick={() => modalToggle(inventories)} src={bin} alt="bin" />
+          <img
+            className="inventory-list-item__delete"
+            onClick={() => modalToggle(inventories)}
+            src={bin}
+            alt="bin"
+          />
 
           <Link to={`/inventory/edit/${inventories.id}`} state={inventories}>
             <img src={pencil} alt="pencil" />
