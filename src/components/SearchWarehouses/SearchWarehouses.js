@@ -5,13 +5,13 @@ const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
   const location = useLocation();
 
   return (
-    <section className="warehouses__content">
-      <h1 className="warehouses__title">{mainTitle}</h1>
-      <div className="warehouses__search">
+    <section className="search-warehouses">
+      <h1 className="search-warehouses__title">{mainTitle}</h1>
+      <div className="search-warehouses__search">
         <input
           type="text"
           name="search"
-          className="warehouses__text warehouses__search-icon"
+          className="search-warehouses__text search-warehouses__search-icon"
           placeholder="Search"
         />
 
@@ -19,7 +19,7 @@ const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
           to={
             location.pathname === "/warehouses" ? "add-warehouse" : "add-stock"
           }
-          className="warehouses__btn"
+          className="search-warehouses__btn"
         >
           + {descriptionBtn}
         </Link>
