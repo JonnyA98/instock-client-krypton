@@ -2,31 +2,34 @@
 @use "../../styles/partials/variables" as *;
 
 .list-header {
-  @include flex(space-between, center, row);
   padding: 1.1rem 3.2rem;
   background-color: #f7f8f9b2;
+  display: none;
+
+  @include tablet {
+    @include flex(space-between, center, row);
+  }
 
   &__main-info-wrapper {
-    @include flex(space-between, center, row);
+    @include flex(flex-start, center, row);
     flex-grow: 1;
     margin-right: 1rem;
   }
 
-  &__name-add-wrapper {
+  &__half-wrapper {
     @include flex(space-between, center, row);
-    width: 43%;
-  }
-
-  &__contact-wrapper {
-    @include flex(space-between, center, row);
+    width: 45%;
+    margin-right: 2rem;
   }
 
   &__category {
     text-transform: uppercase;
     color: $secondary-color;
+    white-space: nowrap;
 
     &-wrapper {
       @include flex(flex-start, center, row);
+      width: 45%;
     }
 
     &--actions {
