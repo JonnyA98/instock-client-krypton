@@ -6,10 +6,19 @@
   padding: 1.1rem 3.2rem;
   background-color: #f7f8f9b2;
 
-  &--left {
+  &__main-info-wrapper {
     @include flex(space-between, center, row);
     flex-grow: 1;
     margin-right: 1rem;
+  }
+
+  &__name-add-wrapper {
+    @include flex(space-between, center, row);
+    width: 43%;
+  }
+
+  &__contact-wrapper {
+    @include flex(space-between, center, row);
   }
 
   &__category {

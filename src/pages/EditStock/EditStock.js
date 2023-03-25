@@ -119,6 +119,13 @@ const EditStock = () => {
       newErrors["warehouse"] = "Please select a Warehouse for your Item";
     }
 
+    setFormData({ ...formData, quantity: Number(formData.quantity) });
+
+    if (typeof formData.quantity !== "number") {
+      isValid = false;
+      newErrors["quantity"] = "Please ensure Stock is a number";
+    }
+
     if (!isValid) {
       setErrors(newErrors);
       return;
@@ -131,10 +138,12 @@ const EditStock = () => {
   const handleChange = (event) => {
     const inputName = event.target.name;
 
-    const value =
-      inputName === "quantity"
-        ? Number(event.target.value)
-        : event.target.value;
+    // const value =
+    //   inputName === "quantity"
+    //     ? Number(event.target.value)
+    //     : event.target.value;
+
+    const value = event.target.value;
 
     inputName === "status"
       ? setFormData({ ...formData, [inputName]: value, quantity: 0 })

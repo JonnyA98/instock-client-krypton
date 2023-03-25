@@ -11,7 +11,7 @@ const ListHeader = () => {
 
   return (
     <div className="list-header">
-      <div className="list-header--left">
+      <div className="list-header__main-info-wrapper">
         {/* {exCategories.map((category) => {
           return (
             <div className="list-header__category-wrapper">
