@@ -5,6 +5,7 @@ import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import DeleteWarehouseModal from "../../components/DeleteWarehouseModal/DeleteWarehouseModal";
 import sort from "../../assets/Icons/sort-24px.svg";
+import ListHeader from "../../components/ListHeader/ListHeader";
 
 const Warehouses = () => {
   const [warehouses, setWarehouses] = useState(null);
@@ -57,7 +58,7 @@ const Warehouses = () => {
             descriptionBtn={descriptionBtn}
           />
 
-          <div className="inventory-list__category-header-wrapper">
+          {/* <div className="inventory-list__category-header-wrapper">
             <div className="inventory-list__category-box">
               <h4 className="inventory-list__category-header">Warehouse</h4>
               <img src={sort} alt="sort" />
@@ -79,7 +80,8 @@ const Warehouses = () => {
             <div className="inventory-list__category-box warehouse-inventory-list__category-box--actions">
               <h4 className="inventory-list__category-header">Actions</h4>
             </div>
-          </div>
+          </div> */}
+          <ListHeader />
 
           <div className="warehouses__list">
             {warehouses.map((warehouse) => {

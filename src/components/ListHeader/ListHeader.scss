@@ -1,0 +1,32 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-header {
+  @include flex(space-between, center, row);
+  padding: 1.1rem 3.2rem;
+  background-color: #f7f8f9b2;
+
+  &--left {
+    @include flex(space-between, center, row);
+    flex-grow: 1;
+    margin-right: 1rem;
+  }
+
+  &__category {
+    text-transform: uppercase;
+    color: $secondary-color;
+
+    &-wrapper {
+      @include flex(flex-start, center, row);
+    }
+
+    &--actions {
+      width: 6.8rem;
+      text-align: right;
+    }
+  }
+
+  &__sort {
+    height: 1.5rem;
+  }
+}
