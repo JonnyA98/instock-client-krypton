@@ -3,6 +3,8 @@ import axios from "axios";
 const backendURL = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 // Warehouses
+export const GET_WAREHOUSES = () => axios.get(`${backendURL}/warehouses`);
+
 export const GET_A_WAREHOUSE = (warehouseId) =>
   axios.get(`${backendURL}/warehouses/${warehouseId}`);
 

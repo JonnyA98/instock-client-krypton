@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./EditStock.scss";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { GET_WAREHOUSES } from "../../utils/apiCalls.mjs";
 
 const EditStock = () => {
   const location = useLocation();
@@ -19,29 +20,28 @@ const EditStock = () => {
   const [apiError, setApiError] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
 
-  const getWarehouses = async () => {
-    try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/warehouses`
-      );
-
-      const filteredWarehouses = [];
-      data.forEach((warehouseItem) => {
-        if (warehouseItem.id === formData.warehouse_id) {
-          filteredWarehouses.unshift(warehouseItem);
-        } else {
-          filteredWarehouses.push(warehouseItem);
-        }
-      });
-
-      setWarehouses(filteredWarehouses);
-    } catch (error) {
-      setApiError(true);
-    }
-  };
   useEffect(() => {
+    const getWarehouses = async () => {
+      try {
+        const { data } = await GET_WAREHOUSES();
+
+        const filteredWarehouses = [];
+        data.forEach((warehouseItem) => {
+          if (warehouseItem.id === formData.warehouse_id) {
+            filteredWarehouses.unshift(warehouseItem);
+          } else {
+            filteredWarehouses.push(warehouseItem);
+          }
+        });
+
+        setWarehouses(filteredWarehouses);
+      } catch (error) {
+        setApiError(true);
+      }
+    };
+
     getWarehouses();
-  }, []);
+  }, [formData.warehouse_id]);
 
   const categoryList = [
     "Health",
@@ -142,9 +142,6 @@ const EditStock = () => {
   };
 
   const handleBackPage = () => {
-    navigate(-1);
-  };
-  const handleCancel = () => {
     navigate(-1);
   };
 
@@ -314,7 +311,7 @@ const EditStock = () => {
             <button
               type="button"
               className="add-stock__btn-cancel"
-              onClick={handleCancel}
+              onClick={handleBackPage}
             >
               Cancel
             </button>
