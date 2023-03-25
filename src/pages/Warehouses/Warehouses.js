@@ -1,7 +1,7 @@
 import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 
-import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import DeleteWarehouseModal from "../../components/DeleteWarehouseModal/DeleteWarehouseModal";
 import ListHeaderWarehouses from "../../components/ListHeaderWarehouses/ListHeaderWarehouses";
@@ -49,10 +49,7 @@ const Warehouses = () => {
       )}
       <div className="warehouses">
         <div className="warehouses__card">
-          <SearchWarehouses
-            mainTitle={mainTitle}
-            descriptionBtn={descriptionBtn}
-          />
+          <SearchHeader mainTitle={mainTitle} descriptionBtn={descriptionBtn} />
 
           <ListHeaderWarehouses />
 

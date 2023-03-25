@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import "./SearchWarehouses.scss";
+import "./SearchHeader.scss";
 
-const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
+const SearchHeader = ({ mainTitle, descriptionBtn }) => {
   const location = useLocation();
 
   return (
@@ -28,4 +28,4 @@ const SearchWarehouses = ({ mainTitle, descriptionBtn }) => {
   );
 };
 
-export default SearchWarehouses;
+export default SearchHeader;

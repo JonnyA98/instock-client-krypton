@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import InventoryCard from "../../components/InventoryCard/InventoryCard";
 import InventoryHeader from "../../components/InventoryHeader/InventoryHeader";
-import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
 import "./Inventory.scss";
 import {
@@ -51,10 +51,7 @@ const Inventory = () => {
             deleteItem={deleteItem}
           />
         )}
-        <SearchWarehouses
-          mainTitle={mainTitle}
-          descriptionBtn={descriptionBtn}
-        />
+        <SearchHeader mainTitle={mainTitle} descriptionBtn={descriptionBtn} />
         <div className="inventory-list alt">
           <InventoryHeader />
         </div>
