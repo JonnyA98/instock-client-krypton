@@ -1,8 +1,9 @@
 import ItemCard from "../../components/ItemCard/ItemCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import "./StockDetails.scss";
+import { GET_INVENTORY_ITEM } from "../../utils/apiCalls.mjs";
 
 const StockDetails = () => {
   const [item, setItem] = useState(null);
@@ -10,9 +11,7 @@ const StockDetails = () => {
   const { stockId } = useParams();
 
   const getItem = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${stockId}`
-    );
+    const { data } = await GET_INVENTORY_ITEM(stockId);
     setItem(data);
   };
 

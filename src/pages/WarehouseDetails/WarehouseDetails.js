@@ -1,11 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import WarehouseInfo from "../../components/WarehouseInfo/WarehouseInfo";
 import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
 import "./WarehouseDetails.scss";
-import { GET_A_WAREHOUSE } from "../../utils/apiCalls.mjs";
+import {
+  GET_A_WAREHOUSE,
+  DELETE_INVENTORY_ITEM,
+  GET_WAREHOUSE_INVENTORY,
+} from "../../utils/apiCalls.mjs";
 
 const WarehouseDetails = () => {
   const [inventory, setInventory] = useState(null);
@@ -22,16 +25,12 @@ const WarehouseDetails = () => {
   };
 
   const getInventory = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouseId}/inventories`
-    );
+    const { data } = await GET_WAREHOUSE_INVENTORY(warehouseId);
     setInventory(data);
   };
 
   const deleteItem = async (item) => {
-    await axios.delete(
-      `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${item.id}`
-    );
+    DELETE_INVENTORY_ITEM(item);
     getInventory();
     modalToggle();
   };

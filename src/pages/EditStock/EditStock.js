@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./EditStock.scss";
-import axios from "axios";
+
 import { useLocation, useNavigate } from "react-router-dom";
-import { GET_WAREHOUSES } from "../../utils/apiCalls.mjs";
+import { GET_WAREHOUSES, PUT_INVENTORY_ITEM } from "../../utils/apiCalls.mjs";
 
 const EditStock = () => {
   const location = useLocation();
@@ -71,10 +71,7 @@ const EditStock = () => {
     console.log(newItem);
 
     try {
-      await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${inventoryItem.id}`,
-        newItem
-      );
+      await PUT_INVENTORY_ITEM(inventoryItem.id, newItem);
     } catch (err) {
       console.log(err);
     }
