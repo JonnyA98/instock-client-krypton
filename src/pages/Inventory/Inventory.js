@@ -1,10 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import InventoryCard from "../../components/InventoryCard/InventoryCard";
 import InventoryHeader from "../../components/InventoryHeader/InventoryHeader";
 import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
 import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
 import "./Inventory.scss";
+import {
+  DELETE_INVENTORY_ITEM,
+  GET_INVENTORY_ALL,
+} from "../../utils/apiCalls.mjs";
 
 const Inventory = () => {
   const [inventories, setInventories] = useState(null);
@@ -17,17 +20,13 @@ const Inventory = () => {
   };
 
   const deleteItem = async (item) => {
-    await axios.delete(
-      `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${item.id}`
-    );
+    await DELETE_INVENTORY_ITEM(item);
     getInventories();
     modalToggle();
   };
 
   const getInventories = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/inventories`
-    );
+    const { data } = await GET_INVENTORY_ALL();
     setInventories(data);
   };
 
