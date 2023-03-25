@@ -1,10 +1,11 @@
 import "./Warehouses.scss";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import DeleteWarehouseModal from "../../components/DeleteWarehouseModal/DeleteWarehouseModal";
 import ListHeaderWarehouses from "../../components/ListHeaderWarehouses/ListHeaderWarehouses";
+import { DELETE_WAREHOUSE, GET_WAREHOUSES } from "../../utils/apiCalls.mjs";
 
 const Warehouses = () => {
   const [warehouses, setWarehouses] = useState(null);
@@ -17,16 +18,12 @@ const Warehouses = () => {
   };
 
   const getWarehouses = async () => {
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses`
-    );
+    const { data } = await GET_WAREHOUSES();
     setWarehouses(data);
   };
 
   const deleteWarehouse = async (warehouse) => {
-    await axios.delete(
-      `${process.env.REACT_APP_BACKEND_URL}/api/warehouses/${warehouse.id}`
-    );
+    DELETE_WAREHOUSE(warehouse);
     getWarehouses();
     modalToggle();
   };
