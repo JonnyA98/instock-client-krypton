@@ -90,4 +90,43 @@
   &__delete {
     cursor: pointer;
   }
+
+  &.alt {
+    @include tablet {
+      .inventory-list-item__text {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .inventory-list-item__buttons {
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 4rem;
+        justify-content: flex-start;
+      }
+      .inventory-list-item__right {
+        width: 50%;
+      }
+      .inventory-list-item__left {
+        width: 42%;
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+
+      .warehouse-inventory-list-item__category--status {
+        width: 36%;
+      }
+      .inventory-list-item__warehouse-name {
+        width: 30%;
+      }
+    }
+
+    @include desktop {
+      .inventory-list-item__buttons {
+        width: 7rem;
+      }
+      .inventory-list-item__right {
+        width: 47%;
+      }
+    }
+  }
 }

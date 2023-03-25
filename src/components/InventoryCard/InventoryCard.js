@@ -20,9 +20,9 @@ const InventoryCard = ({ inventories, modalToggle }) => {
 
   return (
     <>
-      <article className="inventory-list-item">
+      <article className="inventory-list-item alt">
         <div className="inventory-list-item__text">
-          <div className="inventory-list-item__text-inner">
+          <div className="inventory-list-item__text-inner inventory-list-item__left">
             <div className="inventory-list-item__category warehouse-inventory-list-item__category--link">
               <h4 className="inventory-list-item__mini-header">
                 Inventory Item
@@ -41,7 +41,7 @@ const InventoryCard = ({ inventories, modalToggle }) => {
               </p>
             </div>
           </div>
-          <div className="inventory-list-item__text-inner">
+          <div className="inventory-list-item__text-inner inventory-list-item__right ">
             <div className="inventory-list-item__category warehouse-inventory-list-item__category--status">
               <h4 className="inventory-list-item__mini-header">Status</h4>
               <p className={statusClass}>{status}</p>

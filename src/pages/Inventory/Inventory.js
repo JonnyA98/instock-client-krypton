@@ -56,7 +56,7 @@ const Inventory = () => {
           mainTitle={mainTitle}
           descriptionBtn={descriptionBtn}
         />
-        <div>
+        <div className="inventory-list alt">
           <InventoryHeader />
         </div>
         {inventories.map((inventories) => {
