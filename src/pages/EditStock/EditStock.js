@@ -63,13 +63,7 @@ const EditStock = () => {
 
   const navigate = useNavigate();
 
-  const updateItem = async () => {
-    const newItem = {
-      ...formData,
-    };
-
-    console.log(newItem);
-
+  const updateItem = async (newItem) => {
     try {
       await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/inventories/${inventoryItem.id}`,
@@ -119,9 +113,9 @@ const EditStock = () => {
       newErrors["warehouse"] = "Please select a Warehouse for your Item";
     }
 
-    setFormData({ ...formData, quantity: Number(formData.quantity) });
+    const quantityAsNum = Number(formData.quantity);
 
-    if (typeof formData.quantity !== "number") {
+    if (isNaN(quantityAsNum)) {
       isValid = false;
       newErrors["quantity"] = "Please ensure Stock is a number";
     }
@@ -131,17 +125,17 @@ const EditStock = () => {
       return;
     }
 
-    updateItem();
+    const newItem = {
+      ...formData,
+      quantity: quantityAsNum,
+    };
+
+    updateItem(newItem);
     navigate(-1);
   };
 
   const handleChange = (event) => {
     const inputName = event.target.name;
-
-    // const value =
-    //   inputName === "quantity"
-    //     ? Number(event.target.value)
-    //     : event.target.value;
 
     const value = event.target.value;
 
