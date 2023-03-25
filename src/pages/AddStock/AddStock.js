@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./AddStock.scss";
-import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { GET_WAREHOUSES } from "../../utils/apiCalls.mjs";
 
 const AddStock = () => {
   const [formData, setFormData] = useState({
@@ -13,15 +13,14 @@ const AddStock = () => {
     quantity: 0,
     status: "",
   });
+
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
 
   const getWarehouses = async () => {
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/warehouses`
-      );
+      const { data } = await GET_WAREHOUSES();
       setWarehouses(data);
     } catch (error) {
       setApiError(true);
@@ -118,9 +117,6 @@ const AddStock = () => {
   };
 
   const handleBackPage = () => {
-    navigate(-1);
-  };
-  const handleCancel = () => {
     navigate(-1);
   };
 
@@ -285,7 +281,11 @@ const AddStock = () => {
             </div>
           </div>
           <div className="add-stock__btn-wrapper">
-            <button type="button" className="add-stock__btn-cancel">
+            <button
+              onClick={handleBackPage}
+              type="button"
+              className="add-stock__btn-cancel"
+            >
               Cancel
             </button>
             <button
