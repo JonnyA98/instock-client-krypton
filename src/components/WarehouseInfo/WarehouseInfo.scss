@@ -33,6 +33,7 @@
   }
 
   &__arrow {
+    cursor: pointer;
     @include tablet {
       padding-left: 3.2rem;
     }

@@ -42,29 +42,31 @@ const WarehouseDetails = () => {
     } catch (error) {
       console.log(error);
     }
+
+    // eslint-disable-next-line
   }, [warehouseId]);
 
-  const getWarehouse = async () => {
-    const { data } = await GET_A_WAREHOUSE(warehouseId);
-
-    setWarehouse(data[0]);
-  };
-
   useEffect(() => {
+    const getWarehouse = async () => {
+      const { data } = await GET_A_WAREHOUSE(warehouseId);
+
+      setWarehouse(data[0]);
+    };
+
     try {
       getWarehouse();
     } catch (err) {
       setError(err.message);
     }
-  }, []);
+  }, [warehouseId]);
 
   if (!warehouse) {
-    return <p>LOADING!!!!</p>;
+    return <p>Loading...</p>;
   }
   if (!inventory) {
     return (
       <>
-        <div className="warehouses__list">
+        <div className="warehouse-details__list">
           <WarehouseInfo key={warehouse.id} warehouse={warehouse} />
         </div>
         <h2>This warehouse has no inventory</h2>
@@ -73,8 +75,8 @@ const WarehouseDetails = () => {
   }
 
   return (
-    <div className="warehouses">
-      <div className="warehouses__wrapper">
+    <div className="warehouse-details">
+      <div className="warehouse-details__wrapper">
         {deleteModal && (
           <DeleteItemModal
             modalToggle={modalToggle}
@@ -83,7 +85,7 @@ const WarehouseDetails = () => {
           />
         )}
 
-        <div className="warehouses__list">
+        <div className="warehouse-details__list">
           <WarehouseInfo key={warehouse.id} warehouse={warehouse} />
         </div>
         <InventoryList modalToggle={modalToggle} inventory={inventory} />
