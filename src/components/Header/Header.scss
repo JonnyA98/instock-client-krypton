@@ -59,4 +59,8 @@
 .active {
   color: $primary-white;
   background-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+  }
 }

@@ -48,9 +48,13 @@
     cursor: pointer;
     text-decoration: none;
 
+    &:hover {
+      background-color: $primary-color;
+    }
+
     @include tablet {
       position: static;
-      border-radius: 3rem 3rem 3rem 3rem;
+      border-radius: 3rem;
       padding: 0.5rem;
       height: 3.5rem;
       width: 8rem;

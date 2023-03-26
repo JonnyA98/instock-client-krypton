@@ -3,6 +3,7 @@
 
 .modal {
   position: fixed;
+  left: 0;
   top: 0;
   z-index: 10;
   @include tablet {
@@ -63,22 +64,32 @@
     width: 40%;
     @include flex(center, center);
 
-    &:hover {
-      cursor: pointer;
+    &--cancel {
+      color: $secondary-color;
+      background-color: $primary-white;
+
+      &:hover {
+        color: $primary-color-alt;
+        background-color: $primary-white;
+        border: 1px solid $primary-color-alt;
+      }
     }
+
     &--delete {
       position: absolute;
       right: 3rem;
       background-color: $supporting-color-alt;
-    }
-  }
-
-  &__button-text {
-    @include flex(center, center);
-    width: 90%;
-
-    &--delete {
       color: $primary-white;
+      border: none;
     }
   }
+
+  // &__button-text {
+  //   @include flex(center, center);
+  //   width: 90%;
+
+  //   &--delete {
+  //     color: $primary-white;
+  //   }
+  // }
 }

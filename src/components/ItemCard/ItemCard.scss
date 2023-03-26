@@ -51,10 +51,37 @@
     border-radius: 50%;
     @include flex(center, center);
     padding: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+
+    @include tablet {
+      position: static;
+      border-radius: 3rem;
+      padding: 0.5rem;
+      height: 3.5rem;
+      width: 8rem;
+      display: flex;
+      margin-left: auto;
+    }
   }
 
   &__pencil {
     filter: brightness(0) invert(1);
+  }
+
+  &__edit-pencil {
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+      margin-top: 0rem;
+      color: $primary-white;
+      padding-left: 1rem;
+      font-size: 1.4rem;
+    }
   }
 
   &__stat {

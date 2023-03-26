@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./EditStock.scss";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { GET_WAREHOUSES, PUT_INVENTORY_ITEM } from "../../utils/apiCalls.mjs";

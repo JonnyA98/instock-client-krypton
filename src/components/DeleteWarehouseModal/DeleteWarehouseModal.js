@@ -24,20 +24,19 @@ const DeleteWarehouseModal = ({
           warehouses. You won't be able to undo this action.
         </p>
         <div className="modal__buttons">
-          <div
+          <button
             onClick={modalToggle}
             className="modal__button modal__button--cancel"
           >
-            <a className="modal__button-text">Cancel</a>
-          </div>
-          <div
+            Cancel
+          </button>
+
+          <button
             onClick={() => deleteWarehouse(warehouseToDelete)}
             className="modal__button modal__button--delete"
           >
-            <a className="modal__button-text modal__button-text--delete">
-              Delete
-            </a>
-          </div>
+            Delete
+          </button>
         </div>
       </div>
     </article>
