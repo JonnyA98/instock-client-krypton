@@ -1,0 +1,201 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+// wrapper
+
+.wrapper {
+  padding: $mobile-margin;
+  background-color: $background-color-alt;
+  position: relative;
+  padding-bottom: auto;
+
+  @include tablet {
+    padding: $tablet-margin;
+    @include flex(center, center, column);
+    // padding-bottom: 40rem;
+  }
+
+  @include desktop {
+    width: 100%;
+  }
+}
+.add-stock {
+  &__form-wrapper {
+    background-color: $primary-white;
+    border: $divider;
+    border-radius: 4px;
+    box-shadow: $box-shadow;
+    width: 100%;
+    position: relative;
+    bottom: 6.5rem;
+
+    @include tablet {
+      bottom: 8rem;
+    }
+
+    @include desktop {
+      margin: $desktop-margin;
+      max-width: 102rem;
+    }
+  }
+
+  &__heading-wrapper {
+    @include flex(left, flex-start, row);
+    border-bottom: $divider;
+    padding: 2rem;
+
+    @include tablet {
+      align-items: center;
+    }
+  }
+
+  &__heading {
+    background-color: $primary-white;
+    padding-left: 1.2rem;
+  }
+
+  &__back-btn {
+    height: 2.4rem;
+    width: 2.4rem;
+    background-image: URL("../../assets/Icons/arrow_back-24px.svg");
+    background-size: cover;
+    cursor: pointer;
+    margin-top: 0.5rem;
+
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__form-text-wrapper {
+    padding: 2rem;
+    background-color: $primary-white;
+  }
+
+  &__input-wrapper {
+    @include flex(space-between, flex-start, column);
+    margin-top: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__form-left {
+    @include flex(left, flex-start, column);
+    width: 100%;
+    border-bottom: $divider;
+    padding: 1rem 0 2rem 0;
+
+    @include tablet {
+      padding: 1rem 2rem 1rem 0;
+      border-right: $divider;
+      border-bottom: none;
+    }
+  }
+
+  &__form-right {
+    @include flex(left, flex-start, column);
+    width: 100%;
+    padding: 2rem 0;
+    @include tablet {
+      padding: 1rem 0 1rem 2rem;
+    }
+  }
+
+  &__input {
+    @include body-large;
+    @include form-input;
+    width: 100%;
+    font-weight: 400;
+
+    &--description {
+      font-family: "Titillium Web";
+      resize: none;
+      height: 13rem;
+      @include tablet {
+        height: 18rem;
+      }
+    }
+
+    &--dropdown,
+    &--radio {
+      cursor: pointer;
+    }
+
+    &--invalid {
+      border: 1px solid $supporting-color-alt;
+    }
+  }
+
+  &__validation-msg {
+    @include body-medium;
+    color: $supporting-color-alt;
+  }
+
+  &__form-label {
+    margin: 2rem 0 0.4rem 0;
+  }
+
+  &__radio-wrapper {
+    @include flex(left, center, row);
+    width: 100%;
+  }
+
+  &__radio-half-wrapper {
+    @include flex(left, center, row);
+    width: 50%;
+  }
+
+  &__stock-status {
+    @include flex(left, center, row);
+    width: 10rem;
+    padding-left: 0.4rem;
+    color: $secondary-color;
+  }
+
+  &__btn-wrapper {
+    @include flex(space-between, flex-start, row);
+
+    background-color: $background-color-alt;
+    padding: 2rem;
+    @include tablet {
+      @include flex(right, flex-start, row);
+    }
+  }
+
+  &__btn-submit {
+    @include button;
+    padding: 0.2rem 1.6rem;
+    background-color: $primary-color-alt;
+    color: $primary-white;
+    border: 1px solid $primary-color-alt;
+    width: 47%;
+    cursor: pointer;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__btn-cancel {
+    @include button;
+    padding: 0.2rem 1.6rem;
+    background-color: $primary-white;
+    color: $secondary-color;
+    border: 1px solid $secondary-color-alt;
+    width: 47%;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color-alt;
+      background-color: $primary-white;
+      border: 1px solid $primary-color-alt;
+    }
+
+    @include tablet {
+      width: auto;
+      margin-right: 1.5rem;
+    }
+  }
+}

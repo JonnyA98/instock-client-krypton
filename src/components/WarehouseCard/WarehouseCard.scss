@@ -1,0 +1,122 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouses {
+  &__stock {
+    @include flex(left, flex-start, column);
+    width: 100%;
+    padding: 1.6rem 2.4rem 0;
+    border-bottom: 1px solid #bdc5d5;
+
+    @include tablet {
+      @include flex(space-evenly, center, row);
+      padding: 1.6rem 3.2rem;
+    }
+  }
+
+  &__main-info-wrapper {
+    @include flex(space-between, flex-start, row);
+    width: 100%;
+    margin-bottom: 0.3rem;
+
+    @include tablet {
+      @include flex(flex-start, center, row);
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+  }
+
+  &__name-add-wrapper {
+    @include flex(left, flex-start, column);
+    width: 43%;
+
+    @include tablet {
+      max-width: none;
+      @include flex(space-between, center, row);
+      width: 45%;
+      margin-right: 2rem;
+    }
+  }
+
+  &__contact-wrapper {
+    @include flex(flex-start, flex-start, column);
+    width: 52%;
+
+    @include tablet {
+      @include flex(space-between, center, row);
+      width: 45%;
+    }
+  }
+
+  &__facts {
+    @include flex(left, flex-start, column);
+    margin-bottom: 1.6rem;
+
+    @include tablet {
+      margin: 0;
+      width: 45%;
+    }
+  }
+
+  &__subtitle {
+    color: $secondary-color;
+    margin-bottom: 0.4rem;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    @include body-medium;
+    color: $primary-color;
+
+    &-chevron {
+      height: 1.5rem;
+    }
+
+    @include desktop {
+      @include flex(left, center, row);
+    }
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &-wrapper {
+      @include flex(left, center, row);
+      text-decoration: none;
+      color: $primary-color-alt;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+      position: relative;
+    }
+  }
+
+  &__action-wrapper {
+    @include flex(space-between, center, row);
+    width: 100%;
+    margin-bottom: 2.7rem;
+
+    @include tablet {
+      margin: 0;
+      width: auto;
+    }
+  }
+
+  &__delete {
+    cursor: pointer;
+
+    @include tablet {
+      margin-right: 2rem;
+    }
+  }
+
+  &__edit {
+    &-link {
+      height: 2.4rem;
+    }
+  }
+}

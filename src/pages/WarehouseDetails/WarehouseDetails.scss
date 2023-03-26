@@ -1,0 +1,58 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse-details {
+  background-color: $background-color-alt;
+  margin-bottom: -6.5rem;
+
+  &__wrapper {
+    border-radius: 3px;
+    padding-top: 3.2rem;
+    background: $primary-white;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+    position: relative;
+    bottom: 6.5rem;
+
+    @include desktop {
+      margin: 0 13rem;
+    }
+  }
+
+  &__content {
+    border-bottom: 1px solid $secondary-color-alt;
+  }
+
+  &__card {
+    border-radius: 3px;
+    padding-top: 2rem;
+    background: $primary-white;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+    position: relative;
+    bottom: 6.5rem;
+  }
+
+  &__no-inv {
+    padding: 6rem 1.6rem 2rem;
+    text-align: center;
+    color: $secondary-color;
+    &-wrapper {
+      @include flex(center, center, column);
+      padding-bottom: 6rem;
+    }
+  }
+
+  &__add-btn {
+    @include flex(center, center);
+    @include button;
+    margin: 0 auto;
+    width: auto;
+    background-color: $primary-color-alt;
+    color: $primary-white;
+    text-decoration: none;
+    padding: 1rem;
+  }
+}

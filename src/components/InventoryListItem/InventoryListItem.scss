@@ -1,0 +1,151 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-list-item {
+  @include flex(null, null, column);
+  padding: 1.6rem 2.4rem;
+  border-bottom: 1px solid #bdc5d5;
+  position: relative;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding: 0 3.2rem;
+    margin-top: 2rem;
+  }
+
+  &__text {
+    @include flex();
+    @include tablet {
+      flex-grow: 1;
+      justify-content: space-evenly;
+      position: relative;
+    }
+  }
+
+  &__text-inner {
+    margin-right: 4rem;
+    @include tablet {
+      @include flex(null, null, center);
+      width: 50%;
+      margin-right: 0;
+    }
+  }
+
+  &__category {
+    margin-bottom: 1.6rem;
+
+    @include tablet {
+      @include flex(null, center, center);
+      width: 50%;
+    }
+  }
+
+  &__mini-header {
+    text-transform: uppercase;
+    color: $secondary-color;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    @include flex(null, center);
+    text-decoration: none;
+    @include tablet {
+      width: 100%;
+    }
+
+    &-text {
+      color: $primary-color-alt;
+      @include body-medium;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__status {
+    @include body-medium;
+    color: $supporting-color;
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    background: rgba(21, 132, 99, 0.07);
+    &--out {
+      color: $supporting-color-alt;
+    }
+    @include tablet {
+    }
+  }
+
+  &__data {
+    @include body-medium;
+    color: $primary-color;
+
+    @include tablet {
+      width: 200%;
+    }
+  }
+
+  &__buttons {
+    @include flex(space-between);
+    height: 3rem;
+  }
+
+  &__delete {
+    cursor: pointer;
+  }
+
+  &.alt {
+    @include tablet {
+      .inventory-list-item__text {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .inventory-list-item__buttons {
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 6rem;
+        justify-content: flex-start;
+        position: absolute;
+        top: 2px;
+        right: 38px;
+      }
+      .inventory-list-item__right {
+        flex: 1;
+        padding-right: 6rem;
+
+        .inventory-list-item__category {
+          &:nth-of-type(2) {
+            width: 66.6%;
+          }
+        }
+      }
+      .inventory-list-item__left {
+        width: 40%;
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+
+      .warehouse-inventory-list-item__category--status {
+        width: 33%;
+      }
+      .inventory-list-item__warehouse-name {
+        width: 50%;
+      }
+
+      .warehouse-inventory-list-item__category--status {
+        width: 33.3%;
+      }
+
+      .inventory-list-item__delete {
+        margin-right: 1rem;
+      }
+      .inventory-list-item__data {
+        width: 50%;
+      }
+    }
+  }
+}

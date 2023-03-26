@@ -1,0 +1,66 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  background-color: $background-color;
+  padding: 2.4rem 1.6rem 0;
+  height: 20rem;
+
+  @include tablet {
+    padding: 2.7rem 3.2rem 0;
+    height: 18rem;
+  }
+
+  &__wrapper {
+    @include flex(flex-start, center, column);
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      max-width: $max-wrapper-width;
+      margin: 0 auto;
+    }
+  }
+
+  &__logo {
+    height: 2.8rem;
+    margin-bottom: 2rem;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__links {
+    width: 100%;
+    @include flex(space-between);
+
+    @include tablet {
+      width: 21rem;
+    }
+  }
+
+  &__link {
+    @include button;
+    color: $secondary-color-alt;
+    text-decoration: none;
+    @include flex(center, center);
+
+    &:hover {
+      text-decoration: underline;
+      color: $primary-white;
+    }
+  }
+}
+
+.active {
+  color: $primary-white;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
