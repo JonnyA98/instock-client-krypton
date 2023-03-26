@@ -63,13 +63,7 @@ const EditStock = () => {
 
   const navigate = useNavigate();
 
-  const updateItem = async () => {
-    const newItem = {
-      ...formData,
-    };
-
-    console.log(newItem);
-
+  const updateItem = async (newItem) => {
     try {
       await PUT_INVENTORY_ITEM(inventoryItem.id, newItem);
     } catch (err) {
@@ -116,22 +110,31 @@ const EditStock = () => {
       newErrors["warehouse"] = "Please select a Warehouse for your Item";
     }
 
+    const quantityAsNum = Number(formData.quantity);
+
+    if (isNaN(quantityAsNum)) {
+      isValid = false;
+      newErrors["quantity"] = "Please ensure Stock is a number";
+    }
+
     if (!isValid) {
       setErrors(newErrors);
       return;
     }
 
-    updateItem();
+    const newItem = {
+      ...formData,
+      quantity: quantityAsNum,
+    };
+
+    updateItem(newItem);
     navigate(-1);
   };
 
   const handleChange = (event) => {
     const inputName = event.target.name;
 
-    const value =
-      inputName === "quantity"
-        ? Number(event.target.value)
-        : event.target.value;
+    const value = event.target.value;
 
     inputName === "status"
       ? setFormData({ ...formData, [inputName]: value, quantity: 0 })

@@ -1,18 +1,18 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouses {
-  &__content {
-    padding: 0 1.6rem;
+.search-warehouses {
+  padding: 0 2.4rem;
+  border-bottom: $divider;
 
-    @include tablet {
-      @include flex(space-between, center, row);
-      padding: 0 3.2rem 2.2rem;
-    }
+  @include tablet {
+    @include flex(space-between, center, row);
+    padding: 0 3.2rem 2.2rem;
+    border-bottom: none;
+  }
 
-    @include desktop {
-      padding: 0 4rem 2.2rem;
-    }
+  @include desktop {
+    padding: 0 4rem 2.2rem;
   }
 
   &__title {

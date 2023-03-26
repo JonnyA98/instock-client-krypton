@@ -31,7 +31,7 @@ const InventoryListItem = ({ item, category, quantity, modalToggle, name }) => {
                 to={`/inventory/${item.id}`}
                 className="inventory-list-item__link"
               >
-                <p className="inventory-list-item__link-text">{name}</p>
+                <h3 className="inventory-list-item__link-text">{name}</h3>
                 <img src={arrow} alt="chevron_right" />
               </Link>
             </div>

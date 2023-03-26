@@ -1,10 +1,10 @@
 import "./Warehouses.scss";
 import { useEffect, useState } from "react";
 
-import SearchWarehouses from "../../components/SearchWarehouses/SearchWarehouses";
+import SearchHeader from "../../components/SearchHeader/SearchHeader";
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import DeleteWarehouseModal from "../../components/DeleteWarehouseModal/DeleteWarehouseModal";
-import sort from "../../assets/Icons/sort-24px.svg";
+import ListHeaderWarehouses from "../../components/ListHeaderWarehouses/ListHeaderWarehouses";
 import { DELETE_WAREHOUSE, GET_WAREHOUSES } from "../../utils/apiCalls.mjs";
 
 const Warehouses = () => {
@@ -49,34 +49,9 @@ const Warehouses = () => {
       )}
       <div className="warehouses">
         <div className="warehouses__card">
-          <SearchWarehouses
-            mainTitle={mainTitle}
-            descriptionBtn={descriptionBtn}
-          />
+          <SearchHeader mainTitle={mainTitle} descriptionBtn={descriptionBtn} />
 
-          <div className="inventory-list__category-header-wrapper">
-            <div className="inventory-list__category-box">
-              <h4 className="inventory-list__category-header">Warehouse</h4>
-              <img src={sort} alt="sort" />
-            </div>
-            <div className="inventory-list__category-box">
-              <h4 className="inventory-list__category-header">Address</h4>
-              <img src={sort} alt="sort" />
-            </div>
-            <div className="inventory-list__category-box warehouse-inventory-list__category-box--status">
-              <h4 className="inventory-list__category-header ">Contact Name</h4>
-              <img src={sort} alt="sort" />
-            </div>
-            <div className="inventory-list__category-box">
-              <h4 className="inventory-list__category-header">
-                Contact Information
-              </h4>
-              <img src={sort} alt="sort" />
-            </div>
-            <div className="inventory-list__category-box warehouse-inventory-list__category-box--actions">
-              <h4 className="inventory-list__category-header">Actions</h4>
-            </div>
-          </div>
+          <ListHeaderWarehouses />
 
           <div className="warehouses__list">
             {warehouses.map((warehouse) => {

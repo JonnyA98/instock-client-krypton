@@ -2,20 +2,40 @@
 @use "../../styles/partials/variables" as *;
 
 .inventory-list {
-  &__category-header-wrapper {
-    display: none;
-    padding: 1.1rem 3.2rem;
-    background: rgba(247, 248, 249, 0.7);
-    text-transform: uppercase;
-    @include tablet {
-      @include flex(space-around, center);
-      width: 100%;
-      padding: 0;
+  &__category {
+    &-header {
+      text-transform: uppercase;
+      color: $secondary-color;
+
+      &-wrapper {
+        display: none;
+        padding: 1.1rem 3.2rem;
+        background: rgba(247, 248, 249, 0.7);
+        text-transform: uppercase;
+
+        @include tablet {
+          @include flex(space-around, center);
+          width: 100%;
+          padding: 0;
+        }
+
+        &--whd {
+          padding: 1.1rem 0;
+        }
+      }
+    }
+
+    &-box {
+      @include flex(space-evenly, center);
+      width: 30%;
+      &--2 {
+        width: 50%;
+      }
     }
   }
 
   &__container {
-    @include flex(space-between);
+    @include flex(space-between, center, row);
     padding: 0;
     width: 45%;
     &--1 {
@@ -26,22 +46,15 @@
     }
   }
 
-  &__category-box {
-    @include flex(space-evenly, center);
-    width: 30%;
-    &--2 {
-      width: 50%;
-    }
-  }
-
-  &__category-header {
-    text-transform: capitalize;
+  &__sort {
+    height: 1.5rem;
   }
 
   &.alt {
     .inventory-list__container {
-      padding-left: 3.2rem;
-      padding-right: 3.2rem;
+      padding: 1.1rem 3.2rem;
+      // padding-left: 3.2rem;
+      // padding-right: 3.2rem;
       width: 100%;
       justify-content: flex-start;
     }

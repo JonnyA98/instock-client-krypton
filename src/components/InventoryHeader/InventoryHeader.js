@@ -8,25 +8,25 @@ const InventoryHeader = () => {
         <div className="inventory-list__container-left">
           <div className="inventory-list__category-box">
             <h4 className="inventory-list__category-header">INVENTORY ITEM</h4>
-            <img src={sort} alt="sort" />
+            <img src={sort} alt="sort" className="inventory-list__sort" />
           </div>
           <div className="inventory-list__category-box">
             <h4 className="inventory-list__category-header">CATEGORY</h4>
-            <img src={sort} alt="sort" />
+            <img src={sort} alt="sort" className="inventory-list__sort" />
           </div>
         </div>
         <div className="inventory-list__container-right">
           <div className="inventory-list__category-box warehouse-inventory-list__category-box--status">
             <h4 className="inventory-list__category-header ">STATUS</h4>
-            <img src={sort} alt="sort" />
+            <img src={sort} alt="sort" className="inventory-list__sort" />
           </div>
           <div className="inventory-list__category-box">
             <h4 className="inventory-list__category-header">QTY</h4>
-            <img src={sort} alt="sort" />
+            <img src={sort} alt="sort" className="inventory-list__sort" />
           </div>
           <div className="inventory-list__category-box">
             <h4 className="inventory-list__category-header">WAREHOUSE</h4>
-            <img src={sort} alt="sort" />
+            <img src={sort} alt="sort" className="inventory-list__sort" />
           </div>
         </div>
         <div className="winventory-list__category-box warehouse-inventory-list__category-box--actions">
