@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import FormModal from "../../components/FormModal/FormModal.js";
 import { GET_WAREHOUSES, PUT_INVENTORY_ITEM } from "../../utils/apiCalls.mjs";
 
 const EditStock = () => {
@@ -15,9 +16,11 @@ const EditStock = () => {
     quantity: inventoryItem.quantity,
     status: inventoryItem.status,
   });
+
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const getWarehouses = async () => {
@@ -126,8 +129,13 @@ const EditStock = () => {
       quantity: quantityAsNum,
     };
 
-    updateItem(newItem);
-    navigate(-1);
+    await updateItem(newItem);
+
+    setShowModal(true);
+
+    setTimeout(() => {
+      navigate(-1);
+    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -146,6 +154,8 @@ const EditStock = () => {
 
   return (
     <div className="wrapper">
+      <FormModal message="Inventory Edited" show={showModal} />
+
       <div className="add-stock__form-wrapper">
         <div className="add-stock__heading-wrapper">
           <div className="add-stock__back-btn" onClick={handleBackPage}></div>

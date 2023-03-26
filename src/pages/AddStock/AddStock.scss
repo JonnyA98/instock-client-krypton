@@ -27,7 +27,11 @@
     box-shadow: $box-shadow;
     width: 100%;
     position: relative;
-    bottom: 8rem;
+    bottom: 6.5rem;
+
+    @include tablet {
+      bottom: 8rem;
+    }
 
     @include desktop {
       margin: $desktop-margin;
@@ -36,25 +40,30 @@
   }
 
   &__heading-wrapper {
-    @include flex(left, center, row);
+    @include flex(left, flex-start, row);
     border-bottom: $divider;
     padding: 2rem;
+
+    @include tablet {
+      align-items: center;
+    }
   }
 
   &__heading {
     background-color: $primary-white;
-    padding-left: 0.4rem;
+    padding-left: 1.2rem;
   }
 
   &__back-btn {
-    height: 4rem;
-    width: 3.6rem;
+    height: 2.4rem;
+    width: 2.4rem;
     background-image: URL("../../assets/Icons/arrow_back-24px.svg");
     background-size: cover;
     cursor: pointer;
+    margin-top: 0.5rem;
+
     @include tablet {
-      height: 4rem;
-      width: 4rem;
+      margin-top: 0;
     }
   }
 

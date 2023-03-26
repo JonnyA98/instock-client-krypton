@@ -30,7 +30,7 @@ const WarehouseDetails = () => {
   };
 
   const deleteItem = async (item) => {
-    DELETE_INVENTORY_ITEM(item);
+    await DELETE_INVENTORY_ITEM(item);
     getInventory();
     modalToggle();
   };

@@ -2,18 +2,24 @@
 @use "../../styles/partials/variables" as *;
 
 .warehouse-info {
+  border-bottom: $divider;
+  padding-bottom: 1.6rem;
+
+  @include tablet {
+    border: none;
+    padding: 0;
+  }
+
   &__container {
     border-bottom: 1px solid #bdc5d5;
     padding-right: 1.6rem;
     padding-left: 1.6rem;
-    margin-top: 2.5rem;
 
     @include tablet {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding-right: 3.6rem;
-      margin-top: 2.5rem;
+      padding: 0 3.6rem 2.1rem 3.2rem;
     }
   }
   &__wrapper {
@@ -25,23 +31,23 @@
     padding-left: 1rem;
     padding-right: 1.6rem;
     color: #13182c;
-    padding-top: 2rem;
+    // padding-top: 1.2rem;
     font-size: 2.8rem;
     line-height: 2rem;
     font-weight: 600;
-    padding-bottom: 3rem;
+    // padding-bottom: 3rem;
   }
 
   &__arrow {
     cursor: pointer;
     @include tablet {
-      padding-left: 3.2rem;
+      // padding-left: 3.2rem;
     }
   }
   &__edit {
     position: relative;
     left: 21.6rem;
-    bottom: 5rem;
+    bottom: 3rem;
     background-color: $primary-color-alt;
     border-radius: 50%;
     padding: 0.5rem;

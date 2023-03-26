@@ -70,7 +70,7 @@ const EditWarehouse = () => {
     navigate(-1);
   };
 
-  const submitWarehouseHandler = (e) => {
+  const submitWarehouseHandler = async (e) => {
     e.preventDefault();
 
     // Form validation
@@ -144,7 +144,7 @@ const EditWarehouse = () => {
 
     console.log(editedWarehouse);
     try {
-      PUT_WAREHOUSE(warehouse.id, editedWarehouse);
+      await PUT_WAREHOUSE(warehouse.id, editedWarehouse);
     } catch (error) {
       console.log(error);
     }
