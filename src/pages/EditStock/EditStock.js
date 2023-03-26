@@ -1,14 +1,53 @@
 import { useState, useEffect } from "react";
 import "./EditStock.scss";
 
-import { useLocation, useNavigate } from "react-router-dom";
-import { GET_WAREHOUSES, PUT_INVENTORY_ITEM } from "../../utils/apiCalls.mjs";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  GET_WAREHOUSES,
+  PUT_INVENTORY_ITEM,
+  GET_INVENTORY_ITEM,
+} from "../../utils/apiCalls.mjs";
 
 const EditStock = () => {
   const location = useLocation();
-  const inventoryItem = location.state;
+  let inventoryItem = location.state;
+
+  const stockId = useParams();
+
+  const getInventoryItem = async () => {
+    const { data } = await GET_INVENTORY_ITEM(stockId);
+
+    inventoryItem = data[0];
+
+    setFormData({
+      warehouse_id: inventoryItem.warehouse_id,
+      item_name: inventoryItem.item_name,
+      description: inventoryItem.description,
+      category: inventoryItem.category,
+      quantity: inventoryItem.quantity,
+      status: inventoryItem.status,
+    });
+  };
+  useEffect(() => {
+    if (!location.state) {
+      getInventoryItem();
+    }
+    return;
+  });
 
   const [formData, setFormData] = useState({
+    warehouse_id: "",
+    item_name: "",
+    description: "",
+    category: "",
+    quantity: 0,
+    status: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState(false);
+  const [warehouses, setWarehouses] = useState([]);
+
+  setFormData({
     warehouse_id: inventoryItem.warehouse_id,
     item_name: inventoryItem.item_name,
     description: inventoryItem.description,
@@ -16,9 +55,6 @@ const EditStock = () => {
     quantity: inventoryItem.quantity,
     status: inventoryItem.status,
   });
-  const [errors, setErrors] = useState({});
-  const [apiError, setApiError] = useState(false);
-  const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
     const getWarehouses = async () => {
