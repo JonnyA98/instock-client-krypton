@@ -10,18 +10,18 @@ const StockDetails = () => {
 
   const { stockId } = useParams();
 
-  const getItem = async () => {
-    const { data } = await GET_INVENTORY_ITEM(stockId);
-    setItem(data);
-  };
-
   useEffect(() => {
+    const getItem = async () => {
+      const { data } = await GET_INVENTORY_ITEM(stockId);
+      setItem(data);
+    };
+
     try {
       getItem();
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [stockId]);
 
   if (!item) {
     return <p>Loading!!!</p>;
