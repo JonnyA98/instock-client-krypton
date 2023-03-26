@@ -41,6 +41,10 @@
     }
   }
 
+  &__sort {
+    height: 1.5rem;
+  }
+
   &.alt {
     .inventory-list__container {
       padding: 1.1rem 3.2rem;

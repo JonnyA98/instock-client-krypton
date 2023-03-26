@@ -69,6 +69,7 @@
 
   &__info {
     @include body-medium;
+    color: $primary-color;
 
     &-chevron {
       height: 1.5rem;
@@ -79,13 +80,15 @@
     }
   }
 
-  &__link-wrapper {
-    @include flex(left, center, row);
-    text-decoration: none;
-    color: $primary-color-alt;
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-    position: relative;
+  &__link {
+    &-wrapper {
+      @include flex(left, center, row);
+      text-decoration: none;
+      color: $primary-color-alt;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+      position: relative;
+    }
   }
 
   &__action-wrapper {
