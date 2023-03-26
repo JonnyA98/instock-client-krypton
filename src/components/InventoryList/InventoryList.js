@@ -5,7 +5,7 @@ import "./InventoryList.scss";
 const InventoryList = ({ inventory, modalToggle }) => {
   return (
     <>
-      <div className="inventory-list__category-header-wrapper">
+      <div className="inventory-list__category-header-wrapper inventory-list__category-header-wrapper--whd">
         <div className="inventory-list__container inventory-list__container--1">
           <div className="inventory-list__category-box">
             <h4 className="inventory-list__category-header">Inventory Item</h4>
