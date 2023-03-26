@@ -81,6 +81,10 @@
   }
 
   &__link {
+    &:hover {
+      text-decoration: underline;
+    }
+
     &-wrapper {
       @include flex(left, center, row);
       text-decoration: none;

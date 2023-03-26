@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import FormModal from "../../components/FormModal/FormModal.js";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   GET_WAREHOUSES,
@@ -18,32 +19,35 @@ const EditStock = () => {
     quantity: 0,
     status: "",
   });
+
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const location = useLocation();
 
   let inventoryItem;
   inventoryItem = location.state;
 
-  const getInventoryItem = async () => {
-    const { data } = await GET_INVENTORY_ITEM(stockId);
-
-    inventoryItem = data;
-    console.log(inventoryItem);
-
-    setFormData({
-      warehouse_id: inventoryItem.warehouse_id,
-      item_name: inventoryItem.item_name,
-      description: inventoryItem.description,
-      category: inventoryItem.category,
-      quantity: inventoryItem.quantity,
-      status: inventoryItem.status,
-    });
-  };
-
   useEffect(() => {
+    const getInventoryItem = async () => {
+      const { data } = await GET_INVENTORY_ITEM(stockId);
+
+      // eslint-disable-next-line
+      inventoryItem = data;
+      console.log(inventoryItem);
+
+      setFormData({
+        warehouse_id: inventoryItem.warehouse_id,
+        item_name: inventoryItem.item_name,
+        description: inventoryItem.description,
+        category: inventoryItem.category,
+        quantity: inventoryItem.quantity,
+        status: inventoryItem.status,
+      });
+    };
+
     if (!inventoryItem) {
       getInventoryItem();
       return;
@@ -165,8 +169,13 @@ const EditStock = () => {
       quantity: quantityAsNum,
     };
 
-    updateItem(newItem);
-    navigate(-1);
+    await updateItem(newItem);
+
+    setShowModal(true);
+
+    setTimeout(() => {
+      navigate(-1);
+    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -185,6 +194,8 @@ const EditStock = () => {
 
   return (
     <div className="wrapper">
+      <FormModal message="Inventory Edited" show={showModal} />
+
       <div className="add-stock__form-wrapper">
         <div className="add-stock__heading-wrapper">
           <div className="add-stock__back-btn" onClick={handleBackPage}></div>

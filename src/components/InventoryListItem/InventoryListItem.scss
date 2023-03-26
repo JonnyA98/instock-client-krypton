@@ -60,6 +60,10 @@
     &-text {
       color: $primary-color-alt;
       @include body-medium;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

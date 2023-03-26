@@ -3,6 +3,7 @@ import "./AddStock.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GET_WAREHOUSES } from "../../utils/apiCalls.mjs";
+import FormModal from "../../components/FormModal/FormModal";
 
 const AddStock = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const AddStock = () => {
     status: "",
   });
 
+  const [showModal, setShowModal] = useState(false);
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
@@ -99,8 +101,13 @@ const AddStock = () => {
       return;
     }
 
-    postNewItem();
-    navigate(-1);
+    await postNewItem();
+
+    setShowModal(true);
+
+    setTimeout(() => {
+      navigate(-1);
+    }, 2000);
   };
 
   const handleChange = (event) => {
@@ -122,6 +129,7 @@ const AddStock = () => {
 
   return (
     <div className="wrapper">
+      <FormModal message="Inventory Added" show={showModal} />
       <div className="add-stock__form-wrapper">
         <div className="add-stock__heading-wrapper">
           <div className="add-stock__back-btn" onClick={handleBackPage}></div>

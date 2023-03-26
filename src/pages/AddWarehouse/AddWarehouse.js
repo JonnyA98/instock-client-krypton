@@ -26,7 +26,7 @@ const AddWarehouse = () => {
 
   const [errors, setErrors] = useState({});
 
-  const submitWarehouseHandler = (e) => {
+  const submitWarehouseHandler = async (e) => {
     e.preventDefault();
 
     // Form validation
@@ -100,7 +100,7 @@ const AddWarehouse = () => {
 
     console.log(newWarehouse);
     try {
-      POST_WAREHOUSE(newWarehouse);
+      await POST_WAREHOUSE(newWarehouse);
     } catch (error) {
       console.log(error);
     }

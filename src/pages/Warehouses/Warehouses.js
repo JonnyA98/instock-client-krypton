@@ -23,7 +23,7 @@ const Warehouses = () => {
   };
 
   const deleteWarehouse = async (warehouse) => {
-    DELETE_WAREHOUSE(warehouse);
+    await DELETE_WAREHOUSE(warehouse);
     getWarehouses();
     modalToggle();
   };
