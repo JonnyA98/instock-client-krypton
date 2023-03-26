@@ -9,31 +9,7 @@ import {
 } from "../../utils/apiCalls.mjs";
 
 const EditStock = () => {
-  const location = useLocation();
-  let inventoryItem = location.state;
-
-  const stockId = useParams();
-
-  const getInventoryItem = async () => {
-    const { data } = await GET_INVENTORY_ITEM(stockId);
-
-    inventoryItem = data[0];
-
-    setFormData({
-      warehouse_id: inventoryItem.warehouse_id,
-      item_name: inventoryItem.item_name,
-      description: inventoryItem.description,
-      category: inventoryItem.category,
-      quantity: inventoryItem.quantity,
-      status: inventoryItem.status,
-    });
-  };
-  useEffect(() => {
-    if (!location.state) {
-      getInventoryItem();
-    }
-    return;
-  });
+  const { stockId } = useParams();
 
   const [formData, setFormData] = useState({
     warehouse_id: "",
@@ -47,14 +23,41 @@ const EditStock = () => {
   const [apiError, setApiError] = useState(false);
   const [warehouses, setWarehouses] = useState([]);
 
-  setFormData({
-    warehouse_id: inventoryItem.warehouse_id,
-    item_name: inventoryItem.item_name,
-    description: inventoryItem.description,
-    category: inventoryItem.category,
-    quantity: inventoryItem.quantity,
-    status: inventoryItem.status,
-  });
+  const location = useLocation();
+
+  let inventoryItem;
+  inventoryItem = location.state;
+
+  const getInventoryItem = async () => {
+    const { data } = await GET_INVENTORY_ITEM(stockId);
+
+    inventoryItem = data;
+    console.log(inventoryItem);
+
+    setFormData({
+      warehouse_id: inventoryItem.warehouse_id,
+      item_name: inventoryItem.item_name,
+      description: inventoryItem.description,
+      category: inventoryItem.category,
+      quantity: inventoryItem.quantity,
+      status: inventoryItem.status,
+    });
+  };
+
+  useEffect(() => {
+    if (!inventoryItem) {
+      getInventoryItem();
+      return;
+    }
+    setFormData({
+      warehouse_id: inventoryItem.warehouse_id,
+      item_name: inventoryItem.item_name,
+      description: inventoryItem.description,
+      category: inventoryItem.category,
+      quantity: inventoryItem.quantity,
+      status: inventoryItem.status,
+    });
+  }, []);
 
   useEffect(() => {
     const getWarehouses = async () => {
