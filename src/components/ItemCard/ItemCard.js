@@ -12,7 +12,7 @@ const ItemCard = ({ item }) => {
     if (item.quantity === 0) {
       setStatusClass("item__status item__status--out");
     }
-  }, []);
+  }, [item.quantity]);
 
   return (
     <article className="item">
@@ -32,6 +32,7 @@ const ItemCard = ({ item }) => {
           className="item__img-container"
         >
           <img className="item__pencil" src={pencil} alt="pencil" />
+          <p className="item__edit-pencil">Edit</p>
         </Link>
       </div>
       <div className="item__body-wrapper">

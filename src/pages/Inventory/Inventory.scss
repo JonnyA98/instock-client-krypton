@@ -9,7 +9,7 @@
   }
   &__card {
     border-radius: 3px;
-    padding-top: 3.2rem;
+    padding-top: 2rem;
     background: $primary-white;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     margin: 0 1.6rem;
@@ -19,12 +19,12 @@
     bottom: 6.5rem;
 
     @include tablet {
-      margin: 0 3.2rem;
+      margin: $tablet-margin;
     }
 
     @include desktop {
-      max-width: $max-wrapper-width;
-      margin: 0 auto;
+      max-width: 102rem;
+      margin: $desktop-margin;
     }
   }
 }

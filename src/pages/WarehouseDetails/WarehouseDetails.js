@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import WarehouseInfo from "../../components/WarehouseInfo/WarehouseInfo";
 import DeleteItemModal from "../../components/DeleteItemModal/DeleteItemModal";
@@ -64,12 +64,24 @@ const WarehouseDetails = () => {
   }
   if (!inventory) {
     return (
-      <>
-        <div className="warehouse-details__list">
-          <WarehouseInfo key={warehouse.id} warehouse={warehouse} />
+      <div className="warehouse-details">
+        <div className="warehouse-details__wrapper">
+          <div className="warehouse-details__list">
+            <WarehouseInfo key={warehouse.id} warehouse={warehouse} />
+          </div>
+          <div className="warehouse-details__no-inv-wrapper">
+            <h2 className="warehouse-details__no-inv">
+              This warehouse has no inventory
+            </h2>
+            <Link
+              to="/inventory/add-stock"
+              className="warehouse-details__add-btn"
+            >
+              + Add New Item
+            </Link>
+          </div>
         </div>
-        <h2>This warehouse has no inventory</h2>
-      </>
+      </div>
     );
   }
 

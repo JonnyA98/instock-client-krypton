@@ -163,6 +163,12 @@
         color: $secondary-color;
         border: 1px solid $secondary-color-alt;
         margin-right: 1.6rem;
+
+        &:hover {
+          color: $primary-color-alt;
+          background-color: $primary-white;
+          border: 1px solid $primary-color-alt;
+        }
       }
     }
   }

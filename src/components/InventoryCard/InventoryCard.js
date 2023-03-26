@@ -34,6 +34,7 @@ const InventoryCard = ({ inventories, modalToggle }) => {
                 <img src={arrow} alt="chevron_right" />
               </Link>
             </div>
+
             <div className="inventory-list-item__category">
               <h4 className="inventory-list-item__mini-header">Category</h4>
               <p className="inventory-list-item__data">

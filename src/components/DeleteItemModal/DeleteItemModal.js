@@ -1,4 +1,4 @@
-import "./DeleteItemModal.scss";
+import "../DeleteWarehouseModal/DeleteWarehouseModal.scss";
 import close from "../../assets/Icons/close-24px.svg";
 
 const DeleteItemModal = ({ itemToDelete, modalToggle, deleteItem }) => {
@@ -19,20 +19,19 @@ const DeleteItemModal = ({ itemToDelete, modalToggle, deleteItem }) => {
           the inventory list. You won't be able to undo this action.
         </p>
         <div className="modal__buttons">
-          <div
+          <button
             onClick={modalToggle}
             className="modal__button modal__button--cancel"
           >
-            <a className="modal__button-text">Cancel</a>
-          </div>
-          <div
+            Cancel
+          </button>
+
+          <button
             onClick={() => deleteItem(itemToDelete)}
             className="modal__button modal__button--delete"
           >
-            <a className="modal__button-text modal__button-text--delete">
-              Delete
-            </a>
-          </div>
+            Delete
+          </button>
         </div>
       </div>
     </article>

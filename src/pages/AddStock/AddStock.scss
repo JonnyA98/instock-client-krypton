@@ -178,6 +178,12 @@
     width: 47%;
     cursor: pointer;
 
+    &:hover {
+      color: $primary-color-alt;
+      background-color: $primary-white;
+      border: 1px solid $primary-color-alt;
+    }
+
     @include tablet {
       width: auto;
       margin-right: 1.5rem;
